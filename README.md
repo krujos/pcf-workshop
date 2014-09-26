@@ -47,7 +47,7 @@ The environment will dictate if we can include requirements on operational demon
   c. Pre-requisite Validation  
 
 2. Pivotal CF Basics  
-  a.  Market Drivers 
+  a.  Market Drivers  
   b. Technical Overview  
   c. Resources  
   d. The Command Line Interface  
