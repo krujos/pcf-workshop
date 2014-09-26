@@ -12,7 +12,8 @@ In this section, students will build a new micro service and deploy it to Pivota
 * Documentation: 
 
 * Repositories:  
-  * [Script](https://github.com/cf-platform-eng/spring-boot-cities/blob/master/cities-service/demo-script.adoc)
+  * [Script](https://github.com/cf-platform-eng/spring-boot-cities/blob/master/cities-service/demo-script.adoc)  
+  * https://github.com/pivotalservices/pse-training-cf-hw-module
 
 * Required Tools:  
 
@@ -26,4 +27,4 @@ Create a new micro service and deploy it PCF.
 
 # Exercise
 
-TBD based on:   [Script](https://github.com/cf-platform-eng/spring-boot-cities/blob/master/cities-service/demo-script.adoc)
+TBD based on:   [Script](https://github.com/cf-platform-eng/spring-boot-cities/blob/master/cities-service/demo-script.adoc) and https://github.com/pivotalservices/pse-training-cf-hw-module
