@@ -41,3 +41,5 @@ Build a custom service broker that demonstrates and documents the following:
 # Exercise
 
 TBD...
+
+Reference: [CF Service Broker Workshop](https://github.com/cf-platform-eng/cf-workshop-sb-module)
