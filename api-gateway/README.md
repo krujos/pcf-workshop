@@ -14,7 +14,9 @@ In this section, students will create a new endpoint using the Pivotal CF Mobile
 * Repositories:  
   * Reference: [API Gateway Samples](https://github.com/Pivotal-Field-Engineering/api-gateway-samples)
 
-* Required Tools:
+* Required Tools:  
+  * [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)  
+  * [Maven 3](http://maven.apache.org/download.cgi)
 
 # Certification
 
