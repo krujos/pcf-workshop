@@ -40,6 +40,10 @@ At the end of the 4 day course, the student should have a custom built micro ser
 
 The environment will dictate if we can include requirements on operational demonstrations (deployed PCF, Syslog draining, Ops metrics, etc).
 
+# Prerequisites
+
+Students will have completed the following courses on Pivotal Academy
+
 # Agenda
 
 1. Kick Off  
@@ -85,12 +89,12 @@ The environment will dictate if we can include requirements on operational demon
   f. Monitoring with APM tools  
   g. IDE integration  
   h. Remote debugging  
-  i. Advanced troubleshooting
+  i. Advanced troubleshooting  
   j. Application Security Groups  
 
 7. Continuous Delivery - Implement a continuous delivery pipeline for your micro service that performs a zero downtime deployment.
 
-8. Creating a Custom Service Broker: Pair to create a custom sql or no-sql backed service and bind it to your micro service.
+8. Creating a Custom Service Broker: Pair to create a custom sql or no-sql backed service and bind it to your micro service.  
   a. Broker API  
   b. VCAP_SERVICES
 
@@ -109,5 +113,30 @@ The environment will dictate if we can include requirements on operational demon
 5. Sizing PCF installations
 6. How do we incorporate domains?
 
+# Material Source Summary
+
+Just a quick summary to show where we are pulling material and content from.
+
+1. Kick Off: Session specific.  Developed for this course. 
+
+2. Pivotal CF Basics: Developed during the Q3 EMC EMEA enablement
+
+3. Operations: TBD.  Possibly EDU ICM course
+
+4. Developer Basics - TBD.  Possible EDU
+
+5. Building a Microservice: Matt Stine's slides & Scott Fredericks workshop
+
+6. Developer Basics: Various.  existing platform & PS@E workshops.  Possibly EDU.
+
+7. Continuous Delivery: Matt Stine's workshop
+
+8. Creating a Custom Service Broker: Based on existing PS@E workshop with additional work scoped.
+
+9. Customizing Build Packs: Platform Eng workshop
+
+10. Application Autoscaling: TBD
+
+11. API Gateway: TBD.  Based on xtreme samples.
 
 
