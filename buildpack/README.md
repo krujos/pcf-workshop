@@ -9,7 +9,9 @@ In this section, students will customize a build pack and use it to deploy an ap
 
 * Presentation:
 
-* Documentation: [Buildpacks](http://docs.pivotal.io/pivotalcf/buildpacks/)
+* Documentation:  
+  * [Build packs](http://docs.pivotal.io/pivotalcf/buildpacks/)  
+  * [Custom Build packs](http://docs.pivotal.io/pivotalcf/buildpacks/custom.html)
 
 * Repositories: [CF Buildpack Workshop](https://github.com/cf-platform-eng/cf-workshop-bp-module)
 
@@ -30,5 +32,5 @@ Modify an existing build pack to extend the functionality and support a specific
 
 # Exercise
 
-TBD based on: [CF Buildpack Workshop](https://github.com/cf-platform-eng/cf-workshop-bp-module)
+[CF Buildpack Workshop](https://github.com/cf-platform-eng/cf-workshop-bp-module)
 
