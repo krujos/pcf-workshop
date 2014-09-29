@@ -70,7 +70,7 @@ The environment will dictate if we can include requirements on operational demon
   c. Console basics  
   d. Orgs, spaces, roles, quotas
 
-5. Building a Microservice: Pair to create a simple micro service
+5. Building a Microservice: Pair to create a simple micro service  
   a. PaaS ready apps & best practices  
   b. 12 factor apps  
   c.  Micro service should follow best practices and use a sql or no-sql database  
