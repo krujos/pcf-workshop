@@ -1,7 +1,7 @@
 Alliances Immersion Training
 ==
 
-# Notes
+# Notes & Goals
 
 * Work in progress.
 
@@ -11,7 +11,7 @@ Alliances Immersion Training
 
 * Exercises and slide content will be aggregated from existing sources and revised as needed.
 
-* Slide content is anticipated to be minimal.  Whenever possible maintained docs should be referenced (i.e. from docs.pivotal.io).
+* Slide content is anticipated to be minimal.  Whenever possible maintained docs should be referenced (i.e. from docs.pivotal.io).  Our docs site + team are incredible and kept up to date.  Syncing into a different format (i.e. slides) will not benefit an SI.  We want to get them used to referencing the docs site and we want to alleviate ourselves from the burden of syncing content.
 
 * Dependencies exist on the environment in use and will have an impact on scoping.
 
@@ -21,7 +21,7 @@ Alliances Immersion Training
 
 * Should we allow students to pair?  I think so.
 
-# Goal 
+## General Approach
 
 This is an overview only.  See each sub model for scoping details & complete success criteria.  The goal is to create a flow that builds conceptually and functionally throughout the duration of the course.
 
@@ -35,7 +35,8 @@ At the end of the 4 day course, the student should have a custom built micro ser
 * The micro service will leverage a custom created service and service broker.  The broker will be deployed to PCF.
 * The application will be fully automated for full continuous delivery using the blue/green deployment approach.
 * Remotely debuggable through an IDE
-* Run using a customized build pack
+* Run using a customized build pack  
+* Is deployed on a student installed PCF installation on vCloud Air which is fully monitored  
 
 The environment will dictate if we can include requirements on operational demonstrations (deployed PCF, Syslog draining, Ops metrics, etc).
 

@@ -6,10 +6,12 @@ In this section, students will create and deploy a custom service broker.
 # Resources
 
 * Allotted Time:
+
 * Presentation:
+
 * Documentation: [Creating Custom Services](http://docs.pivotal.io/pivotalcf/services/)
+
 * Repositories:
-* Required Tools:
 
 # Certification
 
@@ -27,12 +29,12 @@ Build a custom service broker that demonstrates and documents the following:
   d. Unbind a service instance from an application  
 5. Creates and destroys service instances
 6. Bind/unbinds service instances from applications
-7. Exposes service dashboard
-8. Custom built micro service successfully leverages this service
-9. Code pushed to a git repository accessible to Pivotal trainers
+7. Custom built micro service successfully leverages this service
+8. Code pushed to a git repository accessible to Pivotal trainers
 
 ## Advanced Criteria
 
+* Exposes service dashboard  
 * Enforce resource/service limiting plans in backing service
 * Return resources based on the Org/Space
 * Deploy and register the new broker through a BOSH errand
