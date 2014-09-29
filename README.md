@@ -47,58 +47,57 @@ The environment will dictate if we can include requirements on operational demon
   c. Pre-requisite Validation  
 
 2. Pivotal CF Basics  
-  a.  Market Drivers  
+  a. Market Drivers  
   b. Technical Overview  
   c. Resources  
-  d. The Command Line Interface  
-  e. Console  
-  f. Ops Manager  
-  g. Orgs, spaces, roles, quotas
 
-3. Operations  
-  a. Installing on vSphere/vCloud Air  
-  b. Scaling the platform  
-  c. High availability deployments  
-  d. Deploying services with Ops Manager  
-  e. PaaS monitoring with Ops Metrics  
-  f. Syslog draining  
-  g. Bosh-lite???  
-  h. LDAP integration  
-  i. Controlling Console user activity w/ env variables  
-  j. Backing up PCF  
-  k. Iaas monitoring  
-  l. Bosh basics  
-  m. Bosh CLI troubleshooting  
+3. Operations: Paired installation that will be used throughout the class  
+  a. Installing on vCloud Air  
+  b. Deploying services with Ops Manager  
+  c. PaaS monitoring with Ops Metrics  
+  d. Iaas monitoring  
+  e. Syslog draining  
+  f. Scaling the platform  
+  g. High availability deployment best practices  
+  h. Controlling Console user activity w/ env variables  
+  i. Backing up PCF  
+  j. Bosh basics  
+  k. Bosh CLI troubleshooting 
 
-4. Building a Microservice  
+4. Developer Basics - Part 1  
+  a. Targeting  
+  b. The Command Line Interface  
+  c. Console basics  
+  d. Orgs, spaces, roles, quotas
+
+5. Building a Microservice: Pair to create a simple micro service
   a. PaaS ready apps & best practices  
   b. 12 factor apps  
+  c.  Micro service should follow best practices and use a sql or no-sql database  
 
-5. Developer Basics  
-  a. Targeting  
-  b. Pushing apps  
-  c. Binding to services  
-  d. Scaling apps  
-  e. Health, logging & events via CLI & Console  
-  f. App log aggregation via a User Provided Service Instance  
-  g. Monitoring with APM tools  
-  h. IDE integration  
-  i. Remote debugging  
-  j. Advanced troubleshooting
+6. Developer Basics - Part 2: Use the micro service and perform the following actions/integrations:  
+  a. Pushing apps  
+  b. Binding to services  
+  c. Scaling apps  
+  d. Health, logging & events via CLI & Console  
+  e. App log aggregation via a User Provided Service Instance  
+  f. Monitoring with APM tools  
+  g. IDE integration  
+  h. Remote debugging  
+  i. Advanced troubleshooting
+  j. Application Security Groups  
 
-6. Application Security Groups
+7. Continuous Delivery - Implement a continuous delivery pipeline for your micro service that performs a zero downtime deployment.
 
-7. Continuous Delivery
-
-8. Creating a Custom Service Broker  
+8. Creating a Custom Service Broker: Pair to create a custom sql or no-sql backed service and bind it to your micro service.
   a. Broker API  
   b. VCAP_SERVICES
 
-9. Customizing Build Packs
+9. Customizing Build Packs: Customize a build pack and use it to deploy your micro service
 
-10. Application Autoscaling
+10. Application Autoscaling: Enable the autoscaling plugin on your micro service
 
-11. API Gateway
+11. API Gateway: Transform the data from your micro service using the API gateway.
 
 # Possible Topics
 
