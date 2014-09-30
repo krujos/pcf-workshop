@@ -11,7 +11,8 @@ In this section, students will enable continuous delivery of a micro service app
 
 * Documentation: 
 
-* Repositories: [CF Workshop Continuous Delivery](https://github.com/cf-platform-eng/cf-workshop-cd-module)
+* Repositories:  
+  * [CF Workshop Continuous Delivery](https://github.com/cf-platform-eng/cf-workshop-cd-module)
 
 * Required Tools:  
   * [Cloudbees](http://www.cloudbees.com/) account or [Jenkins](http://jenkins-ci.org/) installed locally  
@@ -30,6 +31,6 @@ Enable a continuous delivery pipeline for the previously created micro service.
 
 # Exercise
 
-TBD based on: [CF Workshop Continuous Delivery](https://github.com/cf-platform-eng/cf-workshop-cd-module)
+[CF Workshop Continuous Delivery](https://github.com/cf-platform-eng/cf-workshop-cd-module)
 
 
