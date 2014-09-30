@@ -11,7 +11,7 @@ Alliances Immersion Training
 
 * Exercises and slide content will be aggregated from existing sources and revised as needed.
 
-* Slide content is anticipated to be minimal.  Whenever possible maintained docs should be referenced (i.e. from docs.pivotal.io).  Our docs site + team are incredible and kept up to date.  Syncing into a different format (i.e. slides) will not benefit an SI.  We want to get them used to referencing the docs site and we want to alleviate ourselves from the burden of syncing content.
+* Slide content is anticipated to be minimal.  Whenever possible maintained docs should be referenced (i.e. from docs.pivotal.io).  Our docs site + team are incredible and content is up to date.  Syncing into a different format (i.e. slides) will not benefit an SI.  We want to get them used to referencing the docs site and we want to alleviate ourselves from the burden of syncing content.
 
 * Dependencies exist on the environment in use and will have an impact on scoping.
 
@@ -42,7 +42,20 @@ The environment will dictate if we can include requirements on operational demon
 
 # Prerequisites
 
-Students will have completed the following courses on Pivotal Academy
+## Pivotal Academy
+
+Students will have completed the following courses on Pivotal Academy:
+
+* [Pivotal100](https://pivotalpartners.biglms.com/courses/Partners/Pivotal100/VWN/about): Introduction to Pivotal
+* [CF200](https://pivotalpartners.biglms.com/courses/PivotalU/CF200/VWZP/about): Pivotal CF Getting Started
+
+## Developer Set Up
+
+Students should have the following:
+
+* Active Github account
+* git client installed locally
+* Their favorite IDE
 
 # Agenda
 
