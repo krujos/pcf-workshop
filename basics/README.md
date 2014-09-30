@@ -14,5 +14,5 @@ Pivotal CF Basics
 
 ## Minimum Passing Criteria
 
-* Awake, breathing & attentive.
+* Breathing, awake, engaged.
 
