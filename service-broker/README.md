@@ -9,9 +9,13 @@ In this section, students will create and deploy a custom service broker.
 
 * Presentation:
 
-* Documentation: [Creating Custom Services](http://docs.pivotal.io/pivotalcf/services/)
+* Documentation:  
+  * [Creating Custom Services](http://docs.pivotal.io/pivotalcf/services/)
 
-* Repositories:
+* Repositories:  
+  * [Spring Boot CF Service Broker](https://github.com/cloudfoundry-community/spring-boot-cf-service-broker)  
+  * [S3 CF Service Broker](https://github.com/cloudfoundry-community/s3-cf-service-broker)  
+  * [Spring Boot CF Service Broker Mongo](https://github.com/spgreenberg/spring-boot-cf-service-broker-mongo)  
 
 # Certification
 
@@ -42,6 +46,8 @@ Build a custom service broker that demonstrates and documents the following:
 
 # Exercise
 
-TBD...
+Create a service broker that controls a sql or no-sql data store. Follow the minimum passing criteria above for a guide.
 
-Reference: [CF Service Broker Workshop](https://github.com/cf-platform-eng/cf-workshop-sb-module)
+* In the interest of time, the data store should be manually installed in a VM on vCloud Air.
+* Spring developers can use the [Spring Boot CF Service Broker](https://github.com/cloudfoundry-community/spring-boot-cf-service-broker)  
+
