@@ -7,9 +7,9 @@ In this section, students will build a new micro service and deploy it to Pivota
 
 # Resources
 
-* Presentation:  
+## Presentation
 
-###TODO: GET Matt Stine's Microservice presentation
+* [Pivotal CF and Microservices](https://github.com/Pivotal-Field-Engineering/alliances-immersion/tree/master/microservice/ArchForCDMicroservices.key)
 
 ## Documentation
 
@@ -21,7 +21,12 @@ In this section, students will build a new micro service and deploy it to Pivota
 
 # Exercise
 
-Build a functional micro service that can be deployed to Cloud Foundry.
+Build a functional micro service that can be deployed to Pivotal CF.
+
+1. Review the documentation on [Considerations for Designing and Running an Application in the Cloud](http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/prepare-to-deploy.html)  
+2.  Review the documentation on [Deploying Applications](http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/)  
+3. Follow the instructions on [building a cloud ready microservice](https://github.com/cf-platform-eng/spring-boot-cities/blob/master/cities-service/demo-script.adoc)
+
 
 * The service must return data in JSON format.  
 * Data can be hardcoded at this stage, however in upcoming exercises a database will be bound.  Plan accordingly.
@@ -39,6 +44,3 @@ Create a new micro service and deploy it PCF.
 ## Java/Spring Developers
 
 [Script](https://github.com/cf-platform-eng/spring-boot-cities/blob/master/cities-service/demo-script.adoc)
-
-### TODO based on:   [Script](https://github.com/cf-platform-eng/spring-boot-cities/blob/master/cities-service/demo-script.adoc) and https://github.com/pivotalservices/pse-training-cf-hw-module
-
