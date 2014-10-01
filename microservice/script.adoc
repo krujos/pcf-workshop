@@ -299,3 +299,117 @@ Manifests help to automate the deployment.
 ----
 $ cf push
 ----
+
+=== Binding Services with Spring Cloud & Profiles
+
+At present we're still using the in-memory database. Let's connect to a MySQL database service provided by Cloud Foundry.
+
+References:
+
+* Spring Cloud: http://projects.spring.io/spring-cloud/
+* Spring Profiles: http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Profile.html
+
+==== Enabling Spring Cloud & Profiles
+
+. Add Spring Cloud and MySQL dependencies to our Gradle build:
++
+[source,groovy]
+----
+dependencies {
+    // ....
+    compile("org.springframework.cloud:spring-cloud-spring-service-connector:1.0.0.RELEASE")
+    compile("org.springframework.cloud:spring-cloud-cloudfoundry-connector:1.0.0.RELEASE")
+    runtime("mysql:mysql-connector-java:5.1.25")
+}
+----
+
+. Since we've added new dependencies, re-run `gradle idea` or `gradle eclipse` to have them added to the IDE classpath.
+
+. Next, let's create the package +org.example.cities.config+ and create in that package the class +CloudDataSourceConfig+. Add the following code:
++
+[source,java]
+----
+@Profile("cloud")
+@Configuration
+public class CloudDataSourceConfig extends AbstractCloudConfig {
+    @Bean
+    public DataSource dataSource() {
+        return connectionFactory().dataSource();
+    }
+}
+----
+
+. As before, have the IDE import the appropriate dependencies.
++
+The `@Profile` annotation will cause this class (which becomes Spring configuration when annotated as `@Configuration`) to be added to the configuration set because of the `SPRING_PROFILES_ACTIVE` environment variable we added earlier. You can still run the application locally (with the default profile) using the embedded database.
++
+With this code, Spring Cloud will detect a bound service that is compatible with +DataSource+, read the credentials, and then create a +DataSource+ as appropriate (it will throw an exception otherwise).
+
+. Add the following to `src/main/resources/application.properties` to cause Hibernate to create the database schema and import data at startup. This is done automatically for embedded databases, not for custom ++DataSource++s. Other Hibernate native properties can be set in a similar fashion:
++
+[source,java]
+----
+spring.jpa.hibernate.ddl-auto=create
+----
+
+. Build the application:
++
+[source,bash]
+----
+$ gradle assemble
+----
+
+. Re-push the application:
++
+[source,bash]
+----
+$ cf push
+----
+
+==== Troubleshooting
+
+Did it work?  Let's figure out why not.
+
+. Review the documentation on Troubleshooting: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/troubleshoot-app-health.html
+
+. What do the recent logs tell you?
+
+==== Manually Creating a Service
+
+. Review the docs on Services:
+** http://docs.pivotal.io/pivotalcf/devguide/services/adding-a-service.html
+** http://docs.pivotal.io/pivotalcf/devguide/services/managing-services.html
+
+. Create a mysql service instance
+
+. Launch the DB console from the Users Console.  Note the database is empty with zero connections.
+
+==== Manually Binding the Service Instance
+
+. Review the docs on Binding a Service Instance: http://docs.pivotal.io/pivotalcf/devguide/services/bind-service.html
+
+. Bind the instance to your app
+
+. Restart your application to inject the new database.
+
+==== Binding in the Manifest
+
+. Add the services binding to your deployment manifest.
+
+. If you are going to expand the service to leverage different Spring profiles, you should also set the `SPRING_PROFILES_ACTIVE` environment variable to `cloud`.
+
+. Now, manually unbind the service and re-push your app using the manifest.
+
+=== Environment Variables
+
+. Review the document on Environment Variables: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/environment-variable.html
+
+. What variable shows your mysql service instance?
+
+. How could you set the `SPRING_PROFILES_ACTIVE` variable from the CLI?
+
+=== Scaling
+
+Apps can be scaled via the CLI or the Console.
+
+. Scale your app to 2 instances.

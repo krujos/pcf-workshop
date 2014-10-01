@@ -95,16 +95,19 @@ Students should have the following:
 
 6. Developer Basics - Part 2: Use the micro service and perform the following actions/integrations:  
   a. Pushing apps  
-  b. Manifests
-  c. Binding to services  
-  d. Scaling apps  
-  e. Health, logging & events via CLI & Console  
-  f. App log aggregation via a User Provided Service Instance  
-  g. Monitoring with APM tools  
+  b. Manifests  
+  c. Using Spring Cloud and Profiles for Dependency Injection  
+  d. Health, logging & events via the CLI  
+  e. Binding to services  
+  f. Environment variables  
+  g. Scaling apps  
+
   h. IDE integration  
-  i. Remote debugging  
-  j. Advanced troubleshooting  
-  k. Application Security Groups  
+  i. App log aggregation via a User Provided Service Instance  
+  j. Monitoring with APM tools  
+  k. Remote debugging  
+  l. Advanced troubleshooting  
+  m. Application Security Groups  
 
 7. Continuous Delivery - Implement a continuous delivery pipeline for your micro service that performs a zero downtime deployment.
 
