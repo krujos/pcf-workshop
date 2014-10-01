@@ -11,7 +11,7 @@ Intro section.
 
 Verification: From a terminal window, `cf --version`
 
-## Github account
+## Github
 
 ###TODO: SET UP ORG FOR CODE BEFORE CLASS
 
@@ -19,7 +19,14 @@ Github account: [https://github.com](https://github.com/)
 
 Git client: [http://git-scm.com/downloads](http://git-scm.com/downloads)  
 
-Verification: Create a project using your name in the <TODO> organization.
+### Create a Project for the Class
+
+1. On github, select "New".
+2. Create a repository in the class organization: TODO.  
+  * Name your repository: `<first-initial><last-name>`  
+  * Select: `Initialize this repository with a README`  
+  * Select: `Add .gitignore: Gradle`
+3. Clone the repository to your local machine.
 
 ## Developer Tools
 
