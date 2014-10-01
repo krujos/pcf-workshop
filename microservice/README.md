@@ -25,7 +25,7 @@ Build a functional micro service that can be deployed to Pivotal CF.
 
 1. Review the documentation on [Considerations for Designing and Running an Application in the Cloud](http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/prepare-to-deploy.html)  
 2.  Review the documentation on [Deploying Applications](http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/)  
-3. Follow the instructions on [building a cloud ready microservice](https://github.com/cf-platform-eng/spring-boot-cities/blob/master/cities-service/demo-script.adoc)
+3. Follow the instructions on [building a cloud ready microservice](script.adoc)
 
 
 * The service must return data in JSON format.  
