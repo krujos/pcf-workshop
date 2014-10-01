@@ -95,15 +95,16 @@ Students should have the following:
 
 6. Developer Basics - Part 2: Use the micro service and perform the following actions/integrations:  
   a. Pushing apps  
-  b. Binding to services  
-  c. Scaling apps  
-  d. Health, logging & events via CLI & Console  
-  e. App log aggregation via a User Provided Service Instance  
-  f. Monitoring with APM tools  
-  g. IDE integration  
-  h. Remote debugging  
-  i. Advanced troubleshooting  
-  j. Application Security Groups  
+  b. Manifests
+  c. Binding to services  
+  d. Scaling apps  
+  e. Health, logging & events via CLI & Console  
+  f. App log aggregation via a User Provided Service Instance  
+  g. Monitoring with APM tools  
+  h. IDE integration  
+  i. Remote debugging  
+  j. Advanced troubleshooting  
+  k. Application Security Groups  
 
 7. Continuous Delivery - Implement a continuous delivery pipeline for your micro service that performs a zero downtime deployment.
 
