@@ -1,0 +1,46 @@
+= Monitoring Pivotal CF with Ops Metrics
+
+== Installation
+
+In this section, you will install and configure the Ops Metrics tile in Ops Manager.
+
+. Follow steps to install & configure Ops Metrics: http://docs.pivotal.io/pivotalcf/customizing/deploy-metrics.html
+** Note this is a somewhat manual (laborious) multi-step process currently.
+
+== Monitoring with Java VisualVM
+
+Java VisualVM ships with the JDK.  It provides the ability to drill into MBeans, but does not provide graphical and time based analysis.
+
+. Launch Java VisualVM from a terminal window:
++
+[source,bash]
+----
+$ jvisualvm
+----
+
+. Select `Tools` > `Plugins` > `Available Plugins` > `VisualVM-MBeans` > `Install`
+
+. From the left side bar, select `Remote`
+
+. Enter the IP of your Ops Metrics VM (available in Ops Manager)
+
+. Select `Advanced Settings` and set the port to 44444
+
+. Click `Save`
+
+. From the left side bar, you should now see the entry.  CTRL click it and select `Add JMX Connection`.
+
+. Configure the following:
+** Connection: <OPS_METRICS_IP>:44444
+** Use Security Credentials:: Enter the username and password you created when installing Ops Metrics
+** Select `Do not require SSL connection` unless you configured Ops Metrics to use SSL
+
+. In the left side bar, double click the new JMX remote endpoint and select the `MBeans` tab
+
+. Metrics will be under `org.cloudfoundry`
+
+== Using Ops Metrics
+
+. Review the documentation on Using Ops Metrics: http://docs.pivotal.io/pivotalcf/customizing/use-metrics.html
+
+. Java VisualVM does not provide real time charts of MBeans.  Consider a more robust JMX solution like AppDynamics, NewRelic, Splunk, or Hyperic.

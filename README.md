@@ -72,6 +72,7 @@ Students should have the following:
 3. Operations: Paired installation that will be used throughout the class  
   a. Installing on vCloud Air  
   b. Deploying services with Ops Manager  
+    ** Be sure to add Jenkins, MySQL, App Autoscaling, API Gateway
   c. PaaS monitoring with Ops Metrics  
   d. Iaas monitoring  
   e. Syslog draining  
@@ -102,8 +103,8 @@ Students should have the following:
   f. Environment variables  
   g. Scaling apps  
   h. IDE integration  
-
   i. App log aggregation via a User Provided Service Instance  
+
   j. Monitoring with APM tools  
   k. Remote debugging  
   l. Advanced troubleshooting  
