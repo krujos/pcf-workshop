@@ -101,8 +101,8 @@ Students should have the following:
   e. Binding to services  
   f. Environment variables  
   g. Scaling apps  
-
   h. IDE integration  
+
   i. App log aggregation via a User Provided Service Instance  
   j. Monitoring with APM tools  
   k. Remote debugging  
