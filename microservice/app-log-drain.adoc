@@ -1,0 +1,37 @@
+= Application Log Draining
+
+In this section, you will configure application log draining into a log analysis tool.  We will use the free Splunk Storm, but any tool that supports tcp syslog draining can be used.
+
+== How it Works
+
+. Review the log draining documentation here: http://docs.pivotal.io/pivotalcf/devguide/services/log-management.html
+
+== Splunk Storm
+
+. Sign up for a free Splunk Storm account: http://www.splunkstorm.com
+
+. Follow the instructions to set up Splunk Storm: http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#splunkstorm
++
+** Splunk Storm creates projects asynchronously in the background.  The `Select` button under `Network data` may take a few minutes to become active.
+** When authorizing valid CF IP addresses, be sure to select `Syslog` as the `Source type`.
+
+. Be sure to add your new User Provided Service to your microservice manifest.
+
+. After you have bound and restarted your microservice, perform a few curl requests and ensure logs are draining into Splunk Storm.
+
+=== Evaluation
+
+. Review the details on log formats: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/streaming-logs.html#format
+
+. How do you see only logs related to application staging?
+
+. How can you view logs for a specific application instance?
+
+== Other External Tools
+
+Any tcp syslog compliant log tools can be used with CloudFoundry.  A few popular configurations are:
+
+. Log Insight
+. Splunk Enterprise
+. Logstash w/ Elastic Search & Kibana
+. More: http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html
