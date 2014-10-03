@@ -79,7 +79,7 @@ Students should have the following:
 ** PaaS monitoring with Ops Metrics
 ** IaaS monitoring
 ** Syslog Draining
-** Exporting Ops Manager Configurations
+** Backing up Pivotal CF
 ** Bosh basics & troubleshooting
 
 . link:dev-experience/README.adoc[Developer Experience - Part 1]

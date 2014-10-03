@@ -1,0 +1,13 @@
+= Backing Up Pivotal CF
+
+== Goal
+
+To understand how to backup and restore a Pivotal CF installation.
+
+== Exercise
+
+. Review the documentation on link:http://docs.pivotal.io/pivotalcf/customizing/backup-settings.html[Backing up Pivotal CF]
+
+. In the interest of time, we will skip the complete backup.
+
+. Instead, simply export the Ops Manager installation settings and commit them in a folder called `Ops Manager Backup` in your github project.

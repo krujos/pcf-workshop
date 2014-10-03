@@ -37,7 +37,7 @@ The instructor will provide the class with all of the necessary downloads
 
 . link:syslog-draining.adoc[Syslog Draining]
 
-. link:backup-ops-mgr.adoc[Exporting Ops Manager Configurations]
+. link:backup-pcf.adoc[Backing up Pivotal CF]
 
 . link:bosh-troubleshooting.adoc[Bosh basics & troubleshooting]
 
