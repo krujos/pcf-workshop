@@ -75,7 +75,7 @@ Students should have the following:
 . link:operations/README.adoc[Installation, Configuration and Management Basics]: Paired installation that will be used throughout the class
 ** Installing on vCloud Air
 ** Deploying services with Ops Manager
-*** Install Elastic Runtime, Ops Metrics, Mysql, Autoscaling, and API Gateway
+*** Install Elastic Runtime, Ops Metrics, Mysql, Autoscaling, Jenkins, and API Gateway
 ** Scaling the platform
 ** PaaS monitoring with Ops Metrics
 ** IaaS monitoring

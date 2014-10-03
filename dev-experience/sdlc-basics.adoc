@@ -1,6 +1,8 @@
-=== Pushing to Cloud Foundry
+= Developer Experience
 
-==== Pushing via CLI Parameters
+== Pushing to Cloud Foundry
+
+=== Pushing via CLI Parameters
 
 Use `cf help` and/or `cf <command> --help` for details on each of the commands below.
 
@@ -28,7 +30,7 @@ $ curl -i <your-app>/cities
 ----
 
 
-==== Using Manifests
+=== Using Manifests
 
 Manifests help automate the deployment.
 
@@ -47,7 +49,7 @@ Manifests help automate the deployment.
 $ cf push
 ----
 
-=== Binding Services with Spring Cloud & Profiles
+== Binding Services with Spring Cloud & Profiles
 
 At present we're still using the in-memory database. Let's connect to a MySQL database service provided by Cloud Foundry.
 
@@ -56,7 +58,7 @@ References:
 * link:http://projects.spring.io/spring-cloud/[Spring Cloud]
 * link:http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Profile.html[Spring Profiles]
 
-==== Enabling Spring Cloud & Profiles
+=== Enabling Spring Cloud & Profiles
 
 . Review link:http://docs.pivotal.io/pivotalcf/buildpacks/java/spring-service-bindings.html[Configuring Service Connections in Spring]
 
@@ -115,7 +117,7 @@ $ gradle assemble
 $ cf push
 ----
 
-==== Troubleshooting
+=== Troubleshooting
 
 Did it work?  Let's figure out why not.
 
@@ -126,7 +128,7 @@ Did it work?  Let's figure out why not.
 What do the recent logs tell you?
 ====
 
-==== Manually Creating a Service
+=== Manually Creating a Service
 
 Looks like we need a service.  Let's create one.
 
@@ -138,7 +140,7 @@ Looks like we need a service.  Let's create one.
 
 . Launch the DB console from the Users Console.  Note the database is empty with zero connections.
 
-==== Manually Binding the Service Instance
+=== Manually Binding the Service Instance
 
 . Review the docs on link:http://docs.pivotal.io/pivotalcf/devguide/services/bind-service.html[Binding a Service Instance]
 
@@ -146,7 +148,7 @@ Looks like we need a service.  Let's create one.
 
 . Restage your application to inject the new database.
 
-==== Binding via the Manifest
+=== Binding via the Manifest
 
 link:_includes/script.adoc[]
 
@@ -156,7 +158,7 @@ link:_includes/script.adoc[]
 
 . Now, manually unbind the service and re-push your app using the manifest.
 
-=== Environment Variables
+== Environment Variables
 
 . Review the document on Environment Variables: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/environment-variable.html
 
@@ -167,13 +169,8 @@ link:_includes/script.adoc[]
 * How could you set the `SPRING_PROFILES_ACTIVE` variable from the CLI?
 ====
 
-=== Scaling
+== Scaling
 
 Apps can be scaled via the CLI or the Console.
 
 . Scale your app to 2 instances.
-
-
-include::ide-integration.adoc[]
-
-include::app-log-drain.adoc[]

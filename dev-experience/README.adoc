@@ -25,7 +25,7 @@ Now, we need an application to deploy to Pivotal CF.  Let's build it.
 
 === Developer Experience - Part 2
 
-* SDLC Basics
+* link:sdlc-basics.adoc[SDLC Basics]
 ** Pushing apps
 ** Using Manifests
 ** Dependency Injection in Spring
@@ -34,12 +34,18 @@ Now, we need an application to deploy to Pivotal CF.  Let's build it.
 ** Environment variables
 ** Scaling apps
 
-* IDE integration
-* App log aggregation via a User Provided Service Instance
+* link:ide-integration.adoc[IDE integration]
 
-** Monitoring with APM tools
-** Remote debugging
-** Advanced troubleshooting
-** Application Security Groups
-** Application Autoscaling
-** Continuous Delivery
+* link:app-log-drain.adoc[Application Log Draining]
+
+* Monitoring with APM tools
+
+* Remote debugging
+
+* Advanced troubleshooting
+
+* Application Security Groups
+
+* Application Autoscaling
+
+* link:../continuous-delivery/README.adoc[Continuous Delivery]

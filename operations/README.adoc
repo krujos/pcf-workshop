@@ -22,7 +22,7 @@ At the end of this session, students will have a Pivotal CF environment for use 
 . link:vcloud-air-install.adoc[Installing on vCloud Air]
 
 . link:deploy-services.adoc[Deploying services with Ops Manager]
-** Install Elastic Runtime, Ops Metrics, Mysql, Autoscaling, and API Gateway
+** Install Elastic Runtime, Ops Metrics, Mysql, Autoscaling, Jenkins, and API Gateway
 
 . link:scaling.adoc[Scaling the platform]
 

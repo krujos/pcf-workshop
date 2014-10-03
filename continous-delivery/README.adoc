@@ -1,17 +1,21 @@
-= CF Workshop Continuous Delivery Lab
-Matt Stine <matt.stine@gmail.com>
+= Continuous Delivery
 
-== Intro
+== Goals
 
 This lab will guide you through building a BASIC continuous delivery pipeline using Jenkins, Artifactory, and Cloud Foundry.
 
-== Setup Steps
+== Exercise
 
-. Login to your Jenkins instance deployed by Ops Manager.
+. Review the link:EnablingContinuousDelivery.key[Enabling Continuous Delivery] presentation
 
-. Navigate to +Manage Jenkins > Manage Plugins > Available+.
+=== Set Up
 
-. Install the following plugins:
+==== Jenkins Setup Steps
+
+. We will leverage the Jenkins instance deployed by Ops Manager.
+** Login to your Jenkins instance deployed by Ops Manager.
+** Navigate to `Manage Jenkins` > `Manage Plugins` > `Available`
+** Install the following plugins:
 +
 * Gradle
 * Mask Passwords
@@ -20,6 +24,8 @@ This lab will guide you through building a BASIC continuous delivery pipeline us
 * Parameterized Trigger Plugin
 +
 When you do, tell Jenkins to restart after plugin install.
+
+==== Artifactory Online Set Up
 
 . Login to your Aritfactory Online instance.
 
@@ -55,7 +61,7 @@ Password:: the encrypted password you copied a moment ago
 
 . Click +Apply+. Then click +Test Connection+ and ensure things are working.
 
-== Create the Initial Build Job
+=== Create the Initial Build Job
 
 . Navigate back to Jenkins Home.
 
@@ -84,7 +90,7 @@ Tasks:: +clean assemble+
 
 . Save the config and try running the build by clicking ``Build Now''. Ensure that you see the artifact in Artifactory.
 
-== Create the Deploy Job
+=== Create the Deploy Job
 
 . Navigate back to Jenkins Home.
 
@@ -167,7 +173,7 @@ fi
 
 . Save the config and try running the build by clicking ``Build With Parameters''. Select the build you created in the previous step from the drop list. You should see the build deploy to Cloud Foundry.
 
-== Create the Trigger
+=== Create the Trigger
 
 . Return to the +citytest+ project and click +Configure+.
 
@@ -178,7 +184,7 @@ Predefined parameters:: +BUILD_VERSION=$BUILD_NUMBER+
 
 . Save the config and try running the build by clicking ``Build Now''. You should see both builds executed coupled with a zero-downtime deploy of the app to Cloud Foundry.
 
-== Make a Commit and Watch the Pipeline Run
+=== Make a Commit and Watch the Pipeline Run
 
 . In your local clone of the +cities+ project, open +src/main/java/org/example/cities/VersionController.java+ in an editor.
 
@@ -189,5 +195,3 @@ Predefined parameters:: +BUILD_VERSION=$BUILD_NUMBER+
 . Execute +git push origin master+.
 
 . You should see both builds executed coupled with a zero-downtime deploy of the app to Cloud Foundry!
-
-. Congrats! You've reached the end of the lab.
