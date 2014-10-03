@@ -19,6 +19,10 @@ This section provides a high level overview of the basic concepts and components
 
 === Building a Microservice
 
+Now, we need an application to deploy to Pivotal CF.  Let's build it.
+
+* link:../microservice/README.adoc[Building a Microservice]
+
 === Developer Experience - Part 2
 
 * SDLC Basics
