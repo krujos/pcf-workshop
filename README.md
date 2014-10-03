@@ -64,9 +64,9 @@ Students should have the following:
   b. Session Expectations  
   c. Pre-requisite Validation  
 
-2. [Pivotal CF Basics](basics/README.md)
-  a. Intro to Pivotal CF
-  b. Technical Overview  
+2. [Pivotal CF Basics](basics/README.md)  
+  a. Intro to Pivotal CF  
+  b. Technical Overview    
   c. Resources  
 
 3. [Installation, Configuration and Management Basics](pcf-install/README.adoc): Paired installation that will be used throughout the class  
