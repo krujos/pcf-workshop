@@ -38,7 +38,7 @@ Now, we need an application to deploy to Pivotal CF.  Let's build it.
 
 * link:app-log-drain.adoc[Application Log Draining]
 
-* Monitoring with APM tools
+* link:apm.adoc[Monitoring with APM tools]
 
 * Remote debugging
 
