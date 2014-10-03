@@ -67,7 +67,7 @@ Students should have the following:
 ** Session Expectations
 ** Pre-requisite Validation
 
-. link:basics/README.adoc[Pivotal CF Basics]
+. link:overview/README.adoc[Pivotal CF Overview]
 ** Intro to Pivotal CF
 ** Technical Overview
 ** Resources
