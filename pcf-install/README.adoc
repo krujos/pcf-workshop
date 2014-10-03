@@ -1,0 +1,28 @@
+= Installation, Configuration and Management Basics
+
+Focus for this session is dependent on available environments
+
+== Installing on vCloud Air
+
+== Deploying services with Ops Manager
+    ** Be sure to add Jenkins, MySQL, App Autoscaling, API Gateway
+
+== PaaS monitoring with Ops Metrics
+
+In this section, students will install and configure Ops Metrics.  They will use Java Visual VM to monitor via JMX.
+
+link:ops-metrics.adoc[Ops Metrics]
+
+== IaaS monitoring
+
+=== IaaS Monitoring on vCloud Air
+
+== Syslog Draining
+
+== Scaling the platform
+
+== Exporting Ops Manager Configurations
+
+== Bosh basics
+
+=== Troubleshooting with Bosh

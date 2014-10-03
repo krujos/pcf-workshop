@@ -5,7 +5,7 @@ Pivotal CF Basics
 
 * Allotted Time:  
 
-* Presentation:  
+* Presentations:  
   * [Intro to Pivotal CF](https://github.com/Pivotal-Field-Engineering/alliances-immersion/tree/master/basics/Intro_to_PivotalCF.key)  
   * [Technical Overview](https://github.com/Pivotal-Field-Engineering/alliances-immersion/tree/master/basics/Technical_Overview.key)  
   * [Resources](https://github.com/Pivotal-Field-Engineering/alliances-immersion/tree/master/basics/Resources.key)  

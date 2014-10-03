@@ -59,29 +59,25 @@ Students should have the following:
 
 # Agenda
 
-1. Kick Off  
+1. [Kick Off](kick-off/README.md)  
   a. Introductions   
   b. Session Expectations  
   c. Pre-requisite Validation  
 
-2. Pivotal CF Basics  
-  a. Market Drivers  
+2. [Pivotal CF Basics](basics/README.md)
+  a. Intro to Pivotal CF
   b. Technical Overview  
   c. Resources  
 
-3. Operations: Paired installation that will be used throughout the class  
+3. [Installation, Configuration and Management Basics](pcf-install/README.adoc): Paired installation that will be used throughout the class  
   a. Installing on vCloud Air  
   b. Deploying services with Ops Manager  
-    ** Be sure to add Jenkins, MySQL, App Autoscaling, API Gateway
   c. PaaS monitoring with Ops Metrics  
-  d. Iaas monitoring  
-  e. Syslog draining  
+  d. IaaS monitoring  
+  e. Syslog Draining  
   f. Scaling the platform  
-  g. High availability deployment best practices  
-  h. Controlling Console user activity w/ env variables  
-  i. Backing up PCF  
-  j. Bosh basics  
-  k. Bosh CLI troubleshooting 
+  g. Exporting Ops Manager Configurations  
+  h. Bosh basics & troubleshooting 
 
 4. Developer Basics - Part 1  
   a. Targeting  
