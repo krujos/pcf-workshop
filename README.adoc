@@ -1,5 +1,3 @@
-:icons: font
-
 = Pivotal CF Associate Training
 
 == Notes & Goals
