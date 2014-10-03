@@ -1,0 +1,36 @@
+= API Gateway
+
+== Goal
+
+In this section, students will create a new endpoint using the Pivotal CF Mobile Services API Gateway and hook it up to their micro service.
+
+== Set Up
+
+The API Gateway requires:
+
+* link:http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 8]
+* link:http://maven.apache.org/download.cgi[Maven 3]
+
+== Exercise
+
+. Review the documentation on the link:http://docs.pivotal.io/mobile/api-gateway/index.html[API Gateway]
+
+. Create a new application using the link:http://docs.pivotal.io/mobile/api-gateway/dashboard-user-guide.html[API Gateway Dashboard]
+
+. Modify src/main/resources/app.js to call your microservice and return a subset of the data (omit one or more fields).
+
+. Deploy your gateway application to Cloud Foundry:
++
+[source,bash]
+----
+$ mvn package
+$ cf push
+----
+
+. Monitor your API Gateway application via the link:http://docs.pivotal.io/mobile/api-gateway/dashboard-user-guide.html[Dashboard]
+
+== References
+
+* link:http://cfmobile.github.io/docs-apigateway[API Reference]
+
+* link:http://docs.pivotal.io/mobile/api-gateway/development-guide/index.html[Sample Applications]
