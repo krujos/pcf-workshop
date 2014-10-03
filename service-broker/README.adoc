@@ -1,0 +1,43 @@
+= Service Brokers
+
+== Goal
+
+In this section, students will create and deploy a custom service broker.
+
+== Exercise
+
+. Review the documentation on link:http://docs.pivotal.io/pivotalcf/services/[Creating Custom Services]
+
+. Build a custom service broker that demonstrates and documents the following:
+* Deployed broker (restful endpoint) visible to the cloud controller
+* Successfully registers the broker with the Cloud Controller via the CLI
+* Exposes a catalog containing one or more plans visible in the marketplace
+* Clearly documents the functionality that should be executed in the backing service when the following events occur:
+** Create service instance
+** Delete a service instance
+** Bind a service instance to an application
+** Unbind a service instance from an application
+* Creates and destroys service instances
+* Bind/unbinds service instances from applications
+* Bind your service to your custom built micro service
+* Code pushed to a git repository accessible to Pivotal trainers
+
+=== Resources and Clarifications
+
+* In the interest of time, the data store should be manually installed in a VM.
+
+* Spring developers can use the link:https://github.com/cloudfoundry-community/spring-boot-cf-service-broker[Spring Boot CF Service Broker]
+
+* You following repositories can be used as a reference:
+** link:https://github.com/cloudfoundry-community/s3-cf-service-broker[S3 CF Service Broker]
+** link:https://github.com/spgreenberg/spring-boot-cf-service-broker-mongo[Spring Boot CF Service Broker Mongo]
+
+=== Advanced Criteria
+
+If you want to go above the requirements above, ensure your broker handles one or more of the following:
+
+* Exposes service dashboard
+* Enforce resource/service limiting plans in backing service
+* Return resources based on the Org/Space
+* Deploy and register the new broker through a BOSH errand
+* Create an Ops Manager tile that could be distributed through Pivotal Network

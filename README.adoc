@@ -106,14 +106,13 @@ Students should have the following:
 ** App log aggregation via a User Provided Service Instance
 ** Monitoring with APM tools
 ** Remote debugging
-** Advanced troubleshooting
 ** Application Security Groups
 ** Application Autoscaling
 ** Continuous Delivery
 
-. link:service-broker/README.adoc[Creating a Custom Service Broker]: Pair to create a custom sql or no-sql backed service and bind it to your micro service.
+. link:service-broker/README.adoc[Creating a Custom Service Broker]: Pair to create a custom service and bind it to your micro service.
 
-. link:buildpack/README.adoc[Customizing Build Packs]: Customize a build pack and use it to deploy your micro service
+. link:buildpack/README.adoc[Customizing Build Packs]: Customize a build pack and use it to deploy your micro service.
 
 . link:api-gateway/README.adoc[API Gateway]: Transform the data from your micro service using the API gateway.
 

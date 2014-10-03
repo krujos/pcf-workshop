@@ -42,8 +42,6 @@ Now, we need an application to deploy to Pivotal CF.  Let's build it.
 
 * Remote debugging
 
-* Advanced troubleshooting
-
 * Application Security Groups
 
 * Application Autoscaling
