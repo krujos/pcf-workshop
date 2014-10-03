@@ -1,0 +1,22 @@
+= Managing Products through Ops Manager
+
+== Goal
+
+To understand how to use Ops Manager to install and configure products and services.
+
+== Exercise
+
+. Log in to your new Ops Manager instance
+
+. link:http://docs.pivotal.io/pivotalcf/customizing/pcf-interface.html[Familiarize] yourself with the interface.
+
+. Review the documentation on link:http://docs.pivotal.io/pivotalcf/customizing/add-delete.html[Adding and Deleting Products]
+
+. Install the following:
++
+* Elastic Runtime
+* Ops Metrics
+* Mysql
+* Autoscaling
+* Jenkins
+* API Gateway

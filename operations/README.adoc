@@ -27,8 +27,7 @@ The instructor will provide the class with all of the necessary downloads
 
 . link:vcloud-air-install.adoc[Installing on vCloud Air]
 
-. link:deploy-services.adoc[Deploying services with Ops Manager]
-** Install Elastic Runtime, Ops Metrics, Mysql, Autoscaling, Jenkins, and API Gateway
+. link:managing-products.adoc[Managing Products with Ops Manager]
 
 . link:scaling.adoc[Scaling the platform]
 
