@@ -1,0 +1,17 @@
+= Syslog Draining
+
+== Goal
+
+In this section, you will configure syslog draining from Pivotal CF into a log analysis tool.  We will use the free Splunk Storm.
+
+== Exercise
+
+. Sign up for a free Splunk Storm account: http://www.splunkstorm.com
+
+. Follow steps 1-5 on link:http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#splunkstorm[Setting up Splunk Storm]
+
+. In Ops Manager and select `Elastic Runtime` > `External Endpoints`
+
+. Enter the IP address and port displayed in your Splunk Storm project page and click `Save`
+
+. Open the Splunk Storm project dashboard and look at the logs.

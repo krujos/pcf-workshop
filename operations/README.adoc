@@ -33,7 +33,7 @@ The instructor will provide the class with all of the necessary downloads
 
 . link:ops-metrics.adoc[PaaS monitoring with Ops Metrics]
 
-. link:vcloud-air-monitoring.adoc[IaaS monitoring]
+. IaaS monitoring
 
 . link:syslog-draining.adoc[Syslog Draining]
 
