@@ -1,0 +1,34 @@
+= Application Security Groups
+
+== Goal
+
+In this section, you will enable an application security group for your microservice.
+
+== Exercise
+
+. Review the documenation on link:http://docs.pivotal.io/pivotalcf/adminguide/app-sec-groups.html[Application Security Groups]
+
+. Create a new rules file for your application
+
+=== Disabling Access
+
+. Block all external access
++
+* Bind the security group to the run phase of your microservice
++
+[source,bash]
+----
+$ cf bind-running-security-group
+----
++
+* Restart your microservice.
+
+* Why does it fail?
+
+=== Modify to Allow Egress
+
+. Modify your security group file to allow egress to the bound services.
+
+* How do you determine what ports need to be opened?
+
+. Update the security group and restart your microservice.
