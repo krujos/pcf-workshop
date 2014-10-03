@@ -29,7 +29,7 @@ The instructor will provide the class with all of the necessary downloads
 
 . link:managing-products.adoc[Managing Products with Ops Manager]
 
-. link:scaling.adoc[Scaling the platform]
+. link:platform-scaling.adoc[Scaling the platform]
 
 . link:ops-metrics.adoc[PaaS monitoring with Ops Metrics]
 

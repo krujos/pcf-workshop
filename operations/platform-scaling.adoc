@@ -1,0 +1,16 @@
+= Scaling the Platform
+
+== Goal
+
+To understand how to scale Pivotal CF components based on usage.
+
+== Exercise
+
+[WARNING]
+====
+Because of limited IaaS capacity, please DO NOT follow the guide today and scale your installation.
+====
+
+. Review the documentation on link:http://docs.pivotal.io/pivotalcf/concepts/high-availability.html[Scaling]
+
+. What component would you scale to add capacity to host additional application instances?  How would you scale this component?
