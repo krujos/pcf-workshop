@@ -1,0 +1,178 @@
+=== Pushing to Cloud Foundry
+
+==== Pushing via CLI Parameters
+
+Use `cf help` and/or `cf <command> --help` for details on each of the commands below.
+
+. Review the docs: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/deploy-app.html
+
+. Verify you are logged in and targeted to your PCF instance:
++
+[source,bash]
+----
+$ cf target
+----
+
+. Push your application:
++
+[source,bash]
+----
+$ cf push
+----
+
+. Verify you can access your application via a curl request:
++
+[source,bash]
+----
+$ curl -i <your-app>/cities
+----
+
+
+==== Using Manifests
+
+Manifests help automate the deployment.
+
+. Review the documentation: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/manifest.html
+
+. Create an application manifest in `manifest.yml`.  Minimally, set the name of the app, the amount of memory, the number of instances, and the path to the .jar file.
+
+. The IBM Bluemix team has created a manifest generator app that can also be used:
+** Hosted: http://cfmanigen.mybluemix.net/
+** Source: https://github.com/IBM-Bluemix/cf-manifest-generator
+
+. Test your manifest by re-pushing your app with no parameters:
++
+[source,bash]
+----
+$ cf push
+----
+
+=== Binding Services with Spring Cloud & Profiles
+
+At present we're still using the in-memory database. Let's connect to a MySQL database service provided by Cloud Foundry.
+
+References:
+
+* link:http://projects.spring.io/spring-cloud/[Spring Cloud]
+* link:http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Profile.html[Spring Profiles]
+
+==== Enabling Spring Cloud & Profiles
+
+. Review link:http://docs.pivotal.io/pivotalcf/buildpacks/java/spring-service-bindings.html[Configuring Service Connections in Spring]
+
+. Add Spring Cloud and MySQL dependencies to our Gradle build:
++
+[source,groovy]
+----
+dependencies {
+    // ....
+    compile("org.springframework.cloud:spring-cloud-spring-service-connector:1.0.0.RELEASE")
+    compile("org.springframework.cloud:spring-cloud-cloudfoundry-connector:1.0.0.RELEASE")
+    runtime("mysql:mysql-connector-java:5.1.25")
+}
+----
+
+. Since we've added new dependencies, re-run `gradle idea` or `gradle eclipse` to have them added to the IDE classpath.
+
+. Next, let's create the package +org.example.cities.config+ and create in that package the class +CloudDataSourceConfig+. Add the following code:
++
+[source,java]
+----
+@Profile("cloud")
+@Configuration
+public class CloudDataSourceConfig extends AbstractCloudConfig {
+    @Bean
+    public DataSource dataSource() {
+        return connectionFactory().dataSource();
+    }
+}
+----
+
+. As before, have the IDE import the appropriate dependencies.
++
+The `@Profile` annotation will cause this class (which becomes Spring configuration when annotated as `@Configuration`) to be added to the configuration set because of the `SPRING_PROFILES_ACTIVE` environment variable we added earlier. You can still run the application locally (with the default profile) using the embedded database.
++
+With this code, Spring Cloud will detect a bound service that is compatible with +DataSource+, read the credentials, and then create a +DataSource+ as appropriate (it will throw an exception otherwise).
+
+. Add the following to `src/main/resources/application.properties` to cause Hibernate to create the database schema and import data at startup. This is done automatically for embedded databases, not for custom ++DataSource++s. Other Hibernate native properties can be set in a similar fashion:
++
+[source,java]
+----
+spring.jpa.hibernate.ddl-auto=create
+----
+
+. Build the application:
++
+[source,bash]
+----
+$ gradle assemble
+----
+
+. Re-push the application:
++
+[source,bash]
+----
+$ cf push
+----
+
+==== Troubleshooting
+
+Did it work?  Let's figure out why not.
+
+. Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/troubleshoot-app-health.html[Troubleshooting App Health]
+
+[NOTE]
+====
+What do the recent logs tell you?
+====
+
+==== Manually Creating a Service
+
+Looks like we need a service.  Let's create one.
+
+. Review the docs on Services:
+** link:http://docs.pivotal.io/pivotalcf/devguide/services/adding-a-service.html[Adding a Service]
+** link:http://docs.pivotal.io/pivotalcf/devguide/services/managing-services.html[Managing Services]
+
+. Create a mysql service instance
+
+. Launch the DB console from the Users Console.  Note the database is empty with zero connections.
+
+==== Manually Binding the Service Instance
+
+. Review the docs on link:http://docs.pivotal.io/pivotalcf/devguide/services/bind-service.html[Binding a Service Instance]
+
+. Bind the instance to your app
+
+. Restage your application to inject the new database.
+
+==== Binding via the Manifest
+
+link:_includes/script.adoc[]
+
+. Add the services binding to your deployment manifest.
+
+. If you are going to expand the service to leverage different Spring profiles, you should also set the `SPRING_PROFILES_ACTIVE` environment variable to `cloud`.
+
+. Now, manually unbind the service and re-push your app using the manifest.
+
+=== Environment Variables
+
+. Review the document on Environment Variables: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/environment-variable.html
+
+[NOTE]
+====
+* What variable shows your mysql service instance?
+
+* How could you set the `SPRING_PROFILES_ACTIVE` variable from the CLI?
+====
+
+=== Scaling
+
+Apps can be scaled via the CLI or the Console.
+
+. Scale your app to 2 instances.
+
+include::ide-integration.adoc[]
+
+include::app-log-drain.adoc[]

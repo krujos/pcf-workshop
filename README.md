@@ -79,7 +79,7 @@ Students should have the following:
   g. Exporting Ops Manager Configurations  
   h. Bosh basics & troubleshooting 
 
-4. Developer Basics - Part 1  
+4. Developer Experience - Part 1  
   a. Targeting  
   b. The Command Line Interface  
   c. Console basics  
@@ -90,7 +90,7 @@ Students should have the following:
   b. 12 factor apps  
   c.  Micro service should follow best practices and use a sql or no-sql database  
 
-6. Developer Basics - Part 2: Use the micro service and perform the following actions/integrations:  
+6. Developer Experience - Part 2: Use the micro service and perform the following actions/integrations:  
   a. Pushing apps  
   b. Manifests  
   c. Using Spring Cloud and Profiles for Dependency Injection  
