@@ -44,6 +44,6 @@ Now, we need an application to deploy to Pivotal CF.  Let's build it.
 
 * link:app-security-groups.adoc[Application Security Groups]
 
-* Application Autoscaling
+* link:app-autoscaling.adoc[Application Autoscaling]
 
 * link:../continuous-delivery/README.adoc[Continuous Delivery]

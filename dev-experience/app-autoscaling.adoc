@@ -1,0 +1,23 @@
+= Application Autoscaling
+
+== Goal
+
+In this section you will leverage Pivotal's Autoscaling Service to scale your microservice.
+
+== Exercise
+
+=== Configuring Autoscaling
+
+. Review the documentation on link:http://docs.pivotal.io/pivotalcf/autoscaling[Autoscaling]
+
+. Follow the instructions on link:http://docs.pivotal.io/pivotalcf/autoscaling/create-bind-from-console.html[Autoscaling binding from the Console] to create a new instance and bind it to your microservice.
++
+* The autoscale service requires configuration through the service dashboard.  For this reason, we opt to create it through the console as well.
+
+. Launch the autoscaling dashboard for your service.
+
+=== Generating Load and Observing Results
+
+. link:http://jmeter.apache.org/download_jmeter.cgi[Apache JMeter] Can be used to generate load.
+
+. Observe your service scale up and back down based on load.
