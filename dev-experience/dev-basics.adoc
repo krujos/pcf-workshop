@@ -1,0 +1,18 @@
+= Developer Basics
+
+. Review the documentation on the link:http://docs.pivotal.io/pivotalcf/devguide/installcf/whats-new-v6.html[Command Line Interface]
+
+. Review the documentation on link:http://docs.pivotal.io/pivotalcf/customizing/api-endpoint.html[API Endpoints & Targeting]
+** Target and log in to your Pivotal CF instance
+
+. Review the documentation on the link: http://docs.pivotal.io/pivotalcf/console/dev-console.html[Console]
+** Log into the developer console of your Pivotal CF instance
+
+. Review the documentation on link:http://docs.pivotal.io/pivotalcf/concepts/roles.html[Orgs, Spaces, Roles, and Permissions]
+** Create a new organization called `immersion`
+** Create a new space in the `immersion` org called `development`
+** Create a new user account for yourself and assign the necessary roles to the org & space.  You will be managing applications and services.
+** Log out as the default admin from the console & the CLI and log in using your new account
+
+. Review the documentation on link:http://docs.pivotal.io/pivotalcf/opsguide/change-quota-plan.html[Quotas]
+** Change the quota of the `immersion` organization to allow up to 20GB of memory

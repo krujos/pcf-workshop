@@ -84,10 +84,11 @@ Students should have the following:
 ** Bosh basics & troubleshooting
 
 . link:dev-experience/README.adoc[Developer Experience - Part 1]
-** Targeting
 ** The Command Line Interface
+** Targeting
 ** Console basics
-** Orgs, spaces, roles, quotas
+** Orgs, spaces, roles and permissions
+** Quotas
 
 . link:microservice/README.adoc[Building a Microservice]: Pair to create a simple micro service
 ** PaaS ready apps & best practices

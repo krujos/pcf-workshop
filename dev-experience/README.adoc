@@ -1,0 +1,41 @@
+= Developer Experience
+
+== Goals
+
+To build a microservice, deploy it to PCF, leverage the platform for monitoring & management, and automate a continuous delivery pipeline.
+
+== Exercises
+
+=== Developer Experience - Part 1
+
+This section provides a high level overview of the basic concepts and components developers will leverage.
+
+* link:dev-basics.adoc[Developer Basics]
+** The Command Line Interface
+** Targeting
+** Console basics
+** Orgs, spaces, roles and permissions
+** Quotas
+
+=== Building a Microservice
+
+=== Developer Experience - Part 2
+
+* SDLC Basics
+** Pushing apps
+** Using Manifests
+** Dependency Injection in Spring
+** Health, logging & events via the CLI
+** Binding to services
+** Environment variables
+** Scaling apps
+
+* IDE integration
+* App log aggregation via a User Provided Service Instance
+
+** Monitoring with APM tools
+** Remote debugging
+** Advanced troubleshooting
+** Application Security Groups
+** Application Autoscaling
+** Continuous Delivery
