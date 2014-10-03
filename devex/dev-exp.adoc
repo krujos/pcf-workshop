@@ -173,6 +173,7 @@ Apps can be scaled via the CLI or the Console.
 
 . Scale your app to 2 instances.
 
+
 include::ide-integration.adoc[]
 
 include::app-log-drain.adoc[]
