@@ -1,0 +1,29 @@
+= Troubleshooting with the Bosh CLI
+
+== Goal
+
+To understand the basics of Bosh and the advanced troubleshooting techniques using the Bosh CLI
+
+== Exercise
+
+=== Bosh Overview
+
+. Review the link:http://docs.cloudfoundry.org/bosh/understanding-bosh.html[Understanding Bosh] site
+
+=== Troubleshooting
+
+. Review the documentation on link:http://docs.pivotal.io/pivotalcf/customizing/trouble-advanced.html[Advanced Troubleshooting]
+
+. Log into your Ops Manager VM via SSH
+
+. From the Ops Manager VM, log into the Bosh director
+
+. Copy and paste the list of all VMs from the Bosh director for the Elastic Runtime.  Save this in your git repo in a file called `ElasticRuntimeVMs.txt`.
+
+== OPTIONAL: Installing the Bosh CLI
+
+The Bosh CLI is available in the Ops Manager VM.  However, you might want bosh locally.  The bosh CLI is installed as a Ruby gem.
+
+. If you don't have Ruby, install it via link:http://rvm.io[RVM]
+
+. Follow the directions to link:https://github.com/cloudfoundry/bosh#install[Install the Bosh CLI]
