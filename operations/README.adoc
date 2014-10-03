@@ -1,0 +1,59 @@
+= Installation, Configuration and Management Basics
+
+[IMPORTANT]
+====
+Focus for this session is dependent on available environments
+====
+
+== Goals
+
+At the end of this session, students will have a Pivotal CF environment for use in the rest of the class.  They will have:
+* Installed Pivotal CF via Ops Manager
+* Added necessary services through Ops Manager
+* Understand how to scale Pivotal CF
+* Monitor Pivotal CF through JMX
+* Monitor the underlying IaaS
+* Set up syslog draining into an external log analysis tool
+* Export/backup Ops Manager
+* Troubleshoot installation issues using Bosh
+
+== Exercises
+
+. link:vcloud-air-install.adoc[Installing on vCloud Air]
+
+. link:deploy-services.adoc[Deploying services with Ops Manager]
+** Install Elastic Runtime, Ops Metrics, Mysql, Autoscaling, and API Gateway
+
+. link:scaling.adoc[Scaling the platform]
+
+. link:ops-metrics.adoc[PaaS monitoring with Ops Metrics]
+
+. link:vcloud-air-monitoring.adoc[IaaS monitoring]
+
+. link:syslog-draining.adoc[Syslog Draining]
+
+. link:backup-ops-mgr.adoc[Exporting Ops Manager Configurations]
+
+. link:bosh-troubleshooting.adoc[Bosh basics & troubleshooting]
+
+
+
+== PaaS monitoring with Ops Metrics
+
+In this section, students will install and configure Ops Metrics.  They will use Java Visual VM to monitor via JMX.
+
+link:ops-metrics.adoc[Ops Metrics]
+
+== IaaS monitoring
+
+=== IaaS Monitoring on vCloud Air
+
+== Syslog Draining
+
+== Scaling the platform
+
+== Exporting Ops Manager Configurations
+
+== Bosh basics
+
+=== Troubleshooting with Bosh
