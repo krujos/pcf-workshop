@@ -8,6 +8,7 @@ Focus for this session is dependent on available environments
 == Goals
 
 At the end of this session, students will have a Pivotal CF environment for use in the rest of the class.  They will have:
++
 * Installed Pivotal CF via Ops Manager
 * Added necessary services through Ops Manager
 * Understand how to scale Pivotal CF
@@ -18,6 +19,11 @@ At the end of this session, students will have a Pivotal CF environment for use 
 * Troubleshoot installation issues using Bosh
 
 == Exercises
+
+[NOTE]
+====
+The instructor will provide the class with all of the necessary downloads
+====
 
 . link:vcloud-air-install.adoc[Installing on vCloud Air]
 
