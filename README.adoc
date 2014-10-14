@@ -1,5 +1,11 @@
 = Pivotal CF Associate Training
 
+== Instructor TO DO
+
+. Set up windows VMs w/ vCenter for each env
+
+. Github organization
+
 == Notes & Goals
 
 * Work in progress.
