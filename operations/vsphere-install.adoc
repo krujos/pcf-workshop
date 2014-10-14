@@ -34,7 +34,7 @@ To install and configure Pivotal CF on vSphere with services.
 . Follow the instructions on link:http://docs.pivotal.io/pivotalcf/customizing/vsphere-config.html[Configuring Ops Manager Director for VMware vSphere]
 +
 * Configuration information is provided by the instructors.
-* Because we are resource constrained, we will not be taking advantage of the following: Availability Zones, Multiple Newtorks, Multiple Datastores.  However, you must still configure the single instances of each.
+* Because we are resource constrained, we will not be taking advantage of the following: Availability Zones, Multiple Newtorks, Multiple Datastores.  However, you must still configure each in Ops Manager.
 +
 
 . In the interest of time, *DO NOT* click `Install` at this point.  We will first add additional products via Ops Manager (next section).
