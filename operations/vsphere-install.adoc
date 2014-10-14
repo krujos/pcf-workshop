@@ -1,0 +1,27 @@
+= Installing Pivotal CF on vSphere
+
+== Goal
+
+To install and configure Pivotal CF on vSphere with services.
+
+== Exercise
+
+=== Notes
+
+* The instructor will provide environment information.
+* Each student should pair up with another to complete the installation.
+
+=== Installing Pivotal CF
+
+. Review the link:http://docs.pivotal.io/pivotalcf/customizing/requirements.html[prerequisites] document.
+
+. Follow the guide to link:http://docs.pivotal.io/pivotalcf/customizing/deploying-vm.html[deploying Ops Manager to vSphere]
++
+* A jump box has been set up that includes the necessary downloads and the vCenter client.  You can connect to this via Remote Desktop.
+
+* link:https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12[Remote Desktop for Mac]
+
+
+
+
+http://jonamiki.com/2013/07/05/deploy-ovf-directly-from-local-datastore-san/
