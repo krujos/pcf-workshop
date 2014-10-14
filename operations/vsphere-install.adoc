@@ -14,6 +14,11 @@ To install and configure Pivotal CF on vSphere with services.
 === Installing Pivotal CF
 
 . Review the link:http://docs.pivotal.io/pivotalcf/customizing/requirements.html[prerequisites] document.
++
+* Prerequisites have been verified by the instructors.
+* vCenter has been installed and configured.
+* A network, datacenter, and cluster have already been created for you.
++
 
 . Follow the guide to link:http://docs.pivotal.io/pivotalcf/customizing/deploying-vm.html[deploying Ops Manager to vSphere]
 +
