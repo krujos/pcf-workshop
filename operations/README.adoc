@@ -16,11 +16,6 @@ At the end of this session, students will have a Pivotal CF environment for use 
 
 == Exercises
 
-[NOTE]
-====
-The instructor will provide the class with all of the necessary downloads
-====
-
 . link:vsphere-install.adoc[Installing on vSphere]
 
 . link:managing-products.adoc[Managing Products with Ops Manager]
@@ -36,9 +31,3 @@ The instructor will provide the class with all of the necessary downloads
 . link:backup-pcf.adoc[Backing up Pivotal CF]
 
 . link:bosh-troubleshooting.adoc[Bosh basics & troubleshooting]
-
-== Instructor Set Up
-
-. Download Pivotal CF "All in One", MySQL, Ops Metrics, Autoscaling, API Gateway, Jenkins and make available on the student network.
-
-. Do we need a Jump Box?
