@@ -12,9 +12,7 @@ To understand the APM monitoring options and enable APM monitoring
 * link:https://github.com/cloudfoundry/java-buildpack/blob/master/docs/framework-new_relic_agent.md#configuration[New Relic]
 * link:https://github.com/cloudfoundry/java-buildpack/blob/master/docs/framework-spring_insight.md[Spring Insight]
 
-. Chose one of the above options.
-
-. Sign up for a free AppDynamics account.
+. Sign up for a free link:http://appdynamics.com[AppDynamics] account
 
 . Create a user provided service instance and bind it to your microservice.
 +
