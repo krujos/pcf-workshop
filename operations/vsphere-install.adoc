@@ -20,8 +20,6 @@ To install and configure Pivotal CF on vSphere with services.
 * A jump box has been set up that includes the necessary downloads and the vCenter client.  You can connect to this via Remote Desktop.
 
 * link:https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12[Remote Desktop for Mac]
++
 
-
-
-
-http://jonamiki.com/2013/07/05/deploy-ovf-directly-from-local-datastore-san/
+. Log into Ops Manager by going to `https://OPS-MGR-IP` and creating a user and password.
