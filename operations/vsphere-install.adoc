@@ -28,3 +28,13 @@ To install and configure Pivotal CF on vSphere with services.
 +
 
 . Log into Ops Manager by going to `https://OPS-MGR-IP` and creating a user and password.
+
+=== Configuring Ops Manager Director
+
+. Follow the instructions on link:http://docs.pivotal.io/pivotalcf/customizing/vsphere-config.html[Configuring Ops Manager Director for VMware vSphere]
++
+* Configuration information is provided by the instructors.
+* Because we are resource constrained, we will not be taking advantage of the following: Availability Zones, Multiple Newtorks, Multiple Datastores.  However, you must still configure the single instances of each.
++
+
+. In the interest of time, *DO NOT* click `Install` at this point.  We will first add additional products via Ops Manager (next section).
