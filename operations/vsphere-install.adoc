@@ -39,10 +39,10 @@ To install and configure Pivotal CF on vSphere with services.
 
 . *Availability Zones*: Due to resource constraints, we have a single Cluster call `PCF`.  Create a single AZ mapped to this cluster.
 
-. *Networks*: Your vSphere environment is pre-configured with two networks to separate the Operations network from the active PCF network.  
+. *Networks*: Your vSphere environment is pre-configured with one network due to resource constraints.
 +
-* `VM Network` should be used for `Infrastructure`
-* `PCF Network` should be used for `Deployment`
+* `VM Network` should be used for both `Infrastructure` and `Deployment`
+* Review the link:http://docs.pivotal.io/pivotalcf/customizing/network-segmentation.html[Network Segmentation] documentation.
 +
 
 . Be sure all tabs on the left have a green check mark and that the tile is green on the dashboard before continuing to the next exercise.
