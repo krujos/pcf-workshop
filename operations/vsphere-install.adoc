@@ -37,6 +37,14 @@ To install and configure Pivotal CF on vSphere with services.
 * Because we are resource constrained, we will not be taking advantage of the following: Availability Zones, Multiple Newtorks, Multiple Datastores.  However, you must still configure each in Ops Manager.
 +
 
+. *Availability Zones*: Due to resource constraints, we have a single Cluster call `PCF`.  Create a single AZ mapped to this cluster.
+
+. *Networks*: Your vSphere environment is pre-configured with two networks to separate the Operations network from the active PCF network.  
++
+* `VM Network` should be used for `Infrastructure`
+* `PCF Network` should be used for `Deployment`
++
+
 . Be sure all tabs on the left have a green check mark and that the tile is green on the dashboard before continuing to the next exercise.
 
 . In the interest of time, *DO NOT* click `Install` at this point.  We will first add additional products via Ops Manager (next section).
