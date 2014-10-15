@@ -6,17 +6,33 @@ To understand how to use Ops Manager to install and configure products and servi
 
 == Exercise
 
-. Log in to your new Ops Manager instance
+In this exercise, you will install and configure the products which will be used in during the duration of the class.
+
+=== Notes
+
+* The jump box has a folder with the necessary products.
+* It is recommended you access Ops Manager from the Jump Box in order to reduce network latency and upload times.
+
+=== Installing Products
+
+. Log in to your Ops Manager instance
 
 . link:http://docs.pivotal.io/pivotalcf/customizing/pcf-interface.html[Familiarize] yourself with the interface.
 
 . Review the documentation on link:http://docs.pivotal.io/pivotalcf/customizing/add-delete.html[Adding and Deleting Products]
 
-. Install the following:
+. Install and configure the following:
 +
 * Elastic Runtime
-* Ops Metrics
 * Mysql
 * Autoscaling
 * Jenkins
+* Ops Metrics
 * API Gateway
++
+
+. *Jenkins*: You will have to enter license information.  Enter your information for a temporary license.
+
+. *Ops Metrics*: We will configure Ops Metrics in a later exercise.  In order to install it, you need to set up a JMX Provider username and password.  We will use this later.
+
+. When you have completed configuration, select `Install` in the Ops Manager interface.
