@@ -35,9 +35,7 @@ At the end of the 4 day course, the student should have a custom built micro ser
 * The application will be fully automated for full continuous delivery using the blue/green deployment approach.
 * Remotely debuggable through an IDE
 * Run using a customized build pack
-* Is deployed on a student installed PCF installation on vCloud Air which is fully monitored
-
-The environment will dictate if we can include requirements on operational demonstrations (deployed PCF, Syslog draining, Ops metrics, etc).
+* Is deployed on a student installed PCF installation which is fully monitored
 
 == Prerequisites
 
@@ -82,7 +80,7 @@ Students should have the following:
 ** Installing Pivotal CF
 ** Managing Products with Ops Manager
 ** Scaling the platform
-** PaaS monitoring with Ops Metrics & Syslog Draining
+** PaaS monitoring with Ops Metrics & Elastic Runtime Syslog Draining
 ** Backing up Pivotal CF
 ** Bosh basics & troubleshooting
 
