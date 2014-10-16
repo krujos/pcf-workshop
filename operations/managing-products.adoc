@@ -31,7 +31,7 @@ In this exercise, you will install and configure the products which will be used
 * API Gateway
 +
 
-. *Elastic Runtime*: Be sure to select `Trust Self-Signed Certificates` on the HA Proxy tab.
+. *Elastic Runtime*: Be sure to click the `Generate Self-Signed RSA certificate` link. Then, select `Trust Self-Signed Certificates` on the HA Proxy tab.
 
 . *Jenkins*: You will have to enter license information.  Enter your information for a temporary license.
 
