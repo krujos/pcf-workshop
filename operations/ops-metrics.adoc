@@ -1,24 +1,51 @@
-= Monitoring Pivotal CF with Ops Metrics
+= Monitoring Pivotal CF with Ops Metrics & Syslog Draining
 
-== Installation
+We will configure PaaS monitoring via JMX and drain PCF system logs into a 3rd party log analysis tool.
 
-In this section, you will install and configure the Ops Metrics tile in Ops Manager.
+
+== Installation & Configuration
+
+Configure Ops Metrics and Syslog draining before deploying changes in Ops Manager.
+
+
+=== Ops Metrics
+
+In this section, you will install and configure the Ops Metrics tile.
 
 . Follow steps to install & configure Ops Metrics: http://docs.pivotal.io/pivotalcf/customizing/deploy-metrics.html
 +
-* *NOTE*: Start at step 8 as you should have already installed Ops Metrics.  You will just need to finish configuration.
-* *After Step 13*: Select `Lifecycle Errands` from the `Elastic Runtime` tile.  Uncheck all of the post install errands.  This will speed up the update by ensuring these errands are not re-run.
-* *BEFORE APPLYING CHANGES* go to the next exercise and configure link:syslog-draining.adoc[Syslog Draining]
+* *NOTE*: Start at step 8 as you should have already installed Ops Metrics.
+* *BEFORE APPLYING CHANGES* configure Syslog Draining below.
 +
 
-. To avoid adding a firewall mapping, we will connect to the Ops Metrics service from the JumpBox.
+
+=== Syslog Draining
+
+. Sign up for a free Splunk Storm account: http://www.splunkstorm.com
+
+. *Follow steps 1-5 ONLY* on link:http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#splunkstorm[Setting up Splunk Storm]
+
+. In Ops Manager and select `Elastic Runtime` > `External Endpoints`
+
+. Enter the IP address and port displayed in your Splunk Storm project page and click `Save`
+
+=== Apply changes
+
+. Before applying changes: Select `Lifecycle Errands` from the `Elastic Runtime` tile.  Uncheck all of the post install errands.  This will speed up the update by ensuring these errands are not re-run.
+
+. From the Ops Manager dashboard, apply your changes.
 
 
-== Monitoring with Java VisualVM
+== Monitoring
+
+
+=== Monitoring with Java VisualVM
+
+*To avoid adding a firewall mapping, we will connect to the Ops Metrics service from the JumpBox.*
 
 Java VisualVM ships with the JDK.  It provides the ability to drill into MBeans, but does not provide graphical and time based analysis.
 
-. Launch Java VisualVM from a terminal window:
+. Launch Java VisualVM from a terminal window on the JumpBox:
 +
 [source,bash]
 ----
@@ -46,8 +73,19 @@ $ jvisualvm
 
 . Metrics will be under `org.cloudfoundry`
 
-== Using Ops Metrics
+=== Using Splunk Storm
+
+. When complete, open the Splunk Storm project dashboard and look at the logs.
+
+
+=== Beyond the class
+
+==== Ops Metrics
 
 . Review the documentation on Using Ops Metrics: http://docs.pivotal.io/pivotalcf/customizing/use-metrics.html
 
 . Java VisualVM does not provide real time charts of MBeans.  Consider a more robust JMX solution like AppDynamics, NewRelic, Splunk, or Hyperic.
+
+==== Splunk Enterprise
+
+If you would like to use Splunk on your PCF instances, see link:http://docs.run.pivotal.io/devguide/services/integrate-splunk.html[Integrating Splunk] to install the correct log formatting tools for PCF.

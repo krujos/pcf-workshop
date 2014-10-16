@@ -82,8 +82,7 @@ Students should have the following:
 ** Installing Pivotal CF
 ** Managing Products with Ops Manager
 ** Scaling the platform
-** PaaS monitoring with Ops Metrics
-** Syslog Draining
+** PaaS monitoring with Ops Metrics & Syslog Draining
 ** Backing up Pivotal CF
 ** Bosh basics & troubleshooting
 

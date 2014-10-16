@@ -23,8 +23,6 @@ At the end of this session, students will have a Pivotal CF environment for use 
 
 . link:ops-metrics.adoc[PaaS monitoring with Ops Metrics]
 
-. link:syslog-draining.adoc[Syslog Draining]
-
 . link:backup-pcf.adoc[Backing up Pivotal CF]
 
 . link:bosh-troubleshooting.adoc[Bosh basics & troubleshooting]
