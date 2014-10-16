@@ -15,3 +15,7 @@ In this section, you will configure syslog draining from Pivotal CF into a log a
 . Enter the IP address and port displayed in your Splunk Storm project page and click `Save`
 
 . Open the Splunk Storm project dashboard and look at the logs.
+
+== Beyond the class
+
+If you would like to use Splunk on your PCF instances, see link:http://docs.run.pivotal.io/devguide/services/integrate-splunk.html[Integrating Splunk] to install the correct log formatting tools for PCF.
