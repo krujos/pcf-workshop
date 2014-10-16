@@ -6,7 +6,7 @@ This lab will guide you through building a BASIC continuous delivery pipeline us
 
 == Exercise
 
-. Review the link:EnablingContinuousDelivery.key[Enabling Continuous Delivery] presentation
+. Review the link:EnablingContinuousDelivery.key.zip[Enabling Continuous Delivery] presentation
 
 === Set Up
 
