@@ -9,7 +9,6 @@ At the end of this session, students will have a Pivotal CF environment for use 
 * Added necessary services through Ops Manager
 * Understand how to scale Pivotal CF
 * Monitor Pivotal CF through JMX
-* Monitor the underlying IaaS
 * Set up syslog draining into an external log analysis tool
 * Export/backup Pivotal CF
 * Troubleshoot installation issues using Bosh

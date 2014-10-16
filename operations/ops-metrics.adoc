@@ -7,7 +7,10 @@ In this section, you will install and configure the Ops Metrics tile in Ops Mana
 . Follow steps to install & configure Ops Metrics: http://docs.pivotal.io/pivotalcf/customizing/deploy-metrics.html
 +
 * *NOTE*: Start at step 8 as you should have already installed Ops Metrics.  You will just need to finish configuration.
+* *After Step 13*: Select `Lifecycle Errands` from the `Elastic Runtime` tile.  Uncheck all of the post install errands.  This will speed up the update by ensuring these errands are not re-run.
 +
+
+. To avoid adding a firewall mapping, we will connect to the Ops Metrics service from the JumpBox.
 
 
 == Monitoring with Java VisualVM
