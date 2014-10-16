@@ -21,7 +21,7 @@ At the end of this session, students will have a Pivotal CF environment for use 
 
 . link:platform-scaling.adoc[Scaling the platform]
 
-. link:ops-metrics.adoc[PaaS monitoring with Ops Metrics]
+. link:ops-metrics.adoc[PaaS monitoring with Ops Metrics & Syslog Draining]
 
 . link:backup-pcf.adoc[Backing up Pivotal CF]
 
