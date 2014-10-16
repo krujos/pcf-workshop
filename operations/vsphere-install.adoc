@@ -41,7 +41,7 @@ To install and configure Pivotal CF on vSphere with services.
 
 . *Networks*: Your vSphere environment is pre-configured with one network due to resource constraints.
 +
-* `VM Network` should be used for both `Infrastructure` and `Deployment`
+* `NAT` should be used for both `Infrastructure` and `Deployment`
 * Review the link:http://docs.pivotal.io/pivotalcf/customizing/network-segmentation.html[Network Segmentation] documentation.
 +
 
