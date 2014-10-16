@@ -24,6 +24,9 @@ In this section, you will install and configure the Ops Metrics tile.
 . Sign up for a free Splunk Storm account: http://www.splunkstorm.com
 
 . *Follow steps 1-5 ONLY* on link:http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#splunkstorm[Setting up Splunk Storm]
++
+* For *Step 4*, the IP to authorize is provided by the instructors.  This is the IP of the externally facing firewall/NAT box for your installation.
++
 
 . In Ops Manager and select `Elastic Runtime` > `External Endpoints`
 
@@ -52,26 +55,25 @@ Java VisualVM ships with the JDK.  It provides the ability to drill into MBeans,
 $ jvisualvm
 ----
 
-. Select `Tools` > `Plugins` > `Available Plugins` > `VisualVM-MBeans` > `Install`
+. We have already installed the MBeans tool for you (Select `Tools` > `Plugins` > `Available Plugins` > `VisualVM-MBeans` > `Install`)
 
 . From the left side bar, select `Remote`
 
-. Enter the IP of your Ops Metrics VM (available in Ops Manager)
+. Enter the IP of your Ops Metrics VM (available in Ops Manager).  Click `OK`.
 
-. Select `Advanced Settings` and set the port to 44444
-
-. Click `Save`
-
-. From the left side bar, you should now see the entry.  CTRL click it and select `Add JMX Connection`.
-
-. Configure the following:
-** Connection: <OPS_METRICS_IP>:44444
-** Use Security Credentials:: Enter the username and password you created when installing Ops Metrics
-** Select `Do not require SSL connection` unless you configured Ops Metrics to use SSL
+. Right click the new Remote host and select `Add JMX Connection`.
++
+. Set the port to 44444
+. Check `Use Security Credentials` and enter the user/pwd you set up in the Ops Metrics tile
+. Select `Save Security Credentials`
+. Select `Do not require SSL connection`
+. Click `Ok`
++
 
 . In the left side bar, double click the new JMX remote endpoint and select the `MBeans` tab
 
 . Metrics will be under `org.cloudfoundry`
+
 
 === Using Splunk Storm
 
