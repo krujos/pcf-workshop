@@ -9,7 +9,7 @@ At the end of this session, students will have a Pivotal CF environment for use 
 * Added necessary services through Ops Manager
 * Understand how to scale Pivotal CF
 * Monitor Pivotal CF through JMX
-* Set up syslog draining into an external log analysis tool
+* Set up Elastic Runtime syslog draining into an external log analysis tool
 * Export/backup Pivotal CF
 * Troubleshoot installation issues using Bosh
 
@@ -21,7 +21,7 @@ At the end of this session, students will have a Pivotal CF environment for use 
 
 . link:platform-scaling.adoc[Scaling the platform]
 
-. link:ops-metrics.adoc[PaaS monitoring with Ops Metrics & Syslog Draining]
+. link:ops-metrics.adoc[PaaS monitoring with Ops Metrics & Elastic Runtime Syslog Draining]
 
 . link:backup-pcf.adoc[Backing up Pivotal CF]
 

@@ -1,4 +1,4 @@
-= Monitoring Pivotal CF with Ops Metrics & Syslog Draining
+= Monitoring Pivotal CF with Ops Metrics & Elastic Runtime Syslog Draining
 
 We will configure PaaS monitoring via JMX and drain PCF system logs into a 3rd party log analysis tool.
 
