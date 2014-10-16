@@ -5,7 +5,10 @@
 In this section, you will install and configure the Ops Metrics tile in Ops Manager.
 
 . Follow steps to install & configure Ops Metrics: http://docs.pivotal.io/pivotalcf/customizing/deploy-metrics.html
-** Note this is a somewhat manual (laborious) multi-step process currently.
++
+* *NOTE*: Start at step 8 as you should have already installed Ops Metrics.  You will just need to finish configuration.
++
+
 
 == Monitoring with Java VisualVM
 
