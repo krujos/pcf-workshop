@@ -182,7 +182,7 @@ Next we'll import some data.
 
 . Shutdown the application.
 
-. Add this link:src/main/resources/import.sql[import.sql] file to `src/main/resources`. This is a dataset containing all of the postal codes in Colorado. This file will automatically be picked up by Hibernate and imported into the in-memory database.
+. Add this link:https://raw.githubusercontent.com/spgreenberg/immersion-test/master/microservice/src/main/resources/import.sql[import.sql] file to `src/main/resources`. . This is a dataset containing all of the postal codes in Colorado. This file will automatically be picked up by Hibernate and imported into the in-memory database.
 
 . Build the application:
 +
