@@ -23,7 +23,7 @@ Type:: Gradle project
 Packaging:: Jar
 Java Version:: 1.7
 Language:: Java
-Spring Boot Version:: 1.1.7
+Spring Boot Version:: 1.1.8
 Project Dependencies:: Actuator, JPA, Rest Repositories, Web
 
 +
