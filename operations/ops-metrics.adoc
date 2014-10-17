@@ -12,9 +12,8 @@ Configure Ops Metrics and Syslog draining before deploying changes in Ops Manage
 
 In this section, you will install and configure the Ops Metrics tile.
 
-. Follow steps to install & configure Ops Metrics: http://docs.pivotal.io/pivotalcf/customizing/deploy-metrics.html
+. Follow steps 1 thru 7 to install & configure Ops Metrics: http://docs.pivotal.io/pivotalcf/customizing/deploy-metrics.html
 +
-* *NOTE*: Start at step 8 as you should have already installed Ops Metrics.
 * *BEFORE APPLYING CHANGES* configure Syslog Draining below.
 +
 
@@ -37,6 +36,11 @@ In this section, you will install and configure the Ops Metrics tile.
 . Before applying changes: Select `Lifecycle Errands` from the `Elastic Runtime` tile.  Uncheck all of the post install errands.  This will speed up the update by ensuring these errands are not re-run.
 
 . From the Ops Manager dashboard, apply your changes.
+
+
+=== Updating Ops Manager Director and Elastic Runtime
+. Configure Ops Manager Director's Metrics IP address and update the Elastic Runtime's Collector instance count: http://docs.pivotal.io/pivotalcf/customizing/deploy-metrics.html
+* *NOTE*: Start at step 8 as you should have already installed Ops Metrics.
 
 
 == Monitoring
