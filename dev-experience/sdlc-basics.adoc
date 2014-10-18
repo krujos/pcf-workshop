@@ -92,7 +92,7 @@ public class CloudDataSourceConfig extends AbstractCloudConfig {
 
 . As before, have the IDE import the appropriate dependencies.
 +
-The `@Profile` annotation will cause this class (which becomes Spring configuration when annotated as `@Configuration`) to be added to the configuration set because of the `SPRING_PROFILES_ACTIVE` environment variable we added earlier. You can still run the application locally (with the default profile) using the embedded database.
+The `@Profile` annotation will cause this class (which becomes Spring configuration when annotated as `@Configuration`) to be added to the configuration set because of the `SPRING_PROFILES_ACTIVE` environment variable (more on this later). You can still run the application locally (with the default profile) using the embedded database.
 +
 With this code, Spring Cloud will detect a bound service that is compatible with +DataSource+, read the credentials, and then create a +DataSource+ as appropriate (it will throw an exception otherwise).
 
