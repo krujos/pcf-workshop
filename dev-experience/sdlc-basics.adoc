@@ -19,7 +19,7 @@ $ cf target
 +
 [source,bash]
 ----
-$ cf push
+$ cf push <your_app> -p cities-0.0.1-SNAPSHOT.jar
 ----
 
 . Verify you can access your application via a curl request:
