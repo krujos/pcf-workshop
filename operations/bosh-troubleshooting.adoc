@@ -10,6 +10,8 @@ To understand the basics of Bosh and the advanced troubleshooting techniques usi
 
 . Review the link:http://docs.cloudfoundry.org/bosh/understanding-bosh.html[Understanding Bosh] site
 
+. Review the sample link:sample-manifest.yml[manifest]
+
 === Troubleshooting
 
 . Review the documentation on link:http://docs.pivotal.io/pivotalcf/customizing/trouble-advanced.html[Advanced Troubleshooting]

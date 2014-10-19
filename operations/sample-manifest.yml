@@ -1,0 +1,957 @@
+---
+name: cf
+director_uuid: <%= director_uuid %>
+releases:
+- name: cf
+  version: '170'
+networks:
+- name: public
+  subnets:
+  - cloud_properties:
+      security_groups:
+      - cf
+      - bosh
+      subnet: <%= public_subnet_id %>
+    range: 10.0.0.0/24
+    gateway: 10.0.0.1
+    static:
+    - 10.0.0.10-10.0.0.21
+    reserved:
+    - 10.0.0.2-10.0.0.9
+    dns:
+    - 10.0.0.2
+- name: cf
+  subnets:
+  - cloud_properties:
+      security_groups:
+      - cf
+      - bosh
+      subnet: <%= cf_subnet_id %>
+    range: 10.0.1.0/24
+    gateway: 10.0.1.1
+    static:
+    - 10.0.1.10-10.0.1.21
+    reserved:
+    - 10.0.1.2-10.0.1.9
+    dns:
+    - 10.0.0.2
+- name: elastic
+  type: vip
+  cloud_properties: {}
+resource_pools:
+- name: ha_proxy
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: public
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: nats
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: etcd_and_metrics
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: health_manager
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: nfs_server
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: ccdb
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: cloud_controller
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.medium
+- name: clock_global
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: cloud_controller_worker
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: router
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: collector
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 0
+  cloud_properties:
+    instance_type: m1.small
+- name: uaadb
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: uaa
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: login
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: dea
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.xlarge
+- name: loggregator
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+- name: loggregator_trafficcontroller
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+    version: '2366'
+  network: cf
+  size: 1
+  cloud_properties:
+    instance_type: m1.small
+compilation:
+  workers: 3
+  network: cf
+  cloud_properties:
+    instance_type: m1.medium
+update:
+  canaries: 1
+  canary_watch_time: 30000-300000
+  update_watch_time: 30000-300000
+  max_in_flight: 1
+  max_errors: 2
+  serial: false
+jobs:
+- name: ha_proxy
+  templates:
+  - name: haproxy
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: ha_proxy
+  persistent_disk: 0
+  networks:
+  - name: public
+    default: [dns, gateway]
+    static_ips:
+    - 10.0.0.10
+  - name: elastic
+    static_ips:
+    - <%= haproxy_elastic_ip %>
+  properties:
+    networks:
+      apps: public
+    ha_proxy:
+      timeout: 300
+      ssl_pem: |
+        <%= haproxy_certificate %>
+        <%= haproxy_private_key %>
+    router:
+      servers:
+        z1:
+        - 10.0.1.17
+        z2: []
+    syslog_aggregator:
+      address:
+      port:
+  update:
+    max_in_flight: 1
+- name: nats
+  templates:
+  - name: nats
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: nats
+  persistent_disk: 0
+  networks:
+  - name: cf
+    static_ips:
+    - 10.0.1.11
+  properties:
+    networks:
+      apps: cf
+    nats:
+      user: nats
+      password: <%= nats_password %>
+      address: 10.0.1.11
+      machines:
+      - 10.0.1.11
+      port: 4222
+    syslog_aggregator:
+      address:
+      port:
+  update:
+    max_in_flight: 1
+- name: etcd_and_metrics
+  templates:
+  - name: etcd
+  - name: etcd_metrics_server
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: etcd_and_metrics
+  persistent_disk: 1024
+  networks:
+  - name: cf
+    static_ips:
+    - 10.0.1.12
+  properties:
+    networks:
+      apps: cf
+    syslog_aggregator:
+      address:
+      port:
+    etcd:
+      machines:
+      - 10.0.1.12
+    etcd_metrics_server:
+      nats:
+        machines:
+        - 10.0.1.11
+        username: nats
+        password: <%= nats_password %>
+  update:
+    max_in_flight: 1
+- name: health_manager
+  templates:
+  - name: hm9000
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: health_manager
+  persistent_disk: 0
+  networks:
+  - name: cf
+  properties:
+    cc:
+      srv_api_uri: https://api.<%= domain %>
+    networks:
+      apps: cf
+    syslog_aggregator:
+      address:
+      port:
+    etcd:
+      machines:
+      - 10.0.1.12
+    nats:
+      user: nats
+      password: <%= nats_password %>
+      address: 10.0.1.11
+      port: 4222
+      machines:
+      - 10.0.1.11
+    ccng:
+      bulk_api_user: bulk_api
+      bulk_api_password: <%= bulk_api_password %>
+    ssl:
+      skip_cert_verify: true
+  update:
+    max_in_flight: 1
+- name: nfs_server
+  templates:
+  - name: debian_nfs_server
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: nfs_server
+  persistent_disk: 102400
+  networks:
+  - name: cf
+    static_ips:
+    - 10.0.1.15
+  properties:
+    nfs_server:
+      address: 10.0.1.15
+      network: 10.0.1.0/24
+    syslog_aggregator:
+      address:
+      port:
+  update:
+    max_in_flight: 1
+- name: ccdb
+  templates:
+  - name: postgres
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: ccdb
+  persistent_disk: 2048
+  networks:
+  - name: cf
+    static_ips:
+    - 10.0.1.16
+  properties:
+    db: ccdb
+    ccdb:
+      address: 10.0.1.16
+      port: 2544
+      db_scheme: postgres
+      roles:
+      - tag: admin
+        name: admin
+        password: <%= ccdb_admin_password %>
+      databases:
+      - tag: cc
+        name: ccdb
+        citext: true
+    syslog_aggregator:
+      address:
+      port:
+  update:
+    max_in_flight: 1
+- name: cloud_controller
+  templates:
+  - name: cloud_controller_ng
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: cloud_controller
+  persistent_disk: 0
+  networks:
+  - name: cf
+  properties:
+    domain: <%= domain %>
+    system_domain: <%= domain %>
+    system_domain_organization: system
+    app_domains:
+    - <%= domain %>
+    syslog_aggregator:
+      address:
+      port:
+    ccng:
+      disable_custom_buildpacks: false
+      external_host: api
+      logging_level: debug
+      uaa_resource_id: cloud_controller
+      staging_upload_user: staging_upload_user
+      staging_upload_password: <%= staging_upload_password %>
+      bulk_api_password: <%= bulk_api_password %>
+      db_encryption_key: <%= ccdb_encryption_key %>
+      bootstrap_admin_email: admin
+      tasks_disabled: true
+      hm9000_noop: false
+      client_max_body_size: 256M
+      install_buildpacks:
+      - name: java_buildpack_offline
+        package: buildpack_java_offline
+      - name: ruby_buildpack
+        package: buildpack_ruby
+      - name: nodejs_buildpack
+        package: buildpack_nodejs
+      quota_definitions:
+        default:
+          memory_limit: 10240
+          total_services: 100
+          non_basic_services_allowed: true
+          total_routes: 1000
+          trial_db_allowed: true
+        runaway:
+          memory_limit: 102400
+          total_services: -1
+          total_routes: 1000
+          non_basic_services_allowed: true
+    ccdb_ng:
+      address: 10.0.1.16
+      port: 2544
+      db_scheme: postgres
+      roles:
+      - tag: admin
+        name: admin
+        password: <%= ccdb_admin_password %>
+      databases:
+      - tag: cc
+        name: ccdb
+        citext: true
+    networks:
+      apps: cf
+    nfs_server:
+      address: 10.0.1.15
+    uaa:
+      url: https://uaa.<%= domain %>
+      jwt:
+        verification_key: |
+          <%= jwt_public_key %>
+    login:
+      url: https://login.<%= domain %>
+    ssl:
+      skip_cert_verify: true
+    loggregator_endpoint:
+      host: 10.0.1.21
+      shared_secret: <%= loggregator_shared_secret %>
+    nats:
+      user: nats
+      password: <%= nats_password %>
+      address: 10.0.1.11
+      port: 4222
+      machines:
+      - 10.0.1.11
+  update:
+    max_in_flight: 1
+- name: clock_global
+  templates:
+  - name: cloud_controller_clock
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: clock_global
+  persistent_disk: 0
+  networks:
+  - name: cf
+  properties:
+    domain: <%= domain %>
+    system_domain: <%= domain %>
+    system_domain_organization: system
+    app_domains:
+    - <%= domain %>
+    syslog_aggregator:
+      address:
+      port:
+    ccng:
+      process_group: clock
+      logging_level: debug
+      staging_upload_user: staging_upload_user
+      staging_upload_password: <%= staging_upload_password %>
+      bulk_api_password: <%= bulk_api_password %>
+      db_encryption_key: <%= ccdb_encryption_key %>
+      hm9000_noop: false
+      quota_definitions:
+        default:
+          memory_limit: 10240
+          total_services: 100
+          non_basic_services_allowed: true
+          total_routes: 1000
+          trial_db_allowed: true
+        runaway:
+          memory_limit: 102400
+          total_services: -1
+          total_routes: 1000
+          non_basic_services_allowed: true
+    ccdb_ng:
+      address: 10.0.1.16
+      port: 2544
+      db_scheme: postgres
+      roles:
+      - tag: admin
+        name: admin
+        password: <%= ccdb_admin_password %>
+      databases:
+      - tag: cc
+        name: ccdb
+        citext: true
+    networks:
+      apps: cf
+    nfs_server:
+      address: 10.0.1.15
+    uaa:
+      url: https://uaa.<%= domain %>
+      jwt:
+        verification_key: |
+          <%= jwt_public_key %>
+    login:
+      url: https://login.<%= domain %>
+    loggregator_endpoint:
+      host: 10.0.1.21
+      shared_secret: <%= loggregator_shared_secret %>
+    ssl:
+      skip_cert_verify: true
+    nats:
+      user: nats
+      password: <%= nats_password %>
+      address: 10.0.1.11
+      port: 4222
+      machines:
+      - 10.0.1.11
+  update:
+    max_in_flight: 1
+- name: cloud_controller_worker
+  templates:
+  - name: cloud_controller_worker
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: cloud_controller_worker
+  persistent_disk: 0
+  networks:
+  - name: cf
+  properties:
+    domain: <%= domain %>
+    system_domain: <%= domain %>
+    system_domain_organization: system
+    app_domains:
+    - <%= domain %>
+    syslog_aggregator:
+      address:
+      port:
+    ccng:
+      process_group: worker
+      logging_level: debug
+      staging_upload_user: staging_upload_user
+      staging_upload_password: <%= staging_upload_password %>
+      bulk_api_password: <%= bulk_api_password %>
+      db_encryption_key: <%= ccdb_encryption_key %>
+      hm9000_noop: false
+      quota_definitions:
+        default:
+          memory_limit: 10240
+          total_services: 100
+          non_basic_services_allowed: true
+          total_routes: 1000
+          trial_db_allowed: true
+        runaway:
+          memory_limit: 102400
+          total_services: -1
+          total_routes: 1000
+          non_basic_services_allowed: true
+    ccdb_ng:
+      address: 10.0.1.16
+      port: 2544
+      db_scheme: postgres
+      roles:
+      - tag: admin
+        name: admin
+        password: <%= ccdb_admin_password %>
+      databases:
+      - tag: cc
+        name: ccdb
+        citext: true
+    networks:
+      apps: cf
+    nfs_server:
+      address: 10.0.1.15
+    uaa:
+      url: https://uaa.<%= domain %>
+      jwt:
+        verification_key: |
+          <%= jwt_public_key %>
+    login:
+      url: https://login.<%= domain %>
+    loggregator_endpoint:
+      host: 10.0.1.21
+      shared_secret: <%= loggregator_shared_secret %>
+    ssl:
+      skip_cert_verify: true
+    nats:
+      user: nats
+      password: <%= nats_password %>
+      address: 10.0.1.11
+      port: 4222
+      machines:
+      - 10.0.1.11
+  update:
+    max_in_flight: 1
+- name: router
+  templates:
+  - name: gorouter
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: router
+  persistent_disk: 0
+  networks:
+  - name: cf
+    static_ips:
+    - 10.0.1.17
+  properties:
+    router:
+      endpoint_timeout: 300
+      status:
+        user: router_status
+        password: <%= router_status_password %>
+    loggregator_endpoint:
+      host: 10.0.1.21
+      shared_secret: <%= loggregator_shared_secret %>
+    nats:
+      user: nats
+      password: <%= nats_password %>
+      address: 10.0.1.11
+      port: 4222
+      machines:
+      - 10.0.1.11
+    syslog_aggregator:
+      address:
+      port:
+  update:
+    max_in_flight: 1
+- name: collector
+  templates:
+  - name: collector
+  release: cf
+  lifecycle: service
+  instances: 0
+  resource_pool: collector
+  persistent_disk: 0
+  networks:
+  - name: cf
+  properties: {}
+  update:
+    max_in_flight: 1
+- name: uaadb
+  templates:
+  - name: postgres
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: uaadb
+  persistent_disk: 8192
+  networks:
+  - name: cf
+    static_ips:
+    - 10.0.1.18
+  properties:
+    db: uaadb
+    uaadb:
+      address: 10.0.1.18
+      port: 2544
+      db_scheme: postgresql
+      roles:
+      - tag: admin
+        name: root
+        password: <%= uaadb_root_password %>
+      databases:
+      - tag: uaa
+        name: uaa
+    networks:
+      services: cf
+    syslog_aggregator:
+      address:
+      port:
+  update:
+    max_in_flight: 1
+- name: uaa
+  templates:
+  - name: uaa
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: uaa
+  persistent_disk: 0
+  networks:
+  - name: cf
+  properties:
+    uaa:
+      login:
+        addnew: false
+      catalina_opts: -Xmx768m -XX:MaxPermSize=256m
+      url: https://uaa.<%= domain %>
+      jwt:
+        signing_key: |
+          <%= jwt_signing_key %>
+        verification_key: |
+          <%= jwt_public_key %>
+      cc:
+        client_secret: <%= uaa_cc_client_secret %>
+      admin:
+        client_secret: <%= uaa_admin_client_secret %>
+      clients:
+        login:
+          id: login
+          override: true
+          autoapprove: true
+          authorities: oauth.login
+          authorized-grant-types: authorization_code,client_credentials,refresh_token
+          scope: openid
+          secret: <%= uaa_clients_login_secret %>
+        portal:
+          id: portal
+          override: true
+          autoapprove: true
+          authorities: scim.write,scim.read,cloud_controller.read,cloud_controller.write,password.write,uaa.admin,uaa.resource,cloud_controller.admin
+          authorized-grant-types: authorization_code,client_credentials,password,implicit
+          scope: openid,cloud_controller.read,cloud_controller.write,password.write,console.admin,console.support,cloud_controller.admin
+          secret: <%= uaa_clients_portal_secret %>
+          access-token-validity: 1209600
+          refresh-token-validity: 1209600
+        cf:
+          id: cf
+          override: true
+          autoapprove: true
+          authorities: uaa.none
+          authorized-grant-types: implicit,password,refresh_token
+          scope: cloud_controller.read,cloud_controller.write,openid,password.write,cloud_controller.admin,scim.read,scim.write
+        autoscaling_service:
+          secret: <%= uaa_clients_autoscaling_service_secret %>
+          override: true
+          autoapprove: true
+          authorities: cloud_controller.write,cloud_controller.read,cloud_controller.admin
+          authorized-grant-types: client_credentials,authorization_code,refresh_token
+          scope: openid,cloud_controller.permissions,cloud_controller.read,cloud_controller.write
+        system_passwords:
+          id: system_passwords
+          override: true
+          autoapprove: true
+          authorities: uaa.admin,scim.read,scim.write,password.write
+          authorized-grant-types: client_credentials
+          secret: <%= uaa_clients_system_passwords_secret %>
+      scim:
+        user:
+          override: false
+        users:
+        - admin|<%= admin_user_password %>|scim.write,scim.read,openid,cloud_controller.admin,dashboard.user,console.admin,console.support
+        - system_services|<%= system_services_user_password %>|cloud_controller.admin
+        - system_verification|<%= system_verification_user_password %>|scim.write,scim.read,openid,cloud_controller.admin,dashboard.user,console.admin,console.support
+    syslog_aggregator:
+      address:
+      port:
+    ccdb:
+      address: 10.0.1.16
+      port: 2544
+      db_scheme: postgres
+      roles:
+      - tag: admin
+        name: admin
+        password: <%= ccdb_admin_password %>
+      databases:
+      - tag: cc
+        name: ccdb
+        citext: true
+    domain: <%= domain %>
+    db: uaadb
+    uaadb:
+      address: 10.0.1.18
+      port: 2544
+      db_scheme: postgresql
+      roles:
+      - tag: admin
+        name: root
+        password: <%= uaadb_root_password %>
+      databases:
+      - tag: uaa
+        name: uaa
+    networks:
+      apps: cf
+    nats:
+      user: nats
+      password: <%= nats_password %>
+      address: 10.0.1.11
+      port: 4222
+      machines:
+      - 10.0.1.11
+  update:
+    max_in_flight: 1
+- name: login
+  templates:
+  - name: login
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: login
+  persistent_disk: 0
+  networks:
+  - name: cf
+  properties:
+    domain: <%= domain %>
+    syslog_aggregator:
+      address:
+      port:
+    login:
+      spring_profiles: saml
+      ldap_profile_type: search-and-compare
+      brand: pivotal
+      links:
+        home: https://console.<%= domain %>
+        passwd: https://console.<%= domain %>/password_resets/new
+        signup: https://console.<%= domain %>/register
+      uaa_base: https://uaa.<%= domain %>
+      uaa_certificate: |
+        <%= haproxy_certificate %>
+      idp_entity_alias: sso-sp
+      idp_metadata_url: ''''''
+    uaa:
+      clients:
+        login:
+          secret: <%= uaa_clients_login_secret %>
+    networks:
+      apps: cf
+    nats:
+      user: nats
+      password: <%= nats_password %>
+      address: 10.0.1.11
+      port: 4222
+      machines:
+      - 10.0.1.11
+  update:
+    max_in_flight: 1
+- name: dea
+  templates:
+  - name: dea_next
+  - name: dea_logging_agent
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: dea
+  persistent_disk: 0
+  networks:
+  - name: cf
+  properties:
+    domain: <%= domain %>
+    syslog_aggregator:
+      address:
+      port:
+    dea_next:
+      directory_server_protocol: http
+      memory_mb: 16384
+      memory_overcommit_factor: 1
+      disk_mb: 32768
+      disk_overcommit_factor: 1
+      num_instances: 10
+      stacks:
+      - lucid64
+    loggregator_endpoint:
+      host: 10.0.1.21
+      shared_secret: <%= loggregator_shared_secret %>
+    nats:
+      user: nats
+      password: <%= nats_password %>
+      address: 10.0.1.11
+      port: 4222
+      machines:
+      - 10.0.1.11
+  update:
+    max_in_flight: 1
+- name: loggregator
+  templates:
+  - name: loggregator
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: loggregator
+  persistent_disk: 0
+  networks:
+  - name: cf
+    static_ips:
+    - 10.0.1.20
+  properties:
+    loggregator:
+      incoming_port: 3456
+      outgoing_port: 8080
+      status:
+        user: loggregator_user
+        password: <%= loggregator_user_password %>
+        port: 5768
+    syslog_aggregator:
+      address:
+      port:
+    etcd:
+      machines:
+      - 10.0.1.12
+    uaa:
+      jwt:
+        verification_key: |
+          <%= jwt_public_key %>
+    nats:
+      user: nats
+      password: <%= nats_password %>
+      address: 10.0.1.11
+      port: 4222
+      machines:
+      - 10.0.1.11
+    ssl:
+      skip_cert_verify: true
+    loggregator_endpoint:
+      shared_secret: <%= loggregator_shared_secret %>
+  update:
+    max_in_flight: 1
+- name: loggregator_trafficcontroller
+  templates:
+  - name: loggregator_trafficcontroller
+  release: cf
+  lifecycle: service
+  instances: 1
+  resource_pool: loggregator_trafficcontroller
+  persistent_disk: 0
+  networks:
+  - name: cf
+    static_ips:
+    - 10.0.1.21
+  properties:
+    loggregator:
+      incoming_port: 3456
+      outgoing_port: 8080
+      servers:
+        z1:
+        - 10.0.1.20
+    ssl:
+      skip_cert_verify: true
+    cc:
+      srv_api_uri: https://api.<%= domain %>
+    system_domain: <%= domain %>
+    nats:
+      user: nats
+      password: <%= nats_password %>
+      address: 10.0.1.11
+      port: 4222
+      machines:
+      - 10.0.1.11
+    loggregator_endpoint:
+      shared_secret: <%= loggregator_shared_secret %>
+    traffic_controller:
+      zone: z1
+  update:
+    max_in_flight: 1
