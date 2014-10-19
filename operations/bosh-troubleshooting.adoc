@@ -8,9 +8,16 @@ To understand the basics of Bosh and the advanced troubleshooting techniques usi
 
 === Bosh Overview
 
-. Review the link:http://docs.cloudfoundry.org/bosh/understanding-bosh.html[Understanding Bosh] site
+. Review the link:http://docs.cloudfoundry.org/bosh/understanding-bosh.html[Understanding Bosh] documentation
+
+. Review the link:http://docs.cloudfoundry.org/bosh/jobs.html[Bosh Jobs & Errands] documentation
 
 . Review the sample link:sample-manifest.yml[manifest]
++
+* What template is used to create the cloud controller?
+* What errands exist in this manifest?
++
+
 
 === Troubleshooting
 
@@ -21,6 +28,12 @@ To understand the basics of Bosh and the advanced troubleshooting techniques usi
 . From the Ops Manager VM, log into the Bosh director
 
 . Copy and paste the list of all VMs from the Bosh director for the Elastic Runtime.  Save this in your git repo in a file called `ElasticRuntimeVMs.txt`.
++
+* *NOTE:* `pscp` can be used to copy the file from the ops manager vm to the jumpbox.  Putty and pscp are in: `C:\Program Files (x86)\PuTTY`
+* `pscp tempest@192.168.5.2:ElasticRuntimeVMs.txt .`
++
+
+. What are the vms that show up as `unknown/unknown`?
 
 == OPTIONAL: Installing the Bosh CLI
 
