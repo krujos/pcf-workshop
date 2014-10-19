@@ -95,3 +95,7 @@ $ jvisualvm
 ==== Splunk Enterprise
 
 If you would like to use Splunk on your PCF instances, see link:http://docs.run.pivotal.io/devguide/services/integrate-splunk.html[Integrating Splunk] to install the correct log formatting tools for PCF.
+
+==== Firehose
+
+The first version of the link:https://groups.google.com/a/cloudfoundry.org/forum/#!msg/vcap-dev/FE_w5xDG-dg/EPoUMY_B3JkJ[firehose] was just released as part of cf-release (OSS).  
