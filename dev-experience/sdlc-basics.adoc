@@ -39,8 +39,10 @@ Manifests help automate the deployment.
 . Create an application manifest in `manifest.yml`.  Minimally, set the name of the app, the amount of memory, the number of instances, and the path to the .jar file.
 
 . The IBM Bluemix team has created a manifest generator app that can also be used:
-** Hosted: http://cfmanigen.mybluemix.net/
-** Source: https://github.com/IBM-Bluemix/cf-manifest-generator
++
+* Hosted: http://cfmanigen.mybluemix.net/
+* Source: https://github.com/IBM-Bluemix/cf-manifest-generator
++
 
 . Test your manifest by re-pushing your app with no parameters:
 +
@@ -123,22 +125,22 @@ Did it work?  Let's figure out why not.
 
 . Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/troubleshoot-app-health.html[Troubleshooting App Health]
 
-[NOTE]
-====
-What do the recent logs tell you?
-====
+. What do the recent logs tell you?
+
 
 === Manually Creating a Service
 
 Looks like we need a service.  Let's create one.
 
 . Review the docs on Services:
-** link:http://docs.pivotal.io/pivotalcf/devguide/services/adding-a-service.html[Adding a Service]
-** link:http://docs.pivotal.io/pivotalcf/devguide/services/managing-services.html[Managing Services]
++
+* link:http://docs.pivotal.io/pivotalcf/devguide/services/adding-a-service.html[Adding a Service]
+* link:http://docs.pivotal.io/pivotalcf/devguide/services/managing-services.html[Managing Services]
++
 
 . Create a mysql service instance
 
-. Launch the DB console from the Users Console.  Note the database is empty with zero connections.
+. Launch the DB console from the Developer Console.  Note the database is empty.
 
 === Manually Binding the Service Instance
 
@@ -150,8 +152,6 @@ Looks like we need a service.  Let's create one.
 
 === Binding via the Manifest
 
-link:_includes/script.adoc[]
-
 . Add the services binding to your deployment manifest.
 
 . If you are going to expand the service to leverage different Spring profiles, you should also set the `SPRING_PROFILES_ACTIVE` environment variable to `cloud`.
@@ -162,15 +162,25 @@ link:_includes/script.adoc[]
 
 . Review the document on Environment Variables: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/environment-variable.html
 
-[NOTE]
-====
-* What variable shows your mysql service instance?
+. What variable shows your mysql service instance?
 
-* How could you set the `SPRING_PROFILES_ACTIVE` variable from the CLI?
-====
+. How could you set the `SPRING_PROFILES_ACTIVE` variable from the CLI?
+
 
 == Scaling
 
 Apps can be scaled via the CLI or the Console.
 
+=== Vertical Scale
+
+. Increase your app memory to 1G.
+
+. What happens?  How long does it take?  Why?
+
+. Scale your app memory back down to 512M.
+
+=== Horizontal Scale
+
 . Scale your app to 2 instances.
+
+. What happens?  How long does it take?  Why?
