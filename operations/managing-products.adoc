@@ -35,6 +35,6 @@ In this exercise, you will install and configure the products which will be used
 
 . *Jenkins*: You will have to enter license information.  Enter your information for a temporary license.
 
-. *Ops Metrics*: We will configure Ops Metrics in a later exercise.  In order to install it, you need to set up a JMX Provider username and password.  We will use this later.
+. *Ops Metrics*: We will configure Ops Metrics in a later exercise.  In order to install it, you need to set up a JMX Provider username and password.  The user/pwd to use is provided in the environment spreadshet.
 
 . When you have completed configuration, select `Install` in the Ops Manager interface.
