@@ -13,6 +13,7 @@ We will configure PaaS monitoring via JMX and drain PCF system logs into a 3rd p
 
 . Download the logs from the `Logs` tab and commit them into your github repo.
 
+
 == Installation & Configuration
 
 Configure Ops Metrics and Syslog draining before deploying changes in Ops Manager.

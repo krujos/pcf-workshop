@@ -1,18 +1,42 @@
 = Developer Basics
 
+== Overview
+
+In this section, we will log in and create the necessary structures for the rest of the class.
+
+== Exercises
+
+=== The Command Line Interface (CLI)
+
 . Review the documentation on the link:http://docs.pivotal.io/pivotalcf/devguide/installcf/whats-new-v6.html[Command Line Interface]
 
 . Review the documentation on link:http://docs.pivotal.io/pivotalcf/customizing/api-endpoint.html[API Endpoints & Targeting]
-** Target and log in to your Pivotal CF instance
+
+. Target and log in to your Pivotal CF instance
+
+
+=== The Developer Console
 
 . Review the documentation on the link: http://docs.pivotal.io/pivotalcf/console/dev-console.html[Console]
-** Log into the developer console of your Pivotal CF instance
+
+. Log into the developer console of your Pivotal CF instance
+
+
+=== Users, Orgs, Spaces, & Roles
 
 . Review the documentation on link:http://docs.pivotal.io/pivotalcf/concepts/roles.html[Orgs, Spaces, Roles, and Permissions]
-** Create a new organization called `immersion`
-** Create a new space in the `immersion` org called `development`
-** Create a new user account for yourself and assign the necessary roles to the org & space.  You will be managing applications and services.
-** Log out as the default admin from the console & the CLI and log in using your new account
 
-. Review the documentation on link:http://docs.pivotal.io/pivotalcf/opsguide/change-quota-plan.html[Quotas]
-** Change the quota of the `immersion` organization to allow up to 20GB of memory
+
+==== Your Account, Org & Space
+
+. Create a new organization: first initial + last name
+
+. Create a new space in your org called `development`
+
+. Create a new user account for yourself and assign the necessary roles to the org & space.  You will be managing applications and services.
+
+. Create a new quota for your organization to allow up to 15GB of memory.  Use the same settings as the `default` plan for other inputs.
+
+. Create a new quota for your space to allow up to 10GB of memory.  Ensure an app instance to only use 2GB of memory.  Use the same settings as the org for other inputs.
+
+. Log out as the default admin from the console & the CLI and log in using your new account
