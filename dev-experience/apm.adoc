@@ -14,7 +14,7 @@ To understand the APM monitoring options and enable APM monitoring
 
 . Sign up for a free link:http://appdynamics.com[AppDynamics] account
 
-. Create a user provided service instance and bind it to your microservice.
+. Create a user provided service instance and bind it to your microservice. link:http://www.appdynamics.com/blog/java/monitoring-apps-on-the-cloud-foundry-paas/[Reference]
 +
 [source,bash]
 ----
