@@ -10,4 +10,4 @@ To understand how to backup and restore a Pivotal CF installation.
 
 . In the interest of time, we will skip the complete backup.
 
-. Instead, simply export the Ops Manager installation settings and commit them in a folder called `Ops Manager Backup` in your github project.
+. *DO NOT DO THIS.  THERE IS A BUG*: Instead, simply export the Ops Manager installation settings and commit them in a folder called `Ops Manager Backup` in your github project.
