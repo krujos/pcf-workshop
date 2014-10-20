@@ -20,11 +20,6 @@ All code from the exercises will be pushed to a single repository per student.  
 * link:https://github.com[Github account]
 
 * link:http://git-scm.com/downloads[Git client]
-+
-[IMPORTANT]
-====
-TODO: SET UP ORG FOR CODE BEFORE CLASS
-====
 
 ==== Create a Project for the Class
 
