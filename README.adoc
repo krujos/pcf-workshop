@@ -97,12 +97,3 @@ Students should have the following:
 . link:buildpack/README.adoc[Customizing Build Packs]: Customize a build pack and use it to deploy your micro service.
 
 . link:api-gateway/README.adoc[API Gateway]: Transform the data from your micro service using the API gateway.
-
-== Possible Topics
-
-* Docker
-* Push Notification
-* Data Sync
-* PHD Service
-* Sizing PCF installations
-* How do we incorporate domains?
