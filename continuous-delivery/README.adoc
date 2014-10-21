@@ -15,15 +15,14 @@ This lab will guide you through building a BASIC continuous delivery pipeline us
 . We will leverage the Jenkins instance deployed by Ops Manager.
 ** Login to your Jenkins instance deployed by Ops Manager.
 ** Navigate to `Manage Jenkins` > `Manage Plugins` > `Available`
-** Install the following plugins:
+** Ensure the following plugins are installed:
 +
-* Gradle
+* Gradle (should be installed)
 * Mask Passwords
 * Extensible Choice Parameter Plugin
 * Artifactory Plugin
-* Parameterized Trigger Plugin
+* Parameterized Remote Trigger Plugin
 +
-When you do, tell Jenkins to restart after plugin install.
 
 ==== Artifactory Online Set Up
 
