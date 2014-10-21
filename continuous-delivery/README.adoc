@@ -12,10 +12,30 @@ This lab will guide you through building a BASIC continuous delivery pipeline us
 
 ==== Jenkins Setup Steps
 
-. We will leverage the Jenkins instance deployed by Ops Manager.
-** Login to your Jenkins instance deployed by Ops Manager.
-** Navigate to `Manage Jenkins` > `Manage Plugins` > `Available`
-** Ensure the following plugins are installed:
+We will leverage the Jenkins instance deployed by Ops Manager.
+
+. Login to your Jenkins instance deployed by Ops Manager.  Use the `Admin` user under `UAA`.
+
+. Navigate to `Manage Jenkins` > `Configure System`
+
+. Add the JDK 1.8 installation under the `JDK` section
++
+* `Add Installer` > `Install from java.sun.com`
+* Agree to the license
+* Provide your Oracle login information
+* Ensure `Install automatically` is selected
++
+
+. Add the latest stable Gradle under the `Gradle section`
++
+* Ensure `Install automatically` is selected
+* `Install from Gradle.org`
+
+. Click `Apply` then `Save`
+
+. Navigate to `Manage Jenkins` > `Manage Plugins` > `Available`
+
+. Ensure the following plugins are installed:
 +
 * Gradle (should be installed)
 * Mask Passwords
@@ -24,78 +44,34 @@ This lab will guide you through building a BASIC continuous delivery pipeline us
 * Parameterized Remote Trigger Plugin
 +
 
-==== Artifactory Online Set Up
-
-. Login to your Aritfactory Online instance.
-
-. Navigate to +Admin > Security > General+.
-
-. Activate encryption for passwords.
-
-. Next navigate to +Admin > Security > Users+.
-
-. Create a new user named +deployer+ with a password of your choosing.
-
-. Once created, navigate to +Admin > Security > Permissions+.
-
-. +Edit+ the +Anything+ permissions target.
-
-. Select the +Users+ tab, and check all permissions for your new user.
-
-. Logout, and then log back in as your new user.
-
-. Click on the account name in the top right hand corner of the screen.
-
-. Enter your password and click +Unlock+.
-
-. Copy your encrypted password and paste it somewhere safe.
-
-. Next, go back to Jenkins. And navigate to +Manage Jenkins > Configure System+.
-
-. Find Artifactory, and add a new Artifactory server:
-+
-URL:: `https://<<your artifactory hostname>>.artifactoryonline.com/<<your artifactory hostname>>` (e.g. +https://mattstine.artifactoryonline.com/mattstine+)
-Username:: the user you created in artifactory
-Password:: the encrypted password you copied a moment ago
-
-. Click +Apply+. Then click +Test Connection+ and ensure things are working.
+. Tell Jenkins to restart after plugin install
 
 === Create the Initial Build Job
 
 . Navigate back to Jenkins Home.
 
-. Click +New Job+, give it the name +citytest+ and select ``Build a free-style software project.'' Then click +OK+.
+. Click `create new jobs`, give it a name and select `Build a free-style software project` Then click `OK`.
 
-. Under +Source Code Management+, select +Git+, and supply your repository URL (e.g. `https://github.com/<YOUR_GIT_USERNAME>/citytest`).
+. Under `Source Code Management`, select `Git`, and supply your repository URL and credentials
 
-. Under +Build Triggers+, select +Poll SCM+ and provide the string +* * * * *+.
+. Under `Build Triggers`, select `Poll SCM` and provide the string `* * * * *` (every minute).
 
-. Under +Build Environment+, select +Gradle-Artifactory Integration+.
+. Under `Build`, add a `Invoke Gradle Script` build step.
 +
-* Select your Artifactory server.
-* Select +libs-releases_local+ as the +Publishing Respoitory+.
-* Ensure the following are checked:
-** Capture and publish build info
-** Allow promotion of non-staged builds
-** Publish artifacts to Artifactory
-** Publish Ivy descriptors
-
-. Under +Build+, add a +Invoke Gradle Script+ build step.
-+
-Gradle Version:: gradle-latest
+Gradle Version:: The one you created above
 Build Step Description:: +build environment agnostic artifact+
-Switches:: +-Pbuildversion=$BUILD_NUMBER+
-Tasks:: +clean assemble+
+Switches:: `-Pbuildversion=$BUILD_NUMBER`
+Tasks:: `clean assemble`
 
-. Save the config and try running the build by clicking ``Build Now''. Ensure that you see the artifact in Artifactory.
+. Save the config and try running the build by clicking ``Build Now''.
 
-=== Create the Deploy Job
+=== TODO Create the Deploy Job
 
 . Navigate back to Jenkins Home.
 
-. Click +New Job+, give it the name +citytest-deploy+ and select ``Build a free-style software project.'' Then click +OK+.
+. Click `New Job`, give it a name and select ``Build a free-style software project.'' Then click +OK+.
 
-. Check +This build is parameterized+.
+. Check `This build is parameterized`.
 
 . Click +Add Parameter+ and choose +Extensible Choice+.
 +
