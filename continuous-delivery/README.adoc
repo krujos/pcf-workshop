@@ -40,7 +40,6 @@ We will leverage the Jenkins instance deployed by Ops Manager.  This is located 
 * Gradle (should be installed)
 * Mask Passwords
 * Extensible Choice Parameter Plugin
-* Artifactory Plugin
 * Parameterized Remote Trigger Plugin
 +
 
