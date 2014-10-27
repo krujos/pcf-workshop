@@ -6,18 +6,20 @@ This section provides the basic information and understanding required to unders
 
 == Goal
 
+*NOTE*: To get the Keynotes, clone/fork the repo or "Save As".
+
 To understand:
 
-* link:https://github.com/Pivotal-Field-Engineering/alliances-immersion/tree/master/basics/Intro_to_PivotalCF.key.zip[Intro to Cloud Foundry]
+* link:https://github.com/Pivotal-Field-Engineering/alliances-immersion/tree/master/basics/Intro_to_PivotalCF.key[Intro to Cloud Foundry]
 ** 3rd platform and what market forces have lead us here
 ** Platform as a Service basics
 ** The Cloud Foundry Foundation
 ** Pivotal CF: The Enterprise Cloud Foundry
 
-* link:https://github.com/Pivotal-Field-Engineering/alliances-immersion/tree/master/basics/Technical_Overview.key.zip[Technical Overview]
+* link:https://github.com/Pivotal-Field-Engineering/alliances-immersion/tree/master/basics/Technical_Overview.key[Technical Overview]
 ** The basic components in Pivotal CF
 ** How the components and capabilities contribute to the 4 Core Tenents of Cloud Foundry
 ** The 4 Levels of High Availability
 
-* link:https://github.com/Pivotal-Field-Engineering/alliances-immersion/tree/master/basics/Resources.key.zip[Resources]
+* link:https://github.com/Pivotal-Field-Engineering/alliances-immersion/tree/master/basics/Resources.key[Resources]
 ** Where to go for more information
