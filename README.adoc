@@ -1,28 +1,9 @@
 = Pivotal CF Associate Training
 
-== Instructor TO DO
+== October 20, 2014 - Denver CO
 
-. Set up windows VMs w/ vCenter for each env
-
-. Github organization
-
-== Notes & Goals
-
-* Work in progress.
-
-* The goal is not to re-invent content but to leverage existing sources and refine to ensure a cohesive evolution of understanding while building a comprehensive, functional solution.
-
-* Scope will be refined based on what we believe a developer can achieve.  Detailed scope is defined in each sub model.  Timing is the critical factor in finalizing this.
-
-* Exercises and slide content will be aggregated from existing sources and revised as needed.
-
-* Slide content is anticipated to be minimal.  Whenever possible maintained docs should be referenced (i.e. from docs.pivotal.io).  Our docs site + team are incredible and content is up to date.  Syncing into a different format (i.e. slides) will not benefit an SI.  We want to get them used to referencing the docs site and we want to alleviate ourselves from the burden of syncing content.
-
-* Dependencies exist on the environment in use and will have an impact on scoping.
 
 == General Approach
-
-This is an overview only.  See each sub model for scoping details & complete success criteria.  The goal is to create a flow that builds conceptually and functionally throughout the duration of the course.
 
 At the end of the 4 day course, the student should have a custom built micro service that meets the following:
 
@@ -80,7 +61,7 @@ Students should have the following:
 ** Installing Pivotal CF
 ** Managing Products with Ops Manager
 ** Scaling the platform
-** PaaS monitoring 
+** PaaS monitoring
 ** Backing up Pivotal CF
 ** Bosh basics & troubleshooting
 
@@ -116,12 +97,3 @@ Students should have the following:
 . link:buildpack/README.adoc[Customizing Build Packs]: Customize a build pack and use it to deploy your micro service.
 
 . link:api-gateway/README.adoc[API Gateway]: Transform the data from your micro service using the API gateway.
-
-== Possible Topics
-
-* Docker
-* Push Notification
-* Data Sync
-* PHD Service
-* Sizing PCF installations
-* How do we incorporate domains?
