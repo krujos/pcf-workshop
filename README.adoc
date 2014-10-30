@@ -1,8 +1,5 @@
 = Pivotal CF Associate Training
 
-== October 20, 2014 - Denver CO
-
-
 == General Approach
 
 At the end of the 4 day course, the student should have a custom built micro service that meets the following:
