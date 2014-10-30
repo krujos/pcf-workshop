@@ -32,11 +32,11 @@ $ cf create-security-group
 
 
 
-. Bind the security group to the run phase of your space
+. Bind the security group to your space
 +
 [source,bash]
 ----
-$ cf bind-running-security-group
+$ cf bind-security-group
 ----
 +
 

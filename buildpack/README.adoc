@@ -247,7 +247,7 @@ OK
 +
 [source,bash]
 ----
-$ cf push
+$ cf push -b <the name you gave your buildpack>
 Using manifest file /Users/pivotal/workspace/pse-training/pse-hw-module/code/manifest.yml
 
 Updating app cities in org mstine-org / space demo as admin...

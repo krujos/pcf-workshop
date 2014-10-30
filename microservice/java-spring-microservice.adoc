@@ -27,7 +27,7 @@ Spring Boot Version:: 1.1.8
 Project Dependencies:: Actuator, JPA, Rest Repositories, Web
 
 +
-Then click `Generate`. This will result in a file called `starter.zip` being downloaded to your workstation.
+Then click `Generate`. This will result in a zip file being downloaded to your workstation.
 
 . Create a directory in your github repository to house your code, and unzip `starter.zip` into that directory.
 
