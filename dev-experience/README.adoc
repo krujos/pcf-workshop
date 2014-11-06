@@ -2,7 +2,7 @@
 
 == Goals
 
-To build a microservice, deploy it to PCF, leverage the platform for monitoring & management, and automate a continuous delivery pipeline.
+To deploy and configure a microservice and UI, leverage the platform for monitoring & management, and automate a continuous delivery pipeline.
 
 == Exercises
 
@@ -17,11 +17,19 @@ This section provides a high level overview of the basic concepts and components
 ** Orgs, spaces, roles and permissions
 ** Quotas
 
-=== Building a Microservice
+=== Applications & Services
 
-Now, we need an application to deploy to Pivotal CF.  Let's build it.
+Now, we need applications to deploy to Pivotal CF.  The `pcf-immersion-workshop` project you forked has a directory called `cities` we will use for this section.
 
-* link:../microservice/README.adoc[Building a Microservice]
+* Review the material on link:microservices.adoc[microservices & app best practices]
+
+* Review the link:https://github.com/pcf-alliances-immersion/pcf-immersion-workspace/tree/master/cities[overview] of the `cities` repository.  It is important to understand the components of this project as we will use them throughout the remainder of the class.
+
+* link:local-microservice.adoc[Running the cities-service locally]
+** Import the project into STS
+** Run it locally using Spring Boot
+** Understanding Spring Boot Actuator
+
 
 === Developer Experience - Part 2
 
@@ -33,6 +41,26 @@ Now, we need an application to deploy to Pivotal CF.  Let's build it.
 ** Binding to services
 ** Environment variables
 ** Scaling apps
+
+
+
+* link:deploy-microservice.adoc[Deploy the cities microservice]
+** Manually deploy the microservice
+** Create a manifest for the microservice
+** Connect microservice to an external database
+
+* Deploy the UI application
+** Create a service representing the microservice endpoint deployed above
+** Deploy the UI application
+
+* Create a multi-app manifest to deploy both the microservice & UI apps
+
+
+
+* link:../microservice/README.adoc[Building a Microservice]
+
+
+
 
 * link:ide-integration.adoc[IDE integration]
 
