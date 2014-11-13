@@ -24,10 +24,17 @@ To install and configure Pivotal CF on vSphere with services.
 +
 * A jump box has been set up that includes the necessary downloads and the vCenter client.  You can connect to this via Remote Desktop.
 
-* link:https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12[Remote Desktop for Mac]
+* The student VM includes a linux Remote Desktop client called "Remmina".  You can launch it from a terminal window:
++
+[source,bash]
+----
+$ remmina
+----
++
+* Alternative: link:https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12[Remote Desktop for Mac]
 +
 
-. Log into Ops Manager by going to `https://OPS-MGR-IP` and creating a user and password.
+. Log into Ops Manager by going to `https://OPS-MGR-IP` and creating a user and password.  *Be sure to set the username and password supplied by the instructor*.
 
 === Configuring Ops Manager Director
 
@@ -37,6 +44,8 @@ To install and configure Pivotal CF on vSphere with services.
 * Because we are resource constrained, we will not be taking advantage of the following: Availability Zones, Multiple Newtorks, Multiple Datastores.  However, you must still configure each in Ops Manager.
 +
 
+. *Director Config*: *Be sure to select the `Enable VM Resurrector Plugin`*.
+
 . *Availability Zones*: Due to resource constraints, we have a single Cluster call `PCF`.  Create a single AZ mapped to this cluster.
 
 . *Networks*: Your vSphere environment is pre-configured with one network due to resource constraints.
@@ -44,6 +53,8 @@ To install and configure Pivotal CF on vSphere with services.
 * `NAT` should be used for both `Infrastructure` and `Deployment`
 * Review the link:http://docs.pivotal.io/pivotalcf/customizing/network-segmentation.html[Network Segmentation] documentation.
 +
+
+. QUESTION: What is the preferred network segmentation strategy?
 
 . Be sure all tabs on the left have a green check mark and that the tile is green on the dashboard before continuing to the next exercise.
 
