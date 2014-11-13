@@ -10,4 +10,6 @@ To understand how to scale Pivotal CF components based on usage.
 
 . Review the documentation on link:http://docs.pivotal.io/pivotalcf/concepts/high-availability.html[Scaling]
 
-. What component would you scale to add capacity to host additional application instances?  How would you scale this component?
+. QUESTION: What component would you scale to add capacity to host additional application instances?
+
+. QUESTION: Where in Ops Manager would you scale the above component?  
