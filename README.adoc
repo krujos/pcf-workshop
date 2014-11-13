@@ -1,19 +1,5 @@
 = Pivotal CF Associate Training
 
-== General Approach
-
-At the end of the 4 day course, the student should have a custom built micro service that meets the following:
-
-* Auto scaled
-* Monitored
-* Has its logs aggregated and dumped into an external logging analysis tool (i.e. splunk)
-* Flows through the API Gateway
-* Secured via an app security group
-* The micro service will leverage a custom created service and service broker.  The broker will be deployed to PCF.
-* The application will be fully automated for full continuous delivery using the blue/green deployment approach.
-* Remotely debuggable through an IDE
-* Run using a customized build pack
-* Is deployed on a student installed PCF installation which is fully monitored
 
 == Prerequisites
 
@@ -24,13 +10,9 @@ Students will have completed the following courses on Pivotal Academy:
 * link:https://pivotalpartners.biglms.com/courses/Partners/Pivotal100/VWN/about[Pivotal100]: Introduction to Pivotal
 * link:https://pivotalpartners.biglms.com/courses/PivotalU/CF200/VWZP/about[CF200]: Pivotal CF Getting Started
 
-=== Developer Set Up
+=== Student Set Up
 
-Students should have the following:
-
-* Active Github account
-* git client installed locally
-* Their favorite IDE
+* Follow the instructions on link:student-setup.adoc[Student Set Up].  This is crucial to your success in the course.
 
 == Associate Certification
 
@@ -38,9 +20,11 @@ Students should have the following:
 
 * Students will be allowed to pair during the class but each have to submit their own completed exercises.
 
-* Students are expected to complete each module.
+* Students are expected to complete every exercise.
 
-* All code will be pushed by students into a github repo for review and in case they need to continue working after the class to complete the tasks below.
+* Artifacts must be pushed by students into their own fork of the `pcf-immersion-workspace` for review.
+
+* Students must complete the *QUIZ*.  It is highly recommended you complete the questions as you work on each module.
 
 === Agenda
 
@@ -54,7 +38,7 @@ Students should have the following:
 ** Technical Overview
 ** Resources
 
-. link:operations/README.adoc[The Operator Experience]: Paired installation that will be used throughout the class
+. link:operations/README.adoc[The Operator Experience]
 ** Installing Pivotal CF
 ** Managing Products with Ops Manager
 ** Scaling the platform
