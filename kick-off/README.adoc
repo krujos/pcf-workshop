@@ -1,37 +1,9 @@
 = Kick Off
 
-== Prerequisites
+== Set Up
 
-=== CLI
+Follow the directions for link:../student-setup.adoc[student set up].
 
-link:https://github.com/cloudfoundry/cli#downloads[Cloud Foundry Command Line Interface]
+== Logistics
 
-* Verification:
-+
-[source,bash]
-----
-$ cf --version
-----
-
-=== Github
-
-All code from the exercises will be pushed to a single repository per student.  Be sure you have a Github account and the Git client installed locally.
-
-* link:https://github.com[Github account]
-
-* link:http://git-scm.com/downloads[Git client]
-
-==== Create a Project for the Class
-
-. On github, select "New".
-. Create a repository in the class organization.
-** Name your repository: `<first-initial><last-name>`
-** Select: `Initialize this repository with a README`
-** Select: `Add .gitignore: Gradle`
-. Clone the repository to your local machine.
-
-=== Developer Tools
-
-* The class resources leverage Java/Spring.  However, students can chose to complete the exercises in Ruby or GO if they desire.
-
-* Students must be ready to develop code using their selected language: IDE, JDK, etc.
+link:KickOff.key[Kick Off Logistics]
