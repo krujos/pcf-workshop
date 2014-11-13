@@ -1,44 +1,137 @@
-= Troubleshooting with the Bosh CLI
+= Bosh basics & troubleshooting
 
 == Goal
 
-To understand the basics of Bosh and the advanced troubleshooting techniques using the Bosh CLI
+To understand the basics of troubleshooting techniques.
 
-== Exercise
+== Exercises
+
+=== Ops Manager
+
+Ops Manager is a rails application.  It is installed as a service called `tempest-web`.
+
+==== Ops Manager installation directory
+
+It is important to be aware of the two main directories used by Ops Manager.  You can access these by ssh-ing into the Ops Manager VM.
+
+. Ops Manager is started out of the /home/tempest-web directory.
+
+. Ops Manager uses the /var/tempest directory to store installation components.
+
+==== Restarting Ops Manager
+
+If your Ops Manager application becomes unresponsive, you may need to restart it.
+
+. SSH into the Ops Manager VM
+
+. Restart Ops Mgr:
++
+[source,bash]
+----
+$ sudo service tempest-web start
+$ sudo service tempest-web stop
+----
++
+
+
+==== Ops Manager Debug Endpoints
+
+Ops Manager has a `debug` endpoint that can be useful for grabbing overview information.  This can be useful when filing bug reports or troubleshooting.
+
+. Navigate to https://<YOUR_OPS_MGR>/debug
+
+. *files*: contains a yml representation of your installation.
+
+. *component_types*: shows summary of all installed components/tiles and their configuration.
+
+. *rails_log*: shows a recent tail of the logs for the rails application.
+
 
 === Bosh Overview
 
+The following overview will be applied throughout the exercises.
+
 . Review the link:http://docs.cloudfoundry.org/bosh/understanding-bosh.html[Understanding Bosh] documentation
 
-. Review the link:http://docs.cloudfoundry.org/bosh/jobs.html[Bosh Jobs & Errands] documentation
+. Review the link:http://docs.cloudfoundry.org/bosh/bosh-components.html[Bosh Components] documentation
 
-. Review the sample link:sample-manifest.yml[manifest]
-+
-* What template is used to create the cloud controller?
-* What errands exist in this manifest?
-+
+. QUESTION: What bosh component is responsible for recreating a failed VM?
 
+. QUESTION: Where did you enable this component in Ops Manager?
 
-=== Troubleshooting
+==== Using Bosh
 
 . Review the documentation on link:http://docs.pivotal.io/pivotalcf/customizing/trouble-advanced.html[Advanced Troubleshooting]
 
 . Log into your Ops Manager VM via SSH
 
-. From the Ops Manager VM, log into the Bosh director
+. From the Ops Manager VM, target & log into the Bosh director
 
-. Copy and paste the list of all VMs from the Bosh director for the Elastic Runtime.  Save this in your git repo in a file called `ElasticRuntimeVMs.txt`.
+==== Downloading the deployment manifest
+
+In the section on link:backup-pcf.adoc[Backing up PCF], you should have read the step on downloading the deployment manifest.  To demonstrate the basics of targeting the director and logging in, you will download and push a manifest to you project repository.
+
+. Review the documentation on link:http://docs.cloudfoundry.org/bosh/sysadmin-commands.html[Bosh Commands for System Administration]
+
+. Download the deployment manifest for Jenkins and push it to your class  repository in the `operations` directory.
+
+==== Manifest Basics
+
+. Review the link:http://docs.cloudfoundry.org/bosh/jobs.html[Bosh Jobs & Errands] documentation
+
+. QUESTION: What is the name of the stemcell used to create the jenkins master job?
+
+. QUESTION: What errands exist in this manifest?
+
+==== Bosh Troubleshooting
+
+. Review the documentation on link:http://docs.cloudfoundry.org/bosh/disaster-recovery.html[Disaster Recovery]
+
+. QUESTION: What command would you use to attempt to manually scan the health and possibly recover failed VMs?
+
+==== Bosh Logging
+
+. Review the documentation on link:http://docs.cloudfoundry.org/bosh/job-logs.html[Bosh Logs]
+
+. Follow the instructions and download the *agent* logs for the cloud controller.
+
+. QUESTION: Assume the above command failed.  Explain what steps you would take to attempt to review the logs.
+
+==== Monit basics
+
+Bosh uses link:http://mmonit.com/monit/[monit] to manage running processes on VMs.  In this exercise, you will ssh to the cloud controller vm and view the running processes.  You must push the result into your project repository as detailed below.
+
+. Use `bosh ssh` to ssh into the cloud controller.  You may be prompted by the following:
 +
-* *NOTE:* `pscp` can be used to copy the file from the ops manager vm to the jumpbox.  Putty and pscp are in: `C:\Program Files (x86)\PuTTY`
-* `pscp tempest@192.168.5.2:ElasticRuntimeVMs.txt .`
+* Enter password (use it to sudo on remote host): Whatever you supply here, you can use during your SSH session if you need to sudo as root.  This is a temporary password.  It is common to just use `*`.
+* Enter passphrase for key '/home/tempest/.ssh/id_rsa: Hopefully you actually read the docs on link:http://docs.pivotal.io/pivotalcf/customizing/trouble-advanced.html[Advanced Troubleshooting] above.  This is the password you set when you *previously* ran:
++
+[source,bash]
+----
+$ ssh-keygen -t rsa
+----
++
+* bosh_something@192.168.someIP's password: Enter the sudo password you set above.
 +
 
-. What are the vms that show up as `unknown/unknown`?
+. Assume root
++
+[source,bash]
+----
+$ sudo su
+----
++
 
-== OPTIONAL: Installing the Bosh CLI
+. Navigate to /var/vcap and have a look around.  This is the main directory where bosh installs everything.
 
-The Bosh CLI is available in the Ops Manager VM.  However, you might want bosh locally.  The bosh CLI is installed as a Ruby gem.
+. The /var/vcap/bosh/bin directory contains the monit executable.  Export a list of running processes and push this to your repository in the `operations` directory:
++
+[source,bash]
+----
+$ /var/vcap/bosh/bin/monit summary > cc_monit_summary.txt
+----
++
 
-. If you don't have Ruby, install it via link:http://rvm.io[RVM]
+. *If you needed to*, you could restart a process with `monit restart XXXXX`
 
-. Follow the directions to link:https://github.com/cloudfoundry/bosh#install[Install the Bosh CLI]
+. Exit the bosh ssh session and the Ops Manager VM ssh session.
