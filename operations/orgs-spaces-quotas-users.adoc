@@ -1,0 +1,45 @@
+= Orgs, Spaces, Quotas, Users & Roles
+
+== Overview
+
+In this section, we will log in and create the necessary structures for the rest of the class.
+
+== Exercises
+
+=== The Command Line Interface (CLI)
+
+. Review the documentation on the link:http://docs.pivotal.io/pivotalcf/devguide/installcf/whats-new-v6.html[Command Line Interface]
+
+. Review the documentation on link:http://docs.pivotal.io/pivotalcf/customizing/api-endpoint.html[API Endpoints & Targeting]
+
+. Target and log in to your Pivotal CF instance
+
+=== Users, Orgs, Spaces, & Roles
+
+. Review the documentation on link:http://docs.pivotal.io/pivotalcf/concepts/roles.html[Orgs, Spaces, Roles, and Permissions]
+
+==== Orgs & Spaces
+
+. Create a new organization: `first initial + last name` in all lower case.
+
+. Create a new space in your org called `development`.
+
+. Create a new space in your org called `qa`.
+
+==== Users & Roles
+
+. Create a new user account for yourself and assign the necessary roles to the org & spaces.  You will be managing applications and services.
+
+==== Quotas
+
+. View the settings for the `default` quota.
+
+. Create a new quota for your organization to allow up to 20GB of memory.  Use the same settings as the `default` quota for other inputs.
++
+* *DO NOT* follow the docs.pivotal.io guide as this is out of date.  You should be using the `cf` commands instead of curl requests.
++
+
+. Create a new quota for your development space to allow up to 10GB of memory.  Ensure an app instance can use up to 2GB of memory.  Use the same settings as the org for other inputs.
++
+* *DO NOT* follow the docs.pivotal.io guide as this is out of date.  You should be using the `cf` commands instead of curl requests.
++
