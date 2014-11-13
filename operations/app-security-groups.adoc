@@ -1,0 +1,62 @@
+= Application Security Groups
+
+== Goal
+
+In this section, you will establish application egress policies for you CF installation & spaces.  We will establish a restrictive default running policy, then override this for our space.
+
+== Exercise
+
+*Note*: You must be logged in as an `admin` to manipulate security groups.
+
+=== Reference
+
+. Review the documenation on link:http://docs.pivotal.io/pivotalcf/adminguide/app-sec-groups.html[Application Security Groups]
+
+. A script for binding a security group is included link:https://github.com/omearaj/securityGroups/blob/master/scripts/setSecGroups.sh[here] as a reference only.  *THIS SCRIPT DOES NOT MEET THE EXERCISE REQUIREMENTS*.
+
+=== Establishing a default running policy
+
+In this exercise, you will establish a restrictive security group that will be applied to all running applications.
+
+. Create a new security group rules file.  This group must:
++
+* Allow all UDP traffic on the network subnet only.
+* Restrict all TCP traffic.
++
+
+. Push your security group file to your class repository.  Name the file `running-security-group.json` and put it in the `operations` directory.
+
+. *NOTE*: If you are sharing an environment, this portion of the exercise must be completed together as you will only have one default running policy.
++
+* Create the new security group
++
+[source,bash]
+----
+$ cf create-security-group
+----
++
+* Use the CLI to enable this security group, and only this security group, as the `running-security-group`.
+*Do not modify the staging security group.
++
+
+. QUESTION: What is the name of the default "staging-security-group"?
+
+=== Overriding default policies in your spaces
+
+In this section, you will establish an overriding policy and apply it to your organization and spaces.  You will need to modify this policy as the class progresses to allow for additional egress from your spaces.
+
+. Create a new security group file and name it `<first-initial><last-initial>-space-security-group.json`
+
+. Start with an empty array: `[]`
+
+. Push this file to your git repository in the `operations` directory
+
+. Use the cli to bind the security group to your `development` and `qa` spaces
++
+[source,bash]
+----
+$ cf bind-security-group
+----
++
+
+. As the class progresses, be sure you modify this security group to allow necessary egress.  Be sure to continue to push the changes the json file to your project repository.
