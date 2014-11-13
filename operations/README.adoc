@@ -1,4 +1,4 @@
-= Installation, Configuration and Management Basics
+= The Operator Experience
 
 
 == Goals
@@ -11,7 +11,9 @@ At the end of this session, students will have a Pivotal CF environment for use 
 * Monitor Pivotal CF through JMX
 * Set up Elastic Runtime syslog draining into an external log analysis tool
 * Export/backup Pivotal CF
-* Troubleshoot installation issues using Bosh
+* Bosh basics & troubleshooting
+* Establish Orgs, spaces, roles, permissions, and quotas
+* Establish application egress security rules
 
 == Exercises
 
@@ -26,3 +28,9 @@ At the end of this session, students will have a Pivotal CF environment for use 
 . link:backup-pcf.adoc[Backing up Pivotal CF]
 
 . link:bosh-troubleshooting.adoc[Bosh basics & troubleshooting]
+
+. link:orgs-spaces-quotas-users.adoc[Orgs, Spaces, Quotas, Users & Roles]
+
+. link:app-security-groups.adoc[Application Security Groups]
+
+. Log out of the CF CLI as the admin user and log in using the account you created.
