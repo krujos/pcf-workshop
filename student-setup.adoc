@@ -1,0 +1,78 @@
+= Student Set Up
+
+The following resources are required for the class.
+
+== Class Repositories
+
+=== PCF Immersion Repository
+
+Clone this repository so that you have access to the presentations.
+PDF copies are included in the same directory as each Keynote.
+
+[source,bash]
+----
+$ git clone <this-repo>
+----
+
+=== Exercise Repository: pcf-immersion-workspace
+
+A repository has been set up for individual class exercises.  You will need to fork this repository and make it public in your github account.  Do not rename the repository and be sure you *commit all of your work to your fork*.
+
+== Student VM
+
+A student VM is provided which includes all the tools needed for the class.  Use of this VM is optional.
+
+=== VM Details
+
+The VM is Ubuntu 14.04.1.  It contains:
+
+* Cloud Foundry CLI
+* Ruby
+* Bundler
+* Bosh CLI
+* Git
+* Java
+* Gradle
+* Spring Source Tool Suite
+* Remmina (Remote Desktop Client)
+
+The packer scripts used to build the box are included in this repository in the `packer` directory in case you would like to make changes to the box.
+
+=== Using the box
+
+The student VM is distributed as a vagrant box.  Be sure you have Vagrant and the Virtual Box provider installed.
+
+==== Downloading and launching the box
+
+A Vagrantfile is included in the `pcf-immersion-workspace` project.  To launch the box:
+
+[source,bash]
+----
+$ cd pcf-immersion-workspace
+$ vagrant up
+----
+
+The box should be automatically downloaded from S3.
+
+=== Logging into the box
+
+The vm will launch with a UI.  However, unless you are using Remote Desktop or STS, you don't need to be logged into the UI.  Instead you can simply ssh.  From the `packer` directory:
+
+[source,bash]
+----
+$ vagrant ssh
+----
+
+To log into the UI, use the default username/password is vagrant/vagrant.
+
+The `packer` directory also include a Vagrantfile.
+
+==== Sharing a directory
+
+By default, vagrant will share the project directory containing the Vagrantfile and sync it between your machine and the VM.  In the VM, the share is be default located at `/vagrant`.
+
+*It is HIGHLY recommended that you use this directory for classwork.*
+
+This will prevent you from losing your work in the event you run a `vagrant destroy` or otherwise harm the VM.
+
+Note: You should also be committing and pushing to your fork frequently.
