@@ -54,20 +54,21 @@ Students should have the following:
 ** Technical Overview
 ** Resources
 
-. link:operations/README.adoc[Installation, Configuration and Management Basics]: Paired installation that will be used throughout the class
+. link:operations/README.adoc[The Operator Experience]: Paired installation that will be used throughout the class
 ** Installing Pivotal CF
 ** Managing Products with Ops Manager
 ** Scaling the platform
 ** PaaS monitoring
 ** Backing up Pivotal CF
 ** Bosh basics & troubleshooting
+** Orgs, spaces, roles and permissions
+** Quotas
 
 . link:dev-experience/README.adoc[Developer Experience - Part 1]
 ** The Command Line Interface
 ** Targeting
 ** Console basics
-** Orgs, spaces, roles and permissions
-** Quotas
+
 
 . link:microservice/README.adoc[Building a Microservice]: Pair to create a simple micro service
 ** PaaS ready apps & best practices
