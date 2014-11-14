@@ -6,10 +6,12 @@ In this section, students will customize a build pack and use it to deploy an ap
 
 == Required Tools
 
-The following are required to repackage your modified buildpack:
+The following are required to repackage your modified build pack:
 
 * link:http://rvm.io/[Ruby]
 * link:http://bundler.io/[Bundler]
+
+The student VM contains the correct versions of Ruby and Bundler.
 
 == Exercise
 
@@ -19,11 +21,14 @@ The following are required to repackage your modified buildpack:
 
 === Adding Functionality
 
-. Clone the Cloud Foundry Java Buildpack from GitHub:
+. Fork the Cloud Foundry Java Buildpack from GitHub.
+
+. Clone your fork.  You should clone into the home directory of the student VM, not the `/vagrant` share.
 +
 [source,bash]
 ----
-$ git clone https://github.com/cloudfoundry/java-buildpack
+$ cd ~
+$ git clone https://github.com/<YOURFORK>/java-buildpack
 $ cd java-buildpack
 ----
 
@@ -79,105 +84,44 @@ frameworks:
 [source,bash]
 ----
 $ bundle install
-$ bundle exec rake package OFFLINE=true
+$ bundle exec rake package
 ----
 +
-Toward the end of the output, you should see something like the following, which indicates where your buildpack package as been created:
-+
-[source,bash]
-----
-cp resources/tomcat/conf/context.xml build/staging/resources/tomcat/conf/context.xml
-cp resources/tomcat/conf/logging.properties build/staging/resources/tomcat/conf/logging.properties
-cp resources/tomcat/conf/server.xml build/staging/resources/tomcat/conf/server.xml
-Creating build/java-buildpack-158e5a6.zip
-----
 
 . Now it's time to upload our extended Java buildpack to Cloud Foundry. We'll leverage the cf CLI. Ensure that you're logged in to your CF instance as an admin user.
-+
-[source,bash]
-----
-$ cf api
-API endpoint: https://api.cf.deepsouthcloud.com (API version: 2.2.0)
-
-$ cf login
-API endpoint: https://api.cf.deepsouthcloud.com
-
-Email> admin
-
-# Remainder omitted...
-----
 +
 To add our buildpack, we'll leverage +cf create-buildpack+. Run that with zero command-line options to see how the command works:
 +
 [source,bash]
 ----
-$ cf create-buildpack
-FAILED
-Incorrect Usage.
-
-NAME:
-   create-buildpack - Create a buildpack
-
-USAGE:
-   cf create-buildpack BUILDPACK PATH POSITION [--enable|--disable]
-
-TIP:
-   Path should be a zip file, a url to a zip file, or a local directory. Position is an integer, sets priority, and is sorted from lowest to highest.
-
-OPTIONS:
-   --enable     Enable the buildpack
-   --disable    Disable the buildpack
+$ cf create-buildpack ...
 ----
-+
-Add your buildpack to your CF instance like this (give your buildpack a unique name by appending some suffix like your initials):
+
+. Now it's time to test our changes. The `cities-service` contains a very basic REST controller that returns the staging timestamp in response to a GET request.
+
+. Access the `/staging` endpoint.  You should see a null timestamp as you aren't yet using your new build pack:
 +
 [source,bash]
 ----
-$ cf create-buildpack java-staging-ts build/java-buildpack-158e5a6.zip 0 --enable
-Creating buildpack java-staging-ts...
-OK
+$ curl -i http://<cities-service>/staging
+HTTP/1.1 200 OK
+Content-Length: 52
+Content-Type: text/plain;charset=ISO-8859-1
+Date: Tue, 27 May 2014 17:23:57 GMT
+Server: Apache-Coyote/1.1
+X-Application-Context: cities:cloud:0
 
-Uploading buildpack java-staging-ts...
-OK
-----
-
-. Now it's time to test our changes. We'll add a very basic REST controller to our Cities application that will return the staging timestamp in response to a GET request.
-+
-Create +cities/src/main/java/org/example/cities/StagingController.java+ and add the following code:
-+
-[source,java]
-----
-package org.example.cities;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-public class StagingController {
-
-    @RequestMapping("/staging")
-    public String index() {
-        String timestamp = System.getProperty("staging.timestamp");
-        return "Application was staged at: " + timestamp;
-    }
-}
+Application was staged at: null
 ----
 +
-Repackage and repush the application (please login as the NON-ADMIN user you created in the previous lab):
+
+. Now, re-push your app and use the `-b` flag to use your modified build pack.
+
+. Check the staging info provided by the Java build pack to see that our change was effective:
 +
 [source,bash]
 ----
-$ gradle assemble
-$ cf push -b <the name you gave your buildpack>
-----
-
-. Now let's check the staging info provided by the Java buildpack to see that our change was effective:
-+
-[source,bash]
-----
-$ cf files cities staging_info.yml
-Getting files for app cities in org mstine-org / space demo as admin...
-OK
+$ cf files <cities-service> staging_info.yml
 
 ---
 buildpack_path: /var/vcap/data/dea_next/admin_buildpacks/16b81d79-2a6a-426a-8cff-6daf779eadad_93ad9995be0bd22935c4590c6986061bbb0e9c0d
@@ -191,11 +135,11 @@ start_command: SERVER_PORT=$PORT $PWD/.java-buildpack/open_jdk_jre/bin/java -cp 
 +
 As you can see from the output, our timestamp was added as the final +-D+ argument in the +start_command+.
 
-. Finally, hit your application endpoint to see that it is working as expected:
+. Access your application again from your browser and access the `/staging` endpoint.  You should now see a message that contains the timestamp:
 +
 [source,bash]
 ----
-$ curl -i http://cities.cf.deepsouthcloud.com/staging
+$ curl -i http://<cities-service>/staging
 HTTP/1.1 200 OK
 Content-Length: 52
 Content-Type: text/plain;charset=ISO-8859-1
@@ -205,8 +149,9 @@ X-Application-Context: cities:cloud:0
 
 Application was staged at: 2014-05-27 15:52:41 +0000
 ----
++
 
-. You did it! Congratulations on completing the lab.
+. Edit your manifest to ensure future pushes leverage your build pack.
 
 === Change JRE Version
 
@@ -231,65 +176,20 @@ memory_heuristics:
 +
 [source,bash]
 ----
-$ bundle exec rake clean package OFFLINE=true
+$ bundle exec rake clean package
 ----
 
-. Update your admin buildpack:
+. Update your buildpack:
 +
 [source,bash]
 ----
-$ cf update-buildpack java-staging-ts -p build/java-buildpack-158e5a6.zip
-Updating buildpack java-staging-ts...
-OK
+$ cf update-buildpack ...
 ----
 
-. Repush your application (again, login as the NON-ADMIN user you created in the previous lab), watching the JRE version change:
-+
-[source,bash]
-----
-$ cf push -b <the name you gave your buildpack>
-Using manifest file /Users/pivotal/workspace/pse-training/pse-hw-module/code/manifest.yml
+. Repush your application, watching the JRE version change
 
-Updating app cities in org mstine-org / space demo as admin...
-OK
+. You can also verify your update by looking again at the staging info as above
 
-Uploading cities...
-Uploading app files from: /Users/pivotal/workspace/pse-training/pse-hw-module/code/build/libs/cities-0.0.1-SNAPSHOT.jar
-Uploading 735.9K, 95 files
-OK
-Binding service cities-db to app cities in org mstine-org / space demo as admin...
-OK
+=== Push your changes
 
-Stopping app cities in org mstine-org / space demo as admin...
-OK
-
-Starting app cities in org mstine-org / space demo as admin...
-OK
------> Downloaded app package (23M)
------> Downloaded app buildpack cache (38M)
------> Java Buildpack Version: 158e5a6 | https://github.com/cloudfoundry/java-buildpack.git#158e5a6
------> Downloading Open Jdk JRE 1.8.0_05 from http://download.run.pivotal.io/openjdk/lucid/x86_64/openjdk-1.8.0_05.tar.gz (found in cache)
-# Remainder omitted...
-----
-
-. You can also verify your update by looking again at the staging info:
-+
-[source,bash]
-----
-$ cf files cities staging_info.yml
-Getting files for app cities in org mstine-org / space demo as admin...
-OK
-
----
-buildpack_path: /var/vcap/data/dea_next/admin_buildpacks/e26215b3-1ff9-4e0f-82ee-c7ac2c23d24c_29caed807a9b3294f2acc7bc666c6bafb767cadd
-detected_buildpack: java-buildpack=158e5a6-https://github.com/cloudfoundry/java-buildpack.git#158e5a6
-  java-main open-jdk-jre=1.8.0_05 spring-auto-reconfiguration=1.2.0_RELEASE staging-timestamp
-start_command: SERVER_PORT=$PORT $PWD/.java-buildpack/open_jdk_jre/bin/java -cp $PWD/.:$PWD/.java-buildpack/spring_auto_reconfiguration/spring_auto_reconfiguration-1.2.0_RELEASE.jar
-  -Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh
-  -Xmx389939K -Xms389939K -XX:MaxMetaspaceSize=64M -XX:MetaspaceSize=64M -Xss985K
-  -Dstaging.timestamp='2014-05-27 17:58:04 +0000' org.springframework.boot.loader.JarLauncher
-----
-
-=== Use It!
-
-. Redeploy your microservice using the new buildpack.
+. Be sure to commit your changes to your forked buildpack repo (not the class workspace).
