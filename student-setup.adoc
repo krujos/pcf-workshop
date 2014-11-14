@@ -76,3 +76,18 @@ By default, vagrant will share the project directory containing the Vagrantfile 
 This will prevent you from losing your work in the event you run a `vagrant destroy` or otherwise harm the VM.
 
 Note: You should also be committing and pushing to your fork frequently.
+
+==== Cutting & Pasting
+
+By default, VirtualBox disables cutting and pasting between your host and the VM.  To enable it:
+
+. Be sure the VM is running
+. VirtualBox > Settings > General > Advanced > Shared Clipboard (Bidirectional)
+. Restart the VM:
++
+[source,bash]
+----
+$ vagrant halt
+$ vagrant up
+----
++
