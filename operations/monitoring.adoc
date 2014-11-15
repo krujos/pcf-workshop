@@ -89,6 +89,8 @@ $ jvisualvm
 
 . Metrics will be under `org.cloudfoundry`
 
+. Be sure to save your configuration in jvisualvm
+
 
 === Using Splunk Storm
 
