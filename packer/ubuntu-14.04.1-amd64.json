@@ -47,6 +47,7 @@
       "scripts/install-remmina.sh",
       "scripts/install-cf.sh",
       "scripts/install-gradle.sh",
+      "scripts/install-jmeter.sh",
 
       "scripts/ubuntu/cleanup.sh",
       "scripts/common/minimize.sh"
