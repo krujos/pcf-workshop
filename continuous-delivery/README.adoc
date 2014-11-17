@@ -82,26 +82,22 @@ Tasks:: `clean assemble`
 
 . You can find the values for CF_JAR and CF_MANIFEST by clicking on `Workspace` in the job config
 
-. Select `Add build step` > `Execute Shell`.  Paste the following:
+. Select `Add build step` > `Execute Shell`.  Add the following and edit to ensure a blue-green deployment:
 +
 [source,bash]
 ----
 
-#!/bin/sh
+cf login -a https://api.$CF_DOMAIN <Add the correct flags to include the username, password, org and space> --skip-ssl-validation
 
-wget http://go-cli.s3-website-us-east-1.amazonaws.com/releases/latest/cf-linux-amd64.tgz
-tar -zxvf cf-linux-amd64.tgz
-./cf --version
-./cf login -a https://api.$CF_DOMAIN -u $CF_USER -p $CF_PWD -o $CF_ORG -s $CF_SPACE --skip-ssl-validation
-
-DEPLOYED_VERSION_CMD=$(CF_COLOR=false ./cf apps | grep $CF_APP- | cut -d" " -f1)
+DEPLOYED_VERSION_CMD=$(CF_COLOR=false cf apps | grep $CF_APP- | cut -d" " -f1)
 DEPLOYED_VERSION="$DEPLOYED_VERSION_CMD"
 ROUTE_VERSION=$(echo "${BUILD_NUMBER}" | cut -d"." -f1-3 | tr '.' '-')
 echo "Deployed Version: $DEPLOYED_VERSION"
 echo "Route Version: $ROUTE_VERSION"
 
-./cf push "$CF_APP-$BUILD_NUMBER" -n "$CF_APP-$ROUTE_VERSION" -d $CF_DOMAIN -p $CF_JAR -f $CF_MANIFEST
-./cf map-route "$CF_APP-${BUILD_NUMBER}" $CF_DOMAIN -n $CF_APP
+# push a new version and map the route
+cf <???> "$CF_APP-$BUILD_NUMBER" -n "$CF_APP-$ROUTE_VERSION" -d $CF_DOMAIN -p $CF_JAR -f $CF_MANIFEST
+cf <???> "$CF_APP-${BUILD_NUMBER}" $CF_DOMAIN -n $CF_APP
 
 if [ ! -z "$DEPLOYED_VERSION" -a "$DEPLOYED_VERSION" != " " -a "$DEPLOYED_VERSION" != "$CF_APP-${BUILD_NUMBER}" ]; then
   echo "Performing zero-downtime cutover to $BUILD_NUMBER"
@@ -109,9 +105,9 @@ if [ ! -z "$DEPLOYED_VERSION" -a "$DEPLOYED_VERSION" != " " -a "$DEPLOYED_VERSIO
   do
     if [ ! -z "$line" -a "$line" != " " -a "$line" != "$CF_APP-${BUILD_NUMBER}" ]; then
       echo "Scaling down, unmapping and removing $line"
-      ./cf scale "$line" -i 1
-      ./cf unmap-route "$line" $CF_DOMAIN -n $CF_APP
-      ./cf delete "$line" -f
+      # Unmap the route and delete
+      cf <???>-route "$line" $CF_DOMAIN -n $CF_APP
+      cf <???> "$line" -f
     else
       echo "Skipping $line"
     fi
@@ -122,3 +118,5 @@ fi
 . Click `Save` and run your build
 
 . Commit a change to git and watch the magic
+
+. *When you are complete, disable SCM polling.*  Otherwise, github may disable your account for over polling.
