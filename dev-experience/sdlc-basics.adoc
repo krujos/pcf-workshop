@@ -1,8 +1,8 @@
-= Developer Experience
+= SDLC Basics
 
 == Pushing to Cloud Foundry
 
-=== Pushing via CLI Parameters
+=== Pushing via CLI
 
 Use `cf help` and/or `cf <command> --help` for details on each of the commands below.
 
@@ -15,12 +15,14 @@ Use `cf help` and/or `cf <command> --help` for details on each of the commands b
 $ cf target
 ----
 
-. Push your application:
+. Push the cities-service:
 +
 [source,bash]
 ----
-$ cf push <your_app> -p cities-0.0.1-SNAPSHOT.jar
+$ cf push <your_app> -i 1 -m 512M -p cities-service-0.0.1-SNAPSHOT.jar
 ----
++
+* Be sure to name your application '<first-initial><last-initial>-cities-service'
 
 . Verify you can access your application via a curl request:
 +
@@ -29,14 +31,17 @@ $ cf push <your_app> -p cities-0.0.1-SNAPSHOT.jar
 $ curl -i <your-app>/cities
 ----
 
-
 === Using Manifests
 
-Manifests help automate the deployment.
+Now, use a manifest to help automate deployment.
 
 . Review the documentation: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/manifest.html
 
-. Create an application manifest in `manifest.yml`.  Minimally, set the name of the app, the amount of memory, the number of instances, and the path to the .jar file.
+. Create an application manifest in your `cities-service` directory called `manifest.yml`.  Minimally, you must set the name of the app, the amount of memory, the number of instances, and the path to the .jar file.
++
+*Be sure to name your application '<first-initial><last-initial>-cities-service' and use this as the host value.*
++
+We must be able to access your application at https://<first-initial><last-initial>-cities-service.YOUR_PCF_APP_DOMAIN
 
 . The IBM Bluemix team has created a manifest generator app that can also be used:
 +
@@ -64,7 +69,7 @@ References:
 
 . Review link:http://docs.pivotal.io/pivotalcf/buildpacks/java/spring-service-bindings.html[Configuring Service Connections in Spring]
 
-. Add Spring Cloud and MySQL dependencies to our Gradle build:
+. Note the Spring Cloud and MySQL dependencies to our Gradle build:
 +
 [source,groovy]
 ----
@@ -75,8 +80,6 @@ dependencies {
     runtime("mysql:mysql-connector-java:5.1.25")
 }
 ----
-
-. Since we've added new dependencies, re-run `gradle idea` or `gradle eclipse` to have them added to the IDE classpath.
 
 . Next, let's create the package +org.example.cities.config+ and create in that package the class +CloudDataSourceConfig+. Add the following code:
 +
@@ -98,7 +101,7 @@ The `@Profile` annotation will cause this class (which becomes Spring configurat
 +
 With this code, Spring Cloud will detect a bound service that is compatible with +DataSource+, read the credentials, and then create a +DataSource+ as appropriate (it will throw an exception otherwise).
 
-. Add the following to `src/main/resources/application.properties` to cause Hibernate to create the database schema and import data at startup. This is done automatically for embedded databases, not for custom ++DataSource++s. Other Hibernate native properties can be set in a similar fashion:
+. The properties file at `src/main/resources/application.properties` will cause Hibernate to create the database schema and import data at startup. This is done automatically for embedded databases, not for custom ++DataSource++s. Other Hibernate native properties can be set in a similar fashion:
 +
 [source,java]
 ----
@@ -140,7 +143,7 @@ Looks like we need a service.  Let's create one.
 
 . Create a mysql service instance
 
-. Launch the DB console from the Developer Console.  Note the database is empty.
+. Launch the DB console via the `Manage` link in the Users Console.  Note the database is empty.
 
 === Manually Binding the Service Instance
 
@@ -150,6 +153,21 @@ Looks like we need a service.  Let's create one.
 
 . Restage your application to inject the new database.
 
+. Did it work?  Why not?
+
+=== Environment Variables
+
+It looks like we need to modify our security group to allow egress.  But how do you know what endpoint is needed?
+
+. Review the document on Environment Variables: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/environment-variable.html
+
+. QUESTION: What variable shows your mysql service instance?
+
+. QUESTION: How would you set the `SPRING_PROFILES_ACTIVE` variable from the CLI?
+
+. Modify your space security group (not the running-security-group) to allow egress to the bound mysql service
+
+
 === Binding via the Manifest
 
 . Add the services binding to your deployment manifest.
@@ -157,14 +175,6 @@ Looks like we need a service.  Let's create one.
 . If you are going to expand the service to leverage different Spring profiles, you should also set the `SPRING_PROFILES_ACTIVE` environment variable to `cloud`.
 
 . Now, manually unbind the service and re-push your app using the manifest.
-
-== Environment Variables
-
-. Review the document on Environment Variables: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/environment-variable.html
-
-. What variable shows your mysql service instance?
-
-. How could you set the `SPRING_PROFILES_ACTIVE` variable from the CLI?
 
 
 == Scaling
@@ -175,7 +185,7 @@ Apps can be scaled via the CLI or the Console.
 
 . Increase your app memory to 1G.
 
-. What happens?  How long does it take?  Why?
+. QUESTION: What happens?  How long does it take?  Why?
 
 . Scale your app memory back down to 512M.
 
@@ -183,4 +193,40 @@ Apps can be scaled via the CLI or the Console.
 
 . Scale your app to 2 instances.
 
-. What happens?  How long does it take?  Why?
+. QUESTION: What happens?  How long does it take?  Why?
+
+== User Provided Service Instances & Tags
+
+The `cities` directory also includes a `cities-ui` application which uses the `cities-client` to consume from the `cities-service`.
+
+The `cities-client` demonstrates using the link:http://cloud.spring.io/spring-cloud-connectors[Spring Cloud Connector] project to consume from a microservice.  This is a common pattern for 3rd platform apps.  Be sure you understand how it works.
+
+The goal of this exercise is to use what you have learned to deploy the `cities-ui` application.
+
+=== Deploying the Cities UI App
+
+* A `manifest.yml` is included in the cities-ui app.  Edit this manifest with your initials and be sure this manifest works with the service you create below.
+
+* The cities-ui and cities-client can be both built at once using the `build.gradle` in the parent cities directory.
+
+=== Creating a Service Instance & Deploy
+
+* You will need to connect the application to a service instance representing your microservice (cities-service).
+
+* You can create a User Provided Service Instance and bind this to the ui application.
+** Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/services/user-provided.html[User Provided Service Instances]
+** Look for the details by running `cf help`.
+
+* You will need to specify two parameters when you create the service instance: `uri` and `tag` (see: CitiesWebServiceInfoCreator.java).
+** The `uri` should point to your deployed microservice
+** The `tag` is a property specified in the CitiesWebServiceInfoCreator.  Tags have a special meaning in CF:
++
+_Tags provide a flexible mechanism to expose a classification, attribute, or base technology of a service, enabling equivalent services to be swapped out without changes to dependent logic in applications, buildpacks, or other services. Eg. mysql, relational, redis, key-value, caching, messaging, amqp.  Tags also allow application configurations to be independent of a service instance name._
++
+Refer to the CitiesWebServiceInfoCreator class for the necessary tag value.
+
+* Create the user provided service instance.
+
+* Deploy using the `manifest.yml` contained in the cities-ui project.
+
+* Access the cities-ui to verify it is connected to your microservice.

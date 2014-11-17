@@ -2,36 +2,28 @@
 
 == Goals
 
-To deploy and configure a microservice and UI, leverage the platform for monitoring & management, and automate a continuous delivery pipeline.
+To deploy and configure a microservice and UI, leverage the platform for monitoring & management of the microservice, and automate a continuous delivery pipeline.
 
 == Exercises
 
-=== Developer Experience - Part 1
+Bring on the applications!  The `pcf-immersion-workshop` project you forked has a directory called `cities` we will use for this section.
 
-This section provides a high level overview of the basic concepts and components developers will leverage.
-
-* link:dev-basics.adoc[Developer Basics]
-** The Command Line Interface
-** Targeting
-** Console basics
-** Orgs, spaces, roles and permissions
-** Quotas
-
-=== Applications & Services
-
-Now, we need applications to deploy to Pivotal CF.  The `pcf-immersion-workshop` project you forked has a directory called `cities` we will use for this section.
-
-* Review the material on link:microservices.adoc[microservices & app best practices]
+* Review the Keynote on link:Cloud_Ready_Apps.key[Cloud Ready Apps]
 
 * Review the link:https://github.com/pcf-alliances-immersion/pcf-immersion-workspace/tree/master/cities[overview] of the `cities` repository.  It is important to understand the components of this project as we will use them throughout the remainder of the class.
 
-* link:local-microservice.adoc[Running the cities-service locally]
+=== Running the cities-service locally
+
+* link:local-microservice.adoc[Run the cities-service locally]
 ** Import the project into STS
 ** Run it locally using Spring Boot
 ** Understanding Spring Boot Actuator
 
+=== Applications on Pivotal CF
 
-=== Developer Experience - Part 2
+* Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/prepare-to-deploy.html[Considerations for Designing and Running an Application in the Cloud]
+
+* Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/streaming-logs.html#writing[Writing to logs]
 
 * link:sdlc-basics.adoc[SDLC Basics]
 ** Pushing apps
@@ -42,25 +34,9 @@ Now, we need applications to deploy to Pivotal CF.  The `pcf-immersion-workshop`
 ** Environment variables
 ** Scaling apps
 
+The following exercises should be completed for your `cities-service`, not the `cities-ui`.
 
-
-* link:deploy-microservice.adoc[Deploy the cities microservice]
-** Manually deploy the microservice
-** Create a manifest for the microservice
-** Connect microservice to an external database
-
-* Deploy the UI application
-** Create a service representing the microservice endpoint deployed above
-** Deploy the UI application
-
-* Create a multi-app manifest to deploy both the microservice & UI apps
-
-
-
-* link:../microservice/README.adoc[Building a Microservice]
-
-
-
+* link:user-console.adoc[User Console]
 
 * link:ide-integration.adoc[IDE integration]
 
@@ -69,8 +45,6 @@ Now, we need applications to deploy to Pivotal CF.  The `pcf-immersion-workshop`
 * link:apm.adoc[Monitoring with APM tools]
 
 * link:remote-debugging.adoc[Remote debugging]
-
-* link:app-security-groups.adoc[Application Security Groups]
 
 * link:app-autoscaling.adoc[Application Autoscaling]
 
