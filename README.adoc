@@ -48,17 +48,8 @@ Students will have completed the following courses on Pivotal Academy:
 ** Orgs, spaces, users & quotas
 ** Application Security Groups
 
-. link:dev-experience/README.adoc[Developer Experience - Part 1]
-** The Command Line Interface
-** Targeting
-** Console basics
-
-
-. link:microservice/README.adoc[Building a Microservice]: Pair to create a simple micro service
-** PaaS ready apps & best practices
-** 12 factor apps
-
-. link:dev-experience/README.adoc[Developer Experience - Part 2]: Use the micro service and perform the following actions/integrations:
+. link:dev-experience/README.adoc[The Developer Experience]
+** Building apps
 ** Pushing apps
 ** Using Manifests
 ** Dependency Injection in Spring
@@ -74,8 +65,6 @@ Students will have completed the following courses on Pivotal Academy:
 ** Application Autoscaling
 ** Continuous Delivery
 
-. link:service-broker/README.adoc[Creating a Custom Service Broker]: Pair to create a custom service and bind it to your micro service.
-
 . link:buildpack/README.adoc[Customizing Build Packs]: Customize a build pack and use it to deploy your micro service.
 
-. link:api-gateway/README.adoc[API Gateway]: Transform the data from your micro service using the API gateway.
+. link:service-broker/README.adoc[Creating a Custom Service Broker]: Pair to create a custom service and bind it to your micro service.
