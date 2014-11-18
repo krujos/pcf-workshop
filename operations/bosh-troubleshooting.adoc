@@ -101,17 +101,17 @@ In the section on link:backup-pcf.adoc[Backing up PCF], you should have read the
 
 Bosh uses link:http://mmonit.com/monit/[monit] to manage running processes on VMs.  In this exercise, you will ssh to the cloud controller vm and view the running processes.  You must push the result into your project repository as detailed below.
 
+. Follow the directions under *SSH into Ops Manager* on the  link:http://docs.pivotal.io/pivotalcf/customizing/trouble-advanced.html[Advanced Troubleshooting] guide.
++
+Scroll the bottom of the above page and be sure the follow the instructions under *Bosh SSH*.
++
+
 . Use `bosh ssh` to ssh into the cloud controller.  You may be prompted by the following:
 +
-* Enter password (use it to sudo on remote host): Whatever you supply here, you can use during your SSH session if you need to sudo as root.  This is a temporary password.  It is common to just use `*`.
-* Enter passphrase for key '/home/tempest/.ssh/id_rsa: Hopefully you actually read the docs on link:http://docs.pivotal.io/pivotalcf/customizing/trouble-advanced.html[Advanced Troubleshooting] above.  This is the password you set when you *previously* ran:
-+
-[source,bash]
-----
-$ ssh-keygen -t rsa
-----
-+
-* bosh_something@192.168.someIP's password: Enter the sudo password you set above.
+* _Enter password (use it to sudo on remote host)_: Whatever you supply here, you can use during your SSH session if you need to sudo as root.  This is a temporary password.  It is common to just use `*`.
+* _Enter passphrase for key /home/tempest/.ssh/id_rsa_: This is the password you set when you ran the ssh-keygen command above.
+
+* _bosh_something@192.168.someIP's password_: Enter the sudo password you set above.
 +
 
 . Assume root
