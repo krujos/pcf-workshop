@@ -73,7 +73,7 @@ In the section on link:backup-pcf.adoc[Backing up PCF], you should have read the
 
 . Review the documentation on link:http://docs.cloudfoundry.org/bosh/sysadmin-commands.html[Bosh Commands for System Administration]
 
-. Download the deployment manifest for Jenkins and push it to your class  repository in the `operations` directory.
+. Download the deployment manifest for Jenkins and push it to your class  repository in the `operations` directory.  Name this file `jenkins.yml`.
 
 ==== Manifest Basics
 
