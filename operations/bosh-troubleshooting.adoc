@@ -28,8 +28,8 @@ If your Ops Manager application becomes unresponsive, you may need to restart it
 +
 [source,bash]
 ----
-$ sudo service tempest-web start
 $ sudo service tempest-web stop
+$ sudo service tempest-web start
 ----
 +
 
