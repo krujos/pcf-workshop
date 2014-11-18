@@ -1,0 +1,72 @@
+{
+  "builders": [{
+    "type": "vmware-iso",
+    "guest_os_type": "Ubuntu-64",
+    "iso_url": "http://releases.ubuntu.com/14.04.1/ubuntu-14.04.1-server-amd64.iso",
+    "iso_checksum": "946a6077af6f5f95a51f82fdc44051c7aa19f9cfc5f737954845a6050543d7c2",
+    "iso_checksum_type": "sha256",
+    "output_directory": "output-ubuntu-14.04.1-amd64_fusion",
+    "vm_name": "packer-ubuntu-14.04.1-amd64_fusion",
+    "disk_size": "{{user `disk_size`}}",
+    "headless": "{{user `headless`}}",
+    "http_directory": "http",
+    "boot_wait": "10s",
+    "disk_size": 10140,
+    "boot_command": [
+      "<esc><wait>",
+      "<esc><wait>",
+      "<enter><wait>",
+      "install ",
+      "auto-install/enable=true ",
+      "debconf/priority=critical ",
+      "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/ubuntu-14.04.1/preseed.cfg ",
+      "biosdevname=0 ",
+      "<enter>"
+    ],
+    "ssh_wait_timeout": "60m",
+    "ssh_username": "vagrant",
+    "ssh_password": "vagrant",
+    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+    "tools_upload_flavor": "linux",
+    "vm_name": "packer-ubuntu-14.04.1-amd64_fusion",
+    "vmx_data": {
+      "cpuid.coresPerSocket": "1",
+      "memsize": "1024",
+      "numvcpus": "2"
+    }
+  }],
+  "provisioners": [{
+    "type": "shell",
+    "scripts": [
+      "scripts/ubuntu/base.sh",
+      "scripts/ubuntu/vmtools.sh",
+      "scripts/common/vagrant.sh",
+      "scripts/common/sshd.sh",
+
+      "scripts/install-desktop.sh",
+      "scripts/install-ruby-deps.sh",
+      "scripts/install-git.sh",
+      "scripts/install-java.sh",
+      "scripts/install-sts.sh",
+      "scripts/install-remmina.sh",
+      "scripts/install-cf.sh",
+      "scripts/install-gradle.sh",
+      "scripts/install-jmeter.sh",
+
+      "scripts/ubuntu/cleanup.sh",
+      "scripts/common/minimize.sh"
+    ]
+  }],
+  "post-processors": [{
+    "type": "vagrant",
+    "compression_level": "{{user `compression_level`}}",
+    "output": "pcf-immersion-ubuntu-14.04.1-amd64_fusion.box"
+  }],
+  "variables": {
+    "compression_level": 1,
+    "cpus": "2",
+    "disk_size": 40000,
+    "headless": false,
+    "memory": "2048"
+  }
+}

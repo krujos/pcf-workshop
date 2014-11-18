@@ -11,11 +11,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #  config.vm.box_download_checksum_type = ""
 #  config.vm.box_download_checksum = ""
 
-  config.vm.provider "virtualbox" do |vb|
-     vb.gui = true
+#  config.vm.provider "virtualbox" do |vb|
+#     vb.gui = true
   #
   #   # Use VBoxManage to customize the VM. For example to change memory:
   #   vb.customize ["modifyvm", :id, "--memory", "1024"]
-  end
+#  end
   #
 end
