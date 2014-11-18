@@ -24,6 +24,9 @@ Configure Ops Metrics and Syslog draining before deploying changes in Ops Manage
 In this section, you will install and configure the Ops Metrics tile.
 
 . Follow steps 1 thru 7 to install & configure Ops Metrics: http://docs.pivotal.io/pivotalcf/customizing/deploy-metrics.html
+
+. DO NOT enable SSL in the Ops Metrics tile.  This step is optional and jvisualvm won't be able to connect.
+
 +
 * *BEFORE APPLYING CHANGES* configure Syslog Draining below.
 +
