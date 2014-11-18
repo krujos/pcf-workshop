@@ -41,9 +41,16 @@ The packer scripts used to build the box are included in this repository in the 
 
 === Using the box
 
-The student VM is distributed as a vagrant box.  Be sure you have Vagrant and the Virtual Box provider installed.
+The student VM is distributed as a vagrant box.  Be sure you have Vagrant and the Virtual Box or VMWare Fusion provider installed.
 
 ==== Downloading and launching the box
+
+If you received the box image on a thumb drive, you need to add it to vagrant.  Copy the .box file to your computer.  Then add it to vagrant:
+
+[source,bash]
+----
+$ vagrant box add pcf-immersion-box <path to the .box file>
+----
 
 A Vagrantfile is included in the `pcf-immersion-workspace` project.  To launch the box:
 
