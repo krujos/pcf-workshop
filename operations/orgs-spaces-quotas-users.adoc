@@ -34,12 +34,12 @@ In this section, we will log in and create the necessary structures for the rest
 
 . View the settings for the `default` quota.
 
-. Create a new quota for your organization to allow up to 20GB of memory.  Use the same settings as the `default` quota for other inputs.
+. Create a new quota for your organization to allow up to 20GB of memory.  Use the same settings as the `default` quota for other inputs.  Assign the quota to your org.
 +
 * *DO NOT* follow the docs.pivotal.io guide as this is out of date.  You should be using the `cf` commands instead of curl requests.
 +
 
-. Create a new quota for your development space to allow up to 10GB of memory.  Ensure an app instance can use up to 2GB of memory.  Use the same settings as the org for other inputs.
+. Create a new quota for your development space to allow up to 10GB of memory.  Ensure an app instance can use up to 2GB of memory.  Use the same settings as the org for other inputs.  Assign the quota to your development space.
 +
 * *DO NOT* follow the docs.pivotal.io guide as this is out of date.  You should be using the `cf` commands instead of curl requests.
 +
