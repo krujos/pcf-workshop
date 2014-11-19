@@ -16,6 +16,16 @@ In this section you will leverage Pivotal's Autoscaling Service to scale your mi
 
 . Launch the autoscaling dashboard for your service.
 
+=== Disable data loading into your service
+
+Because the cities-service is written to load data on startup and because the startup takes a long time we want to disable this for this exercise.
+
+. Under the cities-service, edit the `src/main/resources/application.properties`
+
+. Comment out the: `spring.jpa.hibernate.ddl-auto=create` with a `#` and save the file.  You can re-enable this after this exercise if you wish.
+
+. Rebuild with gradle assemble and re-push your app.
+
 === Generating Load and Observing Results
 
 . link:http://jmeter.apache.org/download_jmeter.cgi[Apache JMeter] Can be used to generate load.
