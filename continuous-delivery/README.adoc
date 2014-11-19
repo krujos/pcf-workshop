@@ -43,6 +43,7 @@ We will leverage the Jenkins instance deployed by Ops Manager.  This is located 
 * Mask Passwords
 * Extensible Choice Parameter Plugin
 * Parameterized Remote Trigger Plugin
+* Github Plugin
 +
 
 . Tell Jenkins to restart after plugin install
@@ -55,7 +56,7 @@ We will leverage the Jenkins instance deployed by Ops Manager.  This is located 
 
 . Under `Source Code Management`, select `Git`, and supply your repository URL and credentials
 
-. Under `Build Triggers`, select `Poll SCM` and provide the string `* * * * *` (every minute).
+. Under `Build Triggers`, select `Build when a change is pushed to GitHub`
 
 . Under `Build`, add a `Invoke Gradle Script` build step.
 +
@@ -63,6 +64,7 @@ Gradle Version:: The one you created above
 Build Step Description:: +build environment agnostic artifact+
 Switches:: `-Pbuildversion=$BUILD_NUMBER`
 Tasks:: `clean assemble`
+Root Build Script:: This should be something like: `cities/cities-service`.  You can verify by manually triggering a build then viewing the 'Workspace' link.
 
 . Save the config and try running the build by clicking ``Build Now''.
 
@@ -72,7 +74,6 @@ Tasks:: `clean assemble`
 +
 * CF_DOMAIN: the CF system domain
 * CF_USER: the user account
-* CF_PWD: your password
 * CF_ORG: org to deploy to
 * CF_SPACE: space to deply to
 * CF_APP: the app name
@@ -80,7 +81,25 @@ Tasks:: `clean assemble`
 * CF_MANIFEST: path to the manifest on jenkins
 +
 
+. Create a `Password Paramter` for:
++
+* CF_PWD: your password
++
+
+
+=== Github Set Up
+
+. Go to https://github.com/<YOUR ACCOUNT>/pcf-immersion-workspace > Settings > Webhooks & Services > Services > Add a Service > Jenkins (Github plugin)
+
+. Jenkins hook url: https://pivotal-cloudbees.<YOUR PCF SYSTEM DOMAIN>/github-webhook/
+
+. Be sure `Active` is checked and click `Add Service`
+
 . You can find the values for CF_JAR and CF_MANIFEST by clicking on `Workspace` in the job config
+
+=== Configuring your Green/Blue deploy
+
+. Back to the Jenkins job config...
 
 . Select `Add build step` > `Execute Shell`.  Add the following and edit to ensure a blue-green deployment:
 +
