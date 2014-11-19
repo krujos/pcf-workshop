@@ -137,5 +137,3 @@ fi
 . Click `Save` and run your build
 
 . Commit a change to git and watch the magic
-
-. *When you are complete, disable SCM polling.*  Otherwise, github may disable your account for over polling.
