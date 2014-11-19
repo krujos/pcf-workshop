@@ -6,6 +6,8 @@ Remote debugging is not a supported (easy) feature in Cloud Foundry.  However, i
 
 == Exercise
 
+*We cannot complete this exercise on the network*
+
 . Follow the link:http://mikusa.blogspot.com/2014/08/debugging-java-applications-on.html[instructions] to enable remote debugging of your microservice.
 
 . Verify this is set up correctly by placing a breakpoint in your code.
