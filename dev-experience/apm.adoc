@@ -18,10 +18,13 @@ To understand the APM monitoring options and enable APM monitoring
 +
 [source,bash]
 ----
-$ cf cups app-dynamics -p “host-name,port,ssl-enabled,account-name,account-access-key”
+$ cf cups app-dynamics -p host-name,port,ssl-enabled,account-name,account-access-key
 ----
 
 . Enter the requested info.  This is displayed under the `Account Info` section on your App Dynamics account page.
++
+* *For the `ssl-enabled` parameter, be sure to enter `true`.*
++
 
 . Bind the new instance to your microservice and restart.
 
