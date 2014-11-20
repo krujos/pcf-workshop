@@ -77,6 +77,8 @@ Use the service-broker folder which has been updated with the haash-broker and h
 
 === haash-broker
 
+* Edit the first line of the src/main/resources/import.sql file.  Change the name to <first-intial><last-initial>-HaaSh.
+
 * Build the haash-broker
 +
 [source,bash]
@@ -124,7 +126,7 @@ You can add key,value pairs using:
 +
 [source,bash]
 ----
-$ curl <your haash-client>/HaaSh/<key> -d '<some value>' -X PUT
+$ curl <your haash-client>/<first-intial><last-initial>-HaaSh/<key> -d '<some value>' -X PUT
 ----
 +
 
@@ -132,7 +134,7 @@ $ curl <your haash-client>/HaaSh/<key> -d '<some value>' -X PUT
 +
 [source,bash]
 ----
-$ curl <your haash-client>/HaaSh/<key>
+$ curl <your haash-client>/<first-intial><last-initial>-HaaSh/<key>
 ----
 +
 
