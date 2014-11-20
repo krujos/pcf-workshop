@@ -77,7 +77,14 @@ Use the service-broker folder which has been updated with the haash-broker and h
 
 === haash-broker
 
-* Edit the first line of the src/main/resources/import.sql file.  Change the name to <first-intial><last-initial>-HaaSh.
+* Edit the src/main/resources/import.sql file:
++
+[source,bash]
+----
+insert into services (id, name, description, bindable) values ('<first-initial><last-initial>', '<first-initial><last-initial>-HaaSh', 'HaaSh - HashMap as a Service', true)
+insert into plans (id, name, description, service_id) values ('1', 'basic', 'Basic Plan','<first-initial><last-initial>');
+----
++
 
 * Build the haash-broker
 +
