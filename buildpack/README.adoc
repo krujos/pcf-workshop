@@ -155,14 +155,14 @@ Application was staged at: 2014-05-27 15:52:41 +0000
 
 === Change JRE Version
 
-In this section you'll update your buildpack to utilize JRE 1.8 rather than 1.7.
+In this section you'll update your buildpack to utilize java 1.8.0_25 rather than simply the latest 1.8.
 
 . Change +java-buildpack/config/open_jdk_jre.yml+ as shown:
 +
 [source,yaml]
 ----
 repository_root: "{default.repository.root}/openjdk/{platform}/{architecture}"
-version: 1.8.0_+ # 1.7 becomes 1.8
+version: 1.8.0_+ # becomes 1.8.0_25
 memory_sizes:
   metaspace: 64m.. # permgen becomes metaspace
 memory_heuristics:
