@@ -137,3 +137,25 @@ fi
 . Click `Save` and run your build
 
 . Commit a change to git and watch the magic
+
+
+== Beyond the Class
+
+The CD exercise above is very simplistic and should be expanded for real projects.
+
+=== Artifact Repository
+
+Ideally, you want to build your artifacts (jars/wars) and publish them to a repository like Artifactory.
+
+* Artifacts should be versioned to match the app deployments on PCF.
+* All pushes to PCF should be using the same artifacts.  Artifacts should be built once and used throughout the lifecycle.
+
+=== Code promotion
+
+* Jobs should be established in Jenkins to deploy/promote code to different phases like dev to test to prod.
+* Jobs should use the same artifact published to Artifactory.
+* Jobs can be triggered automatically or manually but should be fully automated.  There should be no manual steps beyond clicking "build now".
+
+=== Notification
+
+Jenkins supports many notification plugins.  It is important for code owners to be aware of build status.
