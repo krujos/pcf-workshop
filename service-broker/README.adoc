@@ -133,7 +133,7 @@ You can add key,value pairs using:
 +
 [source,bash]
 ----
-$ curl <your haash-client>/<first-intial><last-initial>-HaaSh/<key> -d '<some value>' -X PUT
+$ curl <your haash-client>/HaaSh/<key> -d '<some value>' -X PUT
 ----
 +
 
@@ -141,7 +141,7 @@ $ curl <your haash-client>/<first-intial><last-initial>-HaaSh/<key> -d '<some va
 +
 [source,bash]
 ----
-$ curl <your haash-client>/<first-intial><last-initial>-HaaSh/<key>
+$ curl <your haash-client>/HaaSh/<key>
 ----
 +
 
