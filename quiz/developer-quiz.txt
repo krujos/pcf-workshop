@@ -13,7 +13,7 @@ How would you set the SPRING_PROFILES_ACTIVE environment variable from the comma
 What happens to an application when you scale the amount of memory? Why?
 
 
-What happens when you scale an application veritcally?
+What happens when you scale an application horizontally?
 
 
 If you are building a new service broker, what is the best practice when creating a new service instance binding?
