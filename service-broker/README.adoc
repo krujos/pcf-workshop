@@ -2,42 +2,147 @@
 
 == Goal
 
-In this section, students will create and deploy a custom service broker.
+In this section, students will deploy a custom service broker.
+
+. The haash-broker implements a HashMap as a Service
+
+. Deploy the Service Broker as an app to Cloud Foundry
+
+. Register the Broker with the Cloud Controller
+
+. Make the single plan in the catalog “public”
+
+. Create an instance of your service
+
+. Push and bind a test app to your service instance
+
+. Test the app’s interaction with the service
+
 
 == Exercise
 
 . Review the documentation on link:http://docs.pivotal.io/pivotalcf/services/[Creating Custom Services]
 
-. Build a custom service broker that demonstrates and documents the following:
-* Deployed broker (restful endpoint) visible to the cloud controller
-* Successfully registers the broker with the Cloud Controller via the CLI
-* Exposes a catalog containing one or more plans visible in the marketplace
-* Clearly documents the functionality that should be executed in the backing service when the following events occur:
-** Create service instance
-** Delete a service instance
-** Bind a service instance to an application
-** Unbind a service instance from an application
-* Creates and destroys service instances
-* Bind/unbinds service instances from applications
-* Bind your service to your custom built micro service
-* Code pushed to a git repository accessible to Pivotal trainers
+=== Overview
 
-=== Resources and Clarifications
+The Service Broker for this lab is for a service called HashMap as a Service (HaaSh). It wraps a minimal REST API around a Java HashMap implementation, and each service creation event results in a newly allocated Map.
 
-* In the interest of time, the data store should be manually installed in a VM.
+=== Updating the pcf-immersion-workspace
+
+The workspace repository has been updated for this exercise.  To get the changes, you need to fetch the upstream changes and merge them.  From your fork:
+
+* Display your current fork:
++
+[source,bash]
+----
+$ git remote -v
+----
++
+
+* Add the upstream remote:
++
+[source,bash]
+----
+$ git remote add upstream https://github.com/pcf-alliances-immersion/pcf-immersion-workspace.git
+----
++
+
+* Verify you now have an upstream:
++
+[source,bash]
+----
+$ git remote -v
+----
++
+
+* Now fetch upstream changes:
++
+[source,bash]
+----
+$ git fetch upstream
+----
++
+
+* Merge the changes:
++
+[source,bash]
+----
+$ git merge upstream/master
+----
++
+
+* You now have the changes.  Be sure to commit and push at some point.
+
+Use the service-broker folder which has been updated with the haash-broker and haash-client.
+
+=== haash-broker
+
+* Build the haash-broker
++
+[source,bash]
+----
+$ gradle assemble
+----
+
+* Push the broker as an app to CF.  Use the name: <first-initial><last-initial>-haash-broker
+
+* Register the broker with the cloud controller:
++
+[source,bash]
+----
+$ cf create-service-broker ...
+----
++
+The username & password you need for the broker are in: src/main/resources/application.properties
+
+* Next, you need to make the plan public:
++
+[source,bash]
+----
+$ cf enable-service-access ...
+----
++
+You will need to figure out the plan name.  You can do this by accessing your service broker's catalog from a browser.
+
+* Verify you can see your new service in the marketplace.  There is a cf command for this.
+
+* Create a new instance of your service using the CF commands.  Name the instance <first-initial><last-initial>-haash-service.
+
+=== Haash Client
+
+* Create a manifest for your haash-client.
+
+* Be sure to connect the haash-client to the service instance you created above.
+
+* Build the haash-client with gradle
+
+* Push the haash-client to cf and name it: <first-initial><last-initial>-haash-client
+
+* Curl your haash client to be sure it is working and using your haash-service
++
+You can add key,value pairs using:
++
+[source,bash]
+----
+$ curl <your haash-client>/<key> -d '{"value":"<some value>"}' -X PUT
+----
++
+
+* You can retrieve the values:
++
+[source,bash]
+----
+$ curl <your haash-client>/<key>
+----
++
+
+
+== Beyond the class
+
+There are many community resources to help you build your own more robust service broker.
 
 * Spring developers can use the link:https://github.com/cloudfoundry-community/spring-boot-cf-service-broker[Spring Boot CF Service Broker]
 
 * You following repositories can be used as a reference:
 ** link:https://github.com/cloudfoundry-community/s3-cf-service-broker[S3 CF Service Broker]
 ** link:https://github.com/spgreenberg/spring-boot-cf-service-broker-mongo[Spring Boot CF Service Broker Mongo]
-
-=== Advanced Criteria
-
-If you want to go above the requirements above, ensure your broker handles one or more of the following:
-
-* Exposes service dashboard
-* Enforce resource/service limiting plans in backing service
-* Return resources based on the Org/Space
-* Deploy and register the new broker through a BOSH errand
-* Create an Ops Manager tile that could be distributed through Pivotal Network
