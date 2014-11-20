@@ -82,7 +82,7 @@ Use the service-broker folder which has been updated with the haash-broker and h
 [source,bash]
 ----
 insert into services (id, name, description, bindable) values ('<first-initial><last-initial>', '<first-initial><last-initial>-HaaSh', 'HaaSh - HashMap as a Service', true)
-insert into plans (id, name, description, service_id) values ('1', 'basic', 'Basic Plan','<first-initial><last-initial>');
+insert into plans (id, name, description, service_id) values ('<first-initial><last-initial>', 'basic', 'Basic Plan','<first-initial><last-initial>');
 ----
 +
 
