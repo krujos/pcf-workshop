@@ -11,12 +11,12 @@ Operations
 
 Installing Pivotal CF on vSphere
 
-- What is the preferred Network Segmentation strategy
+- What is the preferred Network Segmentation strategy?  List each segment and describe the traffic on each.
 
 
 Scaling the Platform
 
-- What component would you scale to add capacity to host additional application instances?  How would you scale this component?
+- What component would you scale to add capacity to host additional application instances?
 
 - Where in Ops Manager would you scale the above component?
 
