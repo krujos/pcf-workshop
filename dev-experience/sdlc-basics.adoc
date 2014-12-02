@@ -172,7 +172,7 @@ It looks like we need to modify our security group to allow egress.  But how do 
 
 . Add the services binding to your deployment manifest.
 
-. If you are going to expand the service to leverage different Spring profiles, you should also set the `SPRING_PROFILES_ACTIVE` environment variable to `cloud`.
+. Set the `SPRING_PROFILES_ACTIVE` environment variable to `cloud` in your deployment manifest.
 
 . Now, manually unbind the service and re-push your app using the manifest.
 
