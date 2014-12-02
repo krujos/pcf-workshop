@@ -28,18 +28,18 @@ In this section, we will log in and create the necessary structures for the rest
 
 ==== Users & Roles
 
-. Create a new user account for yourself and assign the necessary roles to the org & spaces.  You will be managing applications and services.
+. Create a new user account for yourself and assign the necessary roles to the spaces.  You will be managing applications and services.
 
 ==== Quotas
 
 . View the settings for the `default` quota.
 
-. Create a new quota for your organization to allow up to 20GB of memory.  Use the same settings as the `default` quota for other inputs.  Assign the quota to your org.
+. Create a new quota for your organization named `first initial + last name_org-quota`.  Allow up to 20GB of memory.  Use the same settings as the `default` quota for other inputs.  Assign the quota to your org.
 +
 * *DO NOT* follow the docs.pivotal.io guide as this is out of date.  You should be using the `cf` commands instead of curl requests.
 +
 
-. Create a new quota for your development space to allow up to 10GB of memory.  Ensure an app instance can use up to 2GB of memory.  Use the same settings as the org for other inputs.  Assign the quota to your development space.
+. Create a new quota for your development space named `first initial + last name_dev-space-quota`.  Allow up to 10GB of memory.  Ensure an app instance can use up to 2GB of memory.  Use the same settings as the org for other inputs.  Assign the quota to your development space.
 +
 * *DO NOT* follow the docs.pivotal.io guide as this is out of date.  You should be using the `cf` commands instead of curl requests.
 +
