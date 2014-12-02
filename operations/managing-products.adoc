@@ -28,7 +28,6 @@ In this exercise, you will install and configure the products which will be used
 * Autoscaling
 * Jenkins
 * Ops Metrics
-* API Gateway
 +
 
 . *Elastic Runtime*: Be sure to click the `Generate Self-Signed RSA certificate` link. Then, select `Trust Self-Signed Certificates` on the HA Proxy tab.
