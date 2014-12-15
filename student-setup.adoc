@@ -14,9 +14,57 @@ PDF copies are included in the same directory as each Keynote.
 $ git clone <this-repo>
 ----
 
+
 === Exercise Repository: pcf-immersion-workspace
 
 A repository has been set up for individual class exercises.  You will need to fork this repository and make it public in your github account.  Do not rename the repository and be sure you *commit all of your work to your fork*.
+
+==== Updating the pcf-immersion-workspace
+
+If you need to pull in changes to the workspace repository, you need to fetch the upstream changes and merge them.  From your fork:
+
+* Display your current fork:
++
+[source,bash]
+----
+$ git remote -v
+----
++
+
+* Add the upstream remote:
++
+[source,bash]
+----
+$ git remote add upstream https://github.com/pcf-alliances-immersion/pcf-immersion-workspace.git
+----
++
+
+* Verify you now have an upstream:
++
+[source,bash]
+----
+$ git remote -v
+----
++
+
+* Now fetch upstream changes:
++
+[source,bash]
+----
+$ git fetch upstream
+----
++
+
+* Merge the changes:
++
+[source,bash]
+----
+$ git merge upstream/master
+----
++
+
+* You now have the changes.  Be sure to commit and push at some point.
+
 
 == Student VM
 
@@ -41,18 +89,28 @@ The packer scripts used to build the box are included in this repository in the 
 
 === Using the box
 
-The student VM is distributed as a vagrant box.  Be sure you have Vagrant and the Virtual Box or VMWare Fusion provider installed.
+The student VM is distributed as a vagrant box.  Be sure you have Vagrant and the Virtual Box provider installed.
 
-==== Downloading and launching the box
+==== Adding the box
 
-If you received the box image on a thumb drive, you need to add it to vagrant.  Copy the .box file to your computer.  Then add it to vagrant:
+The box will be distributed via thumb drive.
 
+. Copy the .box file to your local machine.
+
+. Add the box to vagrant:
++
 [source,bash]
 ----
-$ vagrant box add pcf-immersion-box <path to the .box file>
+$ vagrant box add --name pcf-immersion-box <PATH_TO_THE_BOX_FILE>
 ----
++
 
-A Vagrantfile is included in the `pcf-immersion-workspace` project.  To launch the box:
+
+==== Launching the VM
+
+A Vagrantfile is included in the `pcf-immersion-workspace` project.
+
+To launch the box:
 
 [source,bash]
 ----
@@ -60,20 +118,18 @@ $ cd pcf-immersion-workspace
 $ vagrant up
 ----
 
-The box should be automatically downloaded from S3.
 
-=== Logging into the box
+==== Logging into the box
 
-The vm will launch with a UI.  However, unless you are using Remote Desktop or STS, you don't need to be logged into the UI.  Instead you can simply ssh.  From the `packer` directory:
-
+* The vm will launch with a UI.  However, unless you are using Remote Desktop or STS, you don't need to be logged into the UI.  Instead you can simply ssh.  From your `pcf-immersion-workspace` directory:
++
 [source,bash]
 ----
 $ vagrant ssh
 ----
 
-To log into the UI, use the default username/password is vagrant/vagrant.
+* To login to the UI, use the default username/password is vagrant/vagrant.
 
-The `packer` directory also include a Vagrantfile.
 
 ==== Sharing a directory
 

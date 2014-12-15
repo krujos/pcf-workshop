@@ -127,6 +127,7 @@ if [ ! -z "$DEPLOYED_VERSION" -a "$DEPLOYED_VERSION" != " " -a "$DEPLOYED_VERSIO
       # Unmap the route and delete
       cf <???>-route "$line" $CF_DOMAIN -n $CF_APP
       cf <???> "$line" -f
+      cf delete-route $CF_DOMAIN -n "$line" -f 
     else
       echo "Skipping $line"
     fi
