@@ -111,6 +111,7 @@ $ vagrant box add --name pcf-immersion-box <PATH_TO_THE_BOX_FILE>
 A Vagrantfile is included in the `pcf-immersion-workspace` project.
 
 To launch the box:
+
 [source,bash]
 ----
 $ cd pcf-immersion-workspace
