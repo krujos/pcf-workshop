@@ -163,8 +163,6 @@ It looks like we need to modify our security group to allow egress.  But how do 
 
 . QUESTION: What variable shows your mysql service instance?
 
-. QUESTION: How would you set the `SPRING_PROFILES_ACTIVE` variable from the CLI?
-
 . Modify your space security group (not the running-security-group) to allow egress to the bound mysql service
 
 
@@ -176,6 +174,7 @@ It looks like we need to modify our security group to allow egress.  But how do 
 
 . Now, manually unbind the service and re-push your app using the manifest.
 
+. QUESTION: How would you set the `SPRING_PROFILES_ACTIVE` variable from the CLI?
 
 == Scaling
 
