@@ -29,3 +29,24 @@ $ cf cups app-dynamics -p host-name,port,ssl-enabled,account-name,account-access
 . Bind the new instance to your microservice and restart.
 
 . Launch the AppDynamics console and execute curl requests against your microservice.
+
+=== Did it work?
+
+. Why not?
+
+
+== Checking your work
+
+. Your App Dynamics service should show correctly under the VCAP_SERVICES environment variable.
++
+[source,bash]
+----
+$ cf env <first-inital><last-initial>-cities-service
+----
+
+. Your space security group (not running group) should contain a rule allowing access to the App Dynamics endpoints.
++
+[source,bash]
+----
+$ cf security-group <first-initial><last-initial>-space-security-group
+----

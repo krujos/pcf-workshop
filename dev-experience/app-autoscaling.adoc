@@ -12,6 +12,7 @@ In this section you will leverage Pivotal's Autoscaling Service to scale your mi
 
 . Follow the instructions on link:http://docs.pivotal.io/pivotalcf/autoscaling/create-bind-from-console.html[Autoscaling binding from the Console] to create a new instance and bind it to your microservice.
 +
+* Be sure to name your service instance: <first-initial><last-initial>-cities-service-autoscaler
 * The autoscale service requires configuration through the service dashboard.  For this reason, we opt to create it through the console as well.
 
 . Launch the autoscaling dashboard for your service.
@@ -25,6 +26,12 @@ Because the cities-service is written to load data on startup and because the st
 . Comment out the: `spring.jpa.hibernate.ddl-auto=create` with a `#` and save the file.  You can re-enable this after this exercise if you wish.
 
 . Rebuild with gradle assemble and re-push your app.
+
+
+=== Set memory to ensure scaling will happen
+
+Be sure to set the memory allocation for your application to 650M to ensure the application will scale.
+
 
 === Generating Load and Observing Results
 
@@ -45,3 +52,14 @@ Because the cities-service is written to load data on startup and because the st
 . Use both the developer console and the auto-scale console to observe your service scale up and back down based on load. [Optional] See app metrics on the App Dynamics' console.
 
 . Stop the test plan: 'Run -> Stop'
+
+== Checking your work
+
+. An autoscaling service instance should show correctly under the VCAP_SERVICES environment variable.
++
+[source,bash]
+----
+$ cf env <first-inital><last-initial>-cities-service
+----
+
+. Your app should scale up when the jmeter script is executed and back down after the script completes.

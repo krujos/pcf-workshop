@@ -128,6 +128,14 @@ $ vagrant up
 $ vagrant ssh
 ----
 
+* If you can't find the installed software on the path, you may need to explicitly load the profile:
++
+[source,bash]
+----
+$ source ~/.bash_profile
+----
+
+
 * To login to the UI, use the default username/password is vagrant/vagrant.
 
 

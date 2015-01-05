@@ -79,6 +79,29 @@ frameworks:
   - "JavaBuildpack::Framework::StagingTimestamp" #Here's the bit you need to add!
 ----
 
+
+=== Change JRE Version
+
+In this section you'll update your buildpack to utilize java 1.8.0_25 rather than simply the latest 1.8.
+
+. Change +java-buildpack/config/open_jdk_jre.yml+ as shown:
++
+[source,yaml]
+----
+repository_root: "{default.repository.root}/openjdk/{platform}/{architecture}"
+version: 1.8.0_+ # becomes 1.8.0_25
+memory_sizes:
+  metaspace: 64m.. # permgen becomes metaspace
+memory_heuristics:
+  heap: 85
+  metaspace: 10 # permgen becomes metaspace
+  stack: 5
+  native: 10
+----
+
+
+=== Repackage the Buildpack
+
 . Now that we've extended the buildpack, we need to package it. This is achieved using a http://rake.rubyforge.org[Rake] task. Before we do that, we need to install the dependent Ruby gems for the buildpack using http://bundler.io[Bundler]. We'll also leverage Bundler to run the Rake task.
 +
 [source,bash]
@@ -96,6 +119,11 @@ To add our buildpack, we'll leverage +cf create-buildpack+. Run that with zero c
 ----
 $ cf create-buildpack ...
 ----
++
+* Be sure to name your buildpack <first-initial><last-name>-java-buildpack when executing the `cf create-buildpack` command.
+
+
+=== Verifying your changes
 
 . Now it's time to test our changes. The `cities-service` contains a very basic REST controller that returns the staging timestamp in response to a GET request.
 
@@ -153,43 +181,34 @@ Application was staged at: 2014-05-27 15:52:41 +0000
 
 . Edit your manifest to ensure future pushes leverage your build pack.
 
-=== Change JRE Version
-
-In this section you'll update your buildpack to utilize java 1.8.0_25 rather than simply the latest 1.8.
-
-. Change +java-buildpack/config/open_jdk_jre.yml+ as shown:
-+
-[source,yaml]
-----
-repository_root: "{default.repository.root}/openjdk/{platform}/{architecture}"
-version: 1.8.0_+ # becomes 1.8.0_25
-memory_sizes:
-  metaspace: 64m.. # permgen becomes metaspace
-memory_heuristics:
-  heap: 85
-  metaspace: 10 # permgen becomes metaspace
-  stack: 5
-  native: 10
-----
-
-. Repackage the buildpack:
-+
-[source,bash]
-----
-$ bundle exec rake clean package
-----
-
-. Update your buildpack:
-+
-[source,bash]
-----
-$ cf update-buildpack ...
-----
-
-. Repush your application, watching the JRE version change
-
-. You can also verify your update by looking again at the staging info as above
-
-=== Push your changes
+=== Push your changes to your buildpack fork
 
 . Be sure to commit your changes to your forked buildpack repo (not the class workspace).
+
+== Checking your work
+
+. A buildpack named <first-initial><last-initial>-java-buildpack should show as a registered buildpack:
++
+[source,bash]
+----
+$ cf buildpacks
+----
+
+. Your cities-service manifest should specify the above buildpack.
+
+. Java version 1.8_25 should show in the staging log:
++
+[source,bash]
+----
+$ cf files <cities-service> staging_info.yml
+----
+
+. A curl request should return the staging timestamp:
+
++
+[source,bash]
+----
+$ curl -i http://<cities-service>/staging
+----
+
+. The buildpack changes should be pushed to your java buildpack fork.

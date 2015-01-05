@@ -28,7 +28,7 @@ In this section, we will log in and create the necessary structures for the rest
 
 ==== Users & Roles
 
-. Create a new user account for yourself and assign the necessary roles to the spaces.  You will be managing applications and services.
+. Create a new user account for yourself and assign the minimum role(s) required for you to manage applications and services.  Do this for both the development and qa spaces.
 
 ==== Quotas
 
