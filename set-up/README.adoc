@@ -1,0 +1,49 @@
+= Instructor set up
+
+This directory contains artifacts and instructions to set up for new classes.
+
+== Environments
+
+Follow this guide to create a new environment or reset an existing environment.
+
+=== Resetting
+
+You can pick and chose which components to reset or completely wipe out everything (except ESXi) and start over.  Your call.
+
+To completely reset, first log into vSphere through the client (not vCenter) and  delete all VMs.
+
+== Initial Set up
+
+=== vSphere
+
+==== Networking
+
+There is a script in the vSphere directory to set up networking.  You need the vSphere cli to run this.
+
+You can also set up networking manually if you don't want to go through the cli install.  Please be sure to set it up the same way though.
+
+To run the script:
+
+* Install the vSphere CLI: https://my.vmware.com/web/vmware/details?downloadGroup=VCLI550&productId=352
+
+* Edit the env-config.sh script for the environment you are setting up.
+
+* Run the vsphere/networking.sh script
+
+=== pfSense
+
+==== Deploying pfSesnse
+
+==== Configuring pfSense
+
+
+=== vCenter
+
+==== Installing vCenter
+
+==== vCenter Configuration
+
+
+=== Jumpbox
+
+SG: I need to create an OVA/packer build for this
