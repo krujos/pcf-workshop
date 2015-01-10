@@ -20,7 +20,7 @@ To completely reset, first log into vSphere through the client (not vCenter) and
 
 There is a script in the vSphere directory to set up networking.  You need the vSphere cli to run this.
 
-You can also set up networking manually if you don't want to go through the cli install.  Please be sure to set it up the same way though. Alternatively you can use the Docker image of the CLI and alias the commands. See (krujos/vsphere-cli)[https://registry.hub.docker.com/u/krujos/vsphere-cli/]
+You can also set up networking manually if you don't want to go through the cli install.  Please be sure to set it up the same way though. Alternatively you can use the Docker image of the CLI and alias the commands. See [krujos/vsphere-cli](https://registry.hub.docker.com/u/krujos/vsphere-cli/)
 
 To run the script:
 
