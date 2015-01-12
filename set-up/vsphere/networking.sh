@@ -1,3 +1,5 @@
+#alias esxcli='docker run krujos/vsphere-cli esxcli'
+
 # Remove the default VM Network portgroup from vSwitch0
 esxcli -s $VSPHERE_IP -u $VSPHERE_USER -p $VSPHERE_PWD network vswitch standard portgroup remove --portgroup-name='VM Network' --vswitch-name=vSwitch0
 
