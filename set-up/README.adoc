@@ -16,6 +16,16 @@ To completely reset, first log into vSphere through the client (not vCenter) and
 
 === vSphere
 
+==== Add the SSD
+
+If only datastore1 shows up, add the SSD datastore.
+
+* Log into vSphere through the client
+
+* Highlight the host > Configuration > Storage > Add Storage
+
+* Name it `ssd`
+
 ==== Networking
 
 There is a script in the vSphere directory to set up networking.  You need the vSphere cli to run this.
@@ -41,7 +51,53 @@ To run the script:
 
 ==== Installing vCenter
 
-==== vCenter Configuration
+* Log into vSphere through the client.
+
+* File > Deploy OVF Template
++
+** The OVA is available on S3: https://s3-us-west-2.amazonaws.com/pcf-immersion/VMware-vCenter-Server-Appliance-5.5.0.20200-2183109_OVF10.ova
+** Use datastore1 (the non-ssd)
+** Deploy to the WAN Network
+
+==== Configure vCenter
+
+* In vSphere > vCenter VM > Console
++
+** Login w/ root/vmware
+** run `/opt/vmware/share/vami/vami_config_net` to configure networking
++
+Save yourself the timeout headaches and configure in the following order:
+** Option 6) IP Address: <FROM THE SPREADSHEET>
++
+Config IPV6 address: No
++
+Configure an IPv4 address for eth0: Y
++
+Use a DHCPv4 server: n
++
+Netmask: 255.255.255.0
+** Option 4) DNS: 8.8.8.8 & 8.8.4.4
+** Option 2) IPv4
++
+Default gateway: <SAME AS THE VCENTER IP EXCEPT .1>
++
+IPv6 Gateway: <leave blank>
+
+* In a browser, navigate to https://<VCENTER_IP>:5480
++
+** Log in w/ default pwd: root/vmware
+** Accept EULA
+** Config w/ default settings
+** Admin > Change PWD pa15field
+
+==== Set PCF Elements
+
+* Use the vSphere client to log into vCenter
+
+* Create a datacenter: Pivotal
+
+* Create a cluster: PCF
+
 
 
 === Jumpbox
