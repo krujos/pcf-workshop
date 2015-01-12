@@ -9,3 +9,17 @@ esxcli -s $VSPHERE_IP -u $VSPHERE_USER -p $VSPHERE_PWD network vswitch standard 
 
 # Add a LAN portgroup to vSwitch1
 esxcli -s $VSPHERE_IP -u $VSPHERE_USER -p $VSPHERE_PWD network vswitch standard portgroup add --portgroup-name=LAN --vswitch-name=vSwitch1
+
+switches=`esxcli -s $VSPHERE_IP -u $VSPHERE_USER -p $VSPHERE_PWD network vswitch standard list`
+
+
+for switch in "vSwitch0" "vSwitch1"; do 	
+	echo ${switches} | grep $switch 2>&1 > /dev/null
+	if [[ $? -ne 0 ]]; then 
+		echo "ERROR: Failed to add ${switch}!"
+		exit 1;
+	fi
+done
+
+echo "Complete."
+
