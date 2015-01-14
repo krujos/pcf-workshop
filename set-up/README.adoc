@@ -71,7 +71,7 @@ In vSphere:
 ** Virtual Machine Version: 8
 ** Guest OS: Other > FreeBSD 32 bit
 ** CPU: Defaults are fine
-** Memory: 512MB
+** Memory: 1GB
 ** Network: Connect 2 NICS, LAN & WAN, Adapter Type: Flexible
 ** Other defaults are fine
 ** Select "edit config settings" before creating
