@@ -177,10 +177,10 @@ Set up the following rules through the web UI (assume defaults unless specified)
 
 [width="100%",frame="topbot",options="header"]
 |=======
-| Virtual IP Address | Interface
-| OpsMgr_WAN_IP/24   | WAN
-| HAProxy_WAN_IP/24  | WAN
-| JumpBox_WAN_IP/24  | WAN
+| Virtual IP Address | Interface  | Type
+| OpsMgr_WAN_IP/24   | WAN        | IP Alias
+| HAProxy_WAN_IP/24  | WAN        | IP Alias
+| JumpBox_WAN_IP/24  | WAN        | IP Alias
 |=======
 
 
