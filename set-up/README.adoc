@@ -122,11 +122,14 @@ In vSphere:
 *** end address: 192.168.5.245
 +
 
-* 8) Shell out and run the following to allow you to configure the pfSense box from an external (non-LAN) browser:
+* 14) Enable SSH access
+
+* 8) Shell out and run the following to allow you to configure the pfSense box from an external (non-LAN) browser and ssh:
 +
 [source,bash]
 ----
 $ easyrule pass wan tcp any <pfsense-wan-ip> 443
+$ easyrule pass wan tcp any <pfsense-wan-ip> 22
 ----
 +
 
@@ -139,6 +142,15 @@ $ easyrule pass wan tcp any <pfsense-wan-ip> 443
 ** Set the admin password according to the spreadsheet
 
 ===== PCF Config
+
+Set up the following rules using scripts:
+
+* SSH to the pfSense box:
+
+* Edit the pfsense/setenv.sh script for the correct WAN IPs and run it (cut & paste into your ssh session)
+
+* Run the pfsense/rules.sh script to set up NAT WAN & LAN rules (cut & paste into your ssh session)
+
 
 Set up the following rules through the web UI (assume defaults unless specified):
 
@@ -155,38 +167,12 @@ Set up the following rules through the web UI (assume defaults unless specified)
 [width="100%",frame="topbot",options="header"]
 |=======
 | External IP     | Internal IP | NAT Reflection
+| pfSense WAN IP  | 192.168.5.1 | enable
 | Jumpbox WAN IP  | 192.168.5.2 | enable
 | OpsMgr WAN IP   | 192.168.5.3 | enable
 | HAProxy WAN IP  | 192.168.5.4 | enable
 |=======
 
-====== Firewall > Rules > WAN
-
-[width="100%",frame="topbot",options="header"]
-|=======
-| Proto     | Source         | Port   | Destination    | Port
-| IPv4 TCP  | PFSense WAN IP | any    | 192.168.5.1    | any
-| IPv4 TCP  | any            | any    | PFSense WAN IP | 443
-| IPv4 TCP  | any            | any    | 192.168.5.3    | 22
-| IPv4 TCP  | any            | any    | 192.168.5.3    | 80
-| IPv4 TCP  | any            | any    | 192.168.5.3    | 443
-| IPv4 TCP  | any            | any    | 192.168.5.4    | 80
-| IPv4 TCP  | any            | any    | 192.168.5.4    | 443
-| IPv4 TCP  | any            | any    | 192.168.5.2    | 3389
-|=======
-
-====== Firewall > Rules > LAN
-
-Keep the (3) defaults and add:
-
-[width="100%",frame="topbot",options="header"]
-|=======
-| Proto     | Source         | Port   | Destination    | Port
-| IPv4 TCP  | any            | any    | 192.168.5.1    | 22
-| IPv4 TCP  | 192.168.5.0/24 | any    | vCenter WAN IP | 443
-| IPv4 TCP  | 192.168.5.0/24 | any    | OpsMgr WAN IP  | 443
-| IPv4 TCP  | 192.168.5.0/24 | any    | HAProxy WAN IP | 443
-|=======
 
 ====== Firewall > Virtual IPs
 
