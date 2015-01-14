@@ -61,10 +61,17 @@ Students will have completed the following courses on Pivotal Academy:
 ** App log aggregation via a User Provided Service Instance
 ** Monitoring with APM tools
 ** Remote debugging
-** Application Security Groups
 ** Application Autoscaling
 ** Continuous Delivery
 
 . link:buildpack/README.adoc[Customizing Build Packs]: Customize a build pack and use it to deploy your micro service.
 
 . link:service-broker/README.adoc[Creating a Custom Service Broker]: Pair to create a custom service and bind it to your micro service.
+
+== Material Format Philosophy
+
+* Presentations introduce concepts.  They do not provide detail and never reformat the same content available on the docs site as bullets.  I bullets are boring and instead I favor animation.  Well rehearsed animation illustrates and explains concepts with very few words (see Onsi’s talk on Diego at CF Summit).
+
+* Docs are for detail.  I want students to get in the habit of reading and referring to the docs site.  I added open book "quizzes" to the curriculum to ensure they do this while going through the class.
+
+* Asciidoc docs in git define the course, links and work.  They are easy to edit, format and navigate.
