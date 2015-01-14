@@ -26,6 +26,22 @@ If only datastore1 shows up, add the SSD datastore.
 
 * Name it `ssd`
 
+
+==== Add the NFS Share
+
+In the vSphere Client
+
+* Highlight the host > Configuration > Storage > Add Storage
+
+* Select "Network File System"
+
+* Server: 209.236.122.183
+
+* Folder: /volume1/share
+
+* Name: share
+
+
 ==== Networking
 
 There is a script in the vSphere directory to set up networking.  You need the vSphere cli to run this.
@@ -44,7 +60,143 @@ To run the script:
 
 ==== Deploying pfSesnse
 
+In vSphere:
+
+* Select the host > Configuration > Storage > datastore1 > Browse Datastore (Ctrl Shift click)
+
+* Upload the ISO
+
+* Create a new VM
++
+** Select `Custom`
+** Name: pfSense
+** Datastore: datastore1
+** Virtual Machine Version: 8
+** Guest OS: Other > FreeBSD 32 bit
+** CPU: Defaults are fine
+** Memory: 512MB
+** Network: Connect 2 NICS, LAN & WAN
+** Other defaults are fine
+** Select "edit config settings" before creating
+** CD/DVD Drive > Datastore ISO > Point to the ISO on the `share` datastore.  Make sure you select `Connect at power on`
+
+* Open the console
+
+* Start the VM
+
+* Option 1
+
+* Hit `I` when prompted to start the install.  Capitalization counts.
++
+** Configure Console: Accept these settings
+** Select Task: Quick/Easy Install
+** Confirm it
+** Install Kernel: Standard Kernel
+** Reboot: Return to Select Task
+** Select Task: Exit
+** Shut it down
++
+
+* Ctrl + click on the pfSense VM > Edit Settings > CD/DVD drive > Unselect `Connect at power on`
+
 ==== Configuring pfSense
+
+* Start the VM
+
+* In the Console:
++
+** Do you want to configure VLANs now: N
+** Enter WAN interface name: Select the NIC on the WAN network (available by Ctrl + click on the VM > Edit Settings )
+** Enter LAN interface name: Select the NIC on the LAN network (available by Ctrl + click on the VM > Edit Settings )
+** Enter the Optional 1 interface name: leave blank
+** Do you want to proceed: Y
+
+* 2) Set interface(s) IP address: configure the IP4v addresses for both WAN and LAN
++
+** Netmask should be 255.255.255.0 (bit count 24)
+** WAN gateway should be the same as the pfSense IP except ending in `.1` (example 209.236.122.1)
+** Do you want to revert to http as the Web Configurator protocol: N
+** LAN gateway should be blank.
+** Do you want to enable the DHCP server on LAN: y
+*** start address: 192.168.5.10
+*** end address: 192.168.5.245
++
+
+* 8) Shell out and run the following to allow you to configure the pfSense box from an external (non-LAN) browser:
++
+[source,bash]
+----
+$ easyrule pass wan tcp any <pfsense-wan-ip> 443
+----
++
+
+* Open a browser: https://pfsense-wan-ip and login w/ the default user and pwd: admin/pfsense
+
+* Follow the set up wizard
++
+** DNS: 8.8.8.8 and 8.8.4.4
+** You do not need to change anything on the WAN and LAN config screens as you have already done this.
+** Set the admin password according to the spreadsheet
+
+===== PCF Config
+
+Set up the following rules through the web UI (assume defaults unless specified):
+
+====== Firewall > NAT > Port Forward
+
+[width="100%",frame="topbot",options="header"]
+|=======
+| Destination port range  | Redirect target IP  | Redirect target port
+| from/to ssh             | 192.168.5.3         | ssh (22)
+|=======
+
+====== Firewall > NAT > 1:1
+
+[width="100%",frame="topbot",options="header"]
+|=======
+| External IP     | Internal IP | NAT Reflection
+| Jumpbox WAN IP  | 192.168.5.2 | enable
+| OpsMgr WAN IP   | 192.168.5.3 | enable
+| HAProxy WAN IP  | 192.168.5.4 | enable
+|=======
+
+====== Firewall > Rules > WAN
+
+[width="100%",frame="topbot",options="header"]
+|=======
+| Proto     | Source         | Port   | Destination    | Port
+| IPv4 TCP  | PFSense WAN IP | any    | 192.168.5.1    | any
+| IPv4 TCP  | any            | any    | PFSense WAN IP | 443
+| IPv4 TCP  | any            | any    | 192.168.5.3    | 22
+| IPv4 TCP  | any            | any    | 192.168.5.3    | 80
+| IPv4 TCP  | any            | any    | 192.168.5.3    | 443
+| IPv4 TCP  | any            | any    | 192.168.5.4    | 80
+| IPv4 TCP  | any            | any    | 192.168.5.4    | 443
+| IPv4 TCP  | any            | any    | 192.168.5.2    | 3389
+|=======
+
+====== Firewall > Rules > LAN
+
+Keep the (3) defaults and add:
+
+[width="100%",frame="topbot",options="header"]
+|=======
+| Proto     | Source         | Port   | Destination    | Port
+| IPv4 TCP  | any            | any    | 192.168.5.1    | 22
+| IPv4 TCP  | 192.168.5.0/24 | any    | vCenter WAN IP | 443
+| IPv4 TCP  | 192.168.5.0/24 | any    | OpsMgr WAN IP  | 443
+| IPv4 TCP  | 192.168.5.0/24 | any    | HAProxy WAN IP | 443
+|=======
+
+====== Firewall > Virtual IPs
+
+[width="100%",frame="topbot",options="header"]
+|=======
+| Virtual IP Address | Interface
+| OpsMgr_WAN_IP/24   | WAN
+| HAProxy_WAN_IP/24  | WAN
+| JumpBox_WAN_IP/24  | WAN
+|=======
 
 
 === vCenter
