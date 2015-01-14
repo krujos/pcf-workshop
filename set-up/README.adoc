@@ -63,10 +63,6 @@ To run the script:
 
 In vSphere:
 
-* Select the host > Configuration > Storage > datastore1 > Browse Datastore (Ctrl Shift click)
-
-* Upload the ISO
-
 * Create a new VM
 +
 ** Select `Custom`
