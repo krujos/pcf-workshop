@@ -153,14 +153,6 @@ Set up the following rules using scripts:
 
 Set up the following rules through the web UI (assume defaults unless specified):
 
-====== Firewall > NAT > Port Forward
-
-[width="100%",frame="topbot",options="header"]
-|=======
-| Destination port range  | Redirect target IP  | Redirect target port
-| from/to ssh             | 192.168.5.3         | ssh (22)
-|=======
-
 ====== Firewall > NAT > 1:1
 
 [width="100%",frame="topbot",options="header"]
