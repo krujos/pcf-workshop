@@ -125,7 +125,7 @@ In vSphere:
 *** end address: 192.168.5.245
 +
 
-* 8) Shell out and run the following to allow you to configure the pfSense box from an external (non-LAN) browser:
+* 8) Shell out (option 8) and run the following to allow you to configure the pfSense box from an external (non-LAN) browser:
 +
 [source,bash]
 ----
