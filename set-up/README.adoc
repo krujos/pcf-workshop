@@ -118,6 +118,7 @@ In vSphere:
 ** Netmask should be 255.255.255.0 (bit count 24)
 ** WAN gateway should be the same as the pfSense IP except ending in `.1` (example 209.236.122.1)
 ** Do you want to revert to http as the Web Configurator protocol: N
+** LAN IP should be 192.168.5.1
 ** LAN gateway should be blank.
 ** Do you want to enable the DHCP server on LAN: y
 *** start address: 192.168.5.10
