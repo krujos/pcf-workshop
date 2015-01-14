@@ -112,8 +112,9 @@ In vSphere:
 ** Enter the Optional 1 interface name: leave blank
 ** Do you want to proceed: Y
 
-* 2) Set interface(s) IP address: configure the IP4v addresses for both WAN and LAN
+* 2) Set interface(s) IP address: configure the IP4v addresses for both WAN and LAN 
 +
+** Select option 2 from the "welcome" table
 ** Netmask should be 255.255.255.0 (bit count 24)
 ** WAN gateway should be the same as the pfSense IP except ending in `.1` (example 209.236.122.1)
 ** Do you want to revert to http as the Web Configurator protocol: N
