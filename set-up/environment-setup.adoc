@@ -227,8 +227,44 @@ IPv6 Gateway: <leave blank>
 
 * Create a cluster: PCF
 
+* Add your vSphere host to the cluster.
 
 
 === Jumpbox
 
-SG: I need to create an OVA/packer build for this
+This process takes a long time b/c of the jumpbox size.  However, it is not too manual, so let's take the little victory.  There is a template on the share datastore which we will use.
+
+* Log into vCenter through the vSphere client.
+
+* Inventory > Datastores & Clusters > share > CTRL + Click > Browse Datastore > JumpBox-Template
+
+* CTRL+Click on JumpBox-Template.vmtx > Add to Inventory
++
+** `Discovered Virtual Machines` folder
+** PCF cluster
+** Accept the rest of the defaults
+
+* Inventory > VMs & Templates
+
+* CTRL+Click on the JumpBox-Template > Deploy Virtual Machine from this Template
++
+** Name: JumpBox
+** Inventory Location: Discovered virtual machine
+** Cluster: PCF
+** Storage: datastore1
+** Check `Power on this virtual machine after creation`
+** Accept other defaults
+
+* How about a Fresca?  This is going to take a while...
+
+When it is complete...
+
+* Start the new JumpBox VM
+
+* Log in through the vCenter console
+
+* Windoze is dumb... so select "Home Network" when that pops up.
+
+* You should be good to go now.  Verify by using Remote Desktop Connection to connect to it.
+
+ 
