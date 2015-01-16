@@ -176,6 +176,17 @@ Set up the following rules through the web UI (assume defaults unless specified)
 |=======
 
 
+====== System > Advanced > Firewall / NAT
+
+* NAT Reflection mode for port forwards > Enable (Pure NAT)
+
+* Enable NAT Reflection for 1:1 NAT > checked
+
+* Enable automatic outbound NAT for Reflection
+
+* Save
+
+
 === vCenter
 
 ==== Installing vCenter
