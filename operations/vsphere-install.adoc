@@ -34,7 +34,7 @@ $ remmina
 * Alternative: link:https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12[Remote Desktop for Mac]
 +
 
-. Log into Ops Manager by going to `https://192.168.5.3` from the JumpBox and creating a user and password.  *Be sure to set the username and password supplied by the instructor*.
+. Log into Ops Manager by going to `https://<internal-ip>` from the JumpBox and creating a user and password.  *Be sure to set the username and password supplied by the instructor*.
 
 === Configuring Ops Manager Director
 
