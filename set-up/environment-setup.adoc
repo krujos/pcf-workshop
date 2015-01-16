@@ -161,7 +161,7 @@ Set up the following rules through the web UI (assume defaults unless specified)
 | pfSense WAN IP  | 192.168.5.1 | enable
 | Jumpbox WAN IP  | 192.168.5.2 | enable
 | OpsMgr WAN IP   | 192.168.5.3 | enable
-| HAProxy WAN IP  | 192.168.5.4 | enable
+| HAProxy WAN IP  | 192.168.5.5 | enable
 |=======
 
 
@@ -266,5 +266,3 @@ When it is complete...
 * Windoze is dumb... so select "Home Network" when that pops up.
 
 * You should be good to go now.  Verify by using Remote Desktop Connection to connect to it.
-
- 
