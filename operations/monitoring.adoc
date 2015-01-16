@@ -38,8 +38,7 @@ In this section, you will install and configure the Ops Metrics tile.
 
 . *Follow steps 1-5 ONLY* on link:http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#splunkstorm[Setting up Splunk Storm]
 +
-* For *Step 4*, the IP to authorize is provided by the instructors.  This is the IP of the externally facing firewall/NAT box for your installation.
-+
+* For *Step 4*, select `Authorize Automatically` rather than manually configuring.  You should see an address show up once you deploy changes below.
 
 . In Ops Manager and select `Elastic Runtime` > `External Endpoints`
 
