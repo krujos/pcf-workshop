@@ -17,7 +17,7 @@ $ git clone <this-repo>
 
 === Exercise Repository: pcf-immersion-workspace
 
-A repository has been set up for individual class exercises.  You will need to fork this repository and make it public in your github account.  Do not rename the repository and be sure you *commit all of your work to your fork*.
+A repository has been set up for individual class exercises.  You will need to fork link:https://github.com/pcf-alliances-immersion/pcf-immersion-workspace[this repository] and make it public in your github account.  Do not rename the repository and be sure you *commit all of your work to your fork*.
 
 ==== Updating the pcf-immersion-workspace
 
