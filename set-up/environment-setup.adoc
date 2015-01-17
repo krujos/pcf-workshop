@@ -158,7 +158,6 @@ Set up the following rules through the web UI (assume defaults unless specified)
 [width="100%",frame="topbot",options="header"]
 |=======
 | External IP     | Internal IP | NAT Reflection
-| pfSense WAN IP  | 192.168.5.1 | enable
 | Jumpbox WAN IP  | 192.168.5.2 | enable
 | OpsMgr WAN IP   | 192.168.5.3 | enable
 | HAProxy WAN IP  | 192.168.5.5 | enable
