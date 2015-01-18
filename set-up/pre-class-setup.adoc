@@ -1,0 +1,14 @@
+= Pre class set up
+
+== Git
+
+* Create a new team for students in the github.com/pcf-alliances-immersion org.  Be sure to follow the naming convention.  This team should only have read only access.
+
+* Add this team to the `alliances-immersion` and `pcf-immersion-workspace` projects.
+
+
+== Env Spreadsheet
+
+* Share this with students via drive.
+
+* Be sure to note student names using each environment.

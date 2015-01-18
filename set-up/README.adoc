@@ -11,3 +11,5 @@ link:instructor-notes.adoc[Instructor Notes]
 What do you need to do before a class starts?
 
 * link:environment-setup.adoc[Environment Set up]
+
+* link:pre-class-setup.adoc[Pre-Class Set Up]
