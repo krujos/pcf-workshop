@@ -54,6 +54,27 @@ Friday is all about bringing it altogether and feedback.  Depending on the gener
 
 I do the summary exercises on the white board.  This has been extremely important and well received and I highly recommend you practice this ahead of time.
 
-The goal is to guide students through everything that happened during the class to draw a series of pictures.
+The goal is to guide students through everything that happened during the class to draw a series of pictures.  You are the facilitator, not the instructor.  The goal is to get students to think and direct your drawings.
 
-TO DO: Draw sample pics and provide them along with a flow guide.
+===== Pic 1: vSphere
+
+* Draw a box and label it vSphere.  The goal is to draw what was deployed during class.
+
+* Add details like: Datacenter, Cluster, network, etc.
+
+
+===== Pic 2: vSphere, the ideal
+
+* Availability Zones: Define and discuss availability zones.  Be sure students are aware of the best practices.
+
+* Networks: Define and discuss how PCF was deployed and the best practices to segment traffic.
+
+===== Pic 3: PCF Install
+
+* Draw the IaaS
+
+* Layer PCF on top w/ bosh.  Be sure to draw the CPI
+
+* Be sure to explain what Ops Mgr is, what each tile is, and what goes into a bosh release.
+
+* Add Services.  Include brokers, and UPSI in the class.  Discuss the options.
