@@ -27,6 +27,11 @@ In this section, you will configure application log draining into a log analysis
 
 . How can you view logs for a specific application instance?
 
+. Why didn't you have to add an application security group rule?
+
+. How would you prevent log draining to an external service?
+
+
 == Other External Tools
 
 Any tcp syslog compliant log tools can be used with CloudFoundry.  A few popular configurations are:
