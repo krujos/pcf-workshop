@@ -27,53 +27,7 @@ In this section, students will deploy a custom service broker.
 
 The Service Broker for this lab is for a service called HashMap as a Service (HaaSh). It wraps a minimal REST API around a Java HashMap implementation, and each service creation event results in a newly allocated Map.
 
-=== Updating the pcf-immersion-workspace
-
-The workspace repository has been updated for this exercise.  To get the changes, you need to fetch the upstream changes and merge them.  From your fork:
-
-* Display your current fork:
-+
-[source,bash]
-----
-$ git remote -v
-----
-+
-
-* Add the upstream remote:
-+
-[source,bash]
-----
-$ git remote add upstream https://github.com/pcf-alliances-immersion/pcf-immersion-workspace.git
-----
-+
-
-* Verify you now have an upstream:
-+
-[source,bash]
-----
-$ git remote -v
-----
-+
-
-* Now fetch upstream changes:
-+
-[source,bash]
-----
-$ git fetch upstream
-----
-+
-
-* Merge the changes:
-+
-[source,bash]
-----
-$ git merge upstream/master
-----
-+
-
-* You now have the changes.  Be sure to commit and push at some point.
-
-Use the service-broker folder which has been updated with the haash-broker and haash-client.
+Use the service-broker folder which has the haash-broker and haash-client.
 
 === haash-broker
 
