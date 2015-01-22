@@ -196,13 +196,6 @@ $ cf buildpacks
 
 . Your cities-service manifest should specify the above buildpack.
 
-. Java version 1.8_25 should show in the staging log:
-+
-[source,bash]
-----
-$ cf files <cities-service> staging_info.yml
-----
-
 . A curl request should return the staging timestamp:
 
 +
