@@ -101,7 +101,7 @@ The box will be distributed via thumb drive.
 +
 [source,bash]
 ----
-$ vagrant box add --name pcf-immersion-box <PATH_TO_THE_BOX_FILE>
+$ vagrant box add pcf-immersion-box <PATH_TO_THE_BOX_FILE>
 ----
 +
 
