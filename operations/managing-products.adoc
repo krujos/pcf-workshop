@@ -30,10 +30,25 @@ In this exercise, you will install and configure the products which will be used
 * Ops Metrics
 +
 
-. *Elastic Runtime*: Be sure to click the `Generate Self-Signed RSA certificate` link. Then, select `Trust Self-Signed Certificates` on the HA Proxy tab.
+. *Elastic Runtime*:
++
+** HA Proxy Tab: Be sure to click the `Generate Self-Signed RSA certificate` link. Then, select `Trust Self-Signed Certificates`.
++
+** Resource Sizes:
+*** Increase the number of DEAs to 2.
+*** Reduce the persistent disk size of the NFS Server to 51,200MB
+*** Reduce the persistent disk size of the MySQL Server to 30,000MB
 
-. *Jenkins*: You will have to enter license information.  Enter your information for a temporary license.
+. *Jenkins*: You will have to enter license information.  Enter your information to generate a temporary license.
 
 . *Ops Metrics*: We will configure Ops Metrics in a later exercise.  In order to install it, you need to set up a JMX Provider username and password.  The user/pwd to use is provided in the environment spreadshet.
+
+. *MySQL*:
++
+** Resource Sizes:
+*** Reduce the number of instances to 1.
+*** Reduce the persistent disk to 50,000MB
+*** Reduce Proxy instances to 1
+*** Reduce Broker instances to 1
 
 . When you have completed configuration, select `Install` in the Ops Manager interface.
