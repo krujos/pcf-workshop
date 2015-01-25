@@ -38,6 +38,7 @@ In this exercise, you will install and configure the products which will be used
 *** Increase the number of DEAs to 2.
 *** Reduce the persistent disk size of the NFS Server to 51,200MB
 *** Reduce the persistent disk size of the MySQL Server to 30,000MB
+*** Ensure the Collector instance count is set to 1
 
 . *Jenkins*: You will have to enter license information.  Enter your information to generate a temporary license.
 
