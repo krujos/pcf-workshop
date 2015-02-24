@@ -237,7 +237,7 @@ IPv6 Gateway: <leave blank>
 
 * Create a cluster: PCF
 
-* Add your vSphere host to the cluster.
+* Add your vSphere (ESXi) host to the cluster.
 
 
 === Jumpbox
@@ -246,7 +246,9 @@ This process takes a long time b/c of the jumpbox size.  However, it is not too 
 
 * Log into vCenter through the vSphere client.
 
-* Inventory > Datastores & Clusters > share > CTRL + Click > Browse Datastore > JumpBox-Template
+* Inventory > Datastores & Clusters
+
+* In left panel, open up Pivotal DataCenter > share > CTRL + Click > Browse Datastore > JumpBox-Template
 
 * CTRL+Click on JumpBox-Template.vmtx > Add to Inventory
 +
