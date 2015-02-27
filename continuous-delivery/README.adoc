@@ -52,7 +52,7 @@ We will leverage the Jenkins instance deployed by Ops Manager.  This is located 
 
 . Navigate back to Jenkins Home.
 
-. Click `create new jobs`, give it a name and select `Build a free-style software project` Then click `OK`.
+. Click `new item`, give it a name and select `Build a free-style software project` Then click `OK`.
 
 . Under `Source Code Management`, select `Git`, and supply your repository URL and credentials
 
