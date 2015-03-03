@@ -1,9 +1,17 @@
 = Kick Off
 
-== Set Up
+== Introductions
 
-Follow the directions for link:../student-setup.adoc[student set up].
+Where are you from?  What is your role?  What is your background?  Any experience with CF?
 
 == Logistics
 
-link:KickOff.key[Kick Off Logistics]
+Review any pertinent logistics.
+
+== Accreditation Expectations
+
+If applicable, review the expectations for accreditation.
+
+== Set Up
+
+Follow the directions for link:../student-setup.adoc[student set up].
