@@ -42,8 +42,8 @@ Students will have completed the following courses on Pivotal Academy:
 
 == Material Format Philosophy
 
-* Presentations introduce concepts.  They do not provide detail and never reformat the same content available on the docs site as bullets.  I bullets are boring and instead I favor animation.  Well rehearsed animation illustrates and explains concepts with very few words (see Onsi’s talk on Diego at CF Summit).
+* *Presentations* introduce concepts.  They should not provide detail and never reformat the same content available on the docs site as bullets.  Heavily bulleted presentations tend to be boring so we favor animation.  Well rehearsed animation illustrates and explains concepts with very few words (see Onsi’s talk on Diego at link:https://www.youtube.com/watch?v=1OkmVTFhfLY[CF Summit]).
 
-* Docs are for detail.  I want students to get in the habit of reading and referring to the docs site.  I added open book "quizzes" to the curriculum to ensure they do this while going through the class.
+* *Docs* are for detail.  Students should get in the habit of reading and referring to the docs site.  Open book "quizzes" in the curriculum help ensure students read the docs.
 
-* Asciidoc docs in git define the course, links and work.  They are easy to edit, format and navigate.
+* *Asciidoc* docs in git define the course, links and work.  They are easy to edit, format and navigate.
