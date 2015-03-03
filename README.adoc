@@ -29,44 +29,16 @@ Students will have completed the following courses on Pivotal Academy:
 === Agenda
 
 . link:kick-off/README.adoc[Kick Off]
-** Introductions
-** Session Expectations
-** Pre-requisite Validation
 
 . link:overview/README.adoc[Pivotal CF Overview]
-** Intro to Pivotal CF
-** Technical Overview
-** Resources
 
 . link:operations/README.adoc[The Operator Experience]
-** Installing Pivotal CF
-** Managing Products with Ops Manager
-** Scaling the platform
-** PaaS monitoring
-** Backing up Pivotal CF
-** Bosh basics & troubleshooting
-** Orgs, spaces, users & quotas
-** Application Security Groups
 
 . link:dev-experience/README.adoc[The Developer Experience]
-** Building apps
-** Pushing apps
-** Using Manifests
-** Dependency Injection in Spring
-** Health, logging & events via the CLI
-** Binding to services
-** Environment variables
-** Scaling apps
-** IDE integration
-** App log aggregation via a User Provided Service Instance
-** Monitoring with APM tools
-** Remote debugging
-** Application Autoscaling
-** Continuous Delivery
 
-. link:buildpack/README.adoc[Customizing Build Packs]: Customize a build pack and use it to deploy your micro service.
+. link:buildpack/README.adoc[Customizing Build Packs]
 
-. link:service-broker/README.adoc[Creating a Custom Service Broker]: Pair to create a custom service and bind it to your micro service.
+. link:service-broker/README.adoc[Deploying a Custom Service Broker]
 
 == Material Format Philosophy
 
