@@ -10,16 +10,16 @@ This section provides the basic information and understanding required to unders
 
 To understand:
 
-* link:Intro_to_PivotalCF.key[Intro to Cloud Foundry]
+* link:Intro_to_PivotalCF.key[Intro to Cloud Foundry] _(link:Intro_to_PivotalCF.pptx[powerpoint])_
 ** 3rd platform and what market forces have lead us here
 ** Platform as a Service basics
 ** The Cloud Foundry Foundation
 ** Pivotal CF: The Enterprise Cloud Foundry
 
-* link:Technical_Overview.key[Technical Overview]
+* link:Technical_Overview.key[Technical Overview] _(link:Technical_Overview.pptx[powerpoint])_
 ** The basic components in Pivotal CF
 ** How the components and capabilities contribute to the 4 Core Tenents of Cloud Foundry
 ** The 4 Levels of High Availability
 
-* link:Resources.key[Resources]
+* link:Resources.key[Resources] _(link:Resources.pptx[powerpoint])_
 ** Where to go for more information
