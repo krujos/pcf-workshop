@@ -23,13 +23,13 @@ At the end of this session, students will have a Pivotal CF environment for use 
 
 . link:managing-products.adoc[Managing Products with Ops Manager]
 
-. Review the Keynote on link:Bosh_Overview.key[Bosh Overview]
-
 . link:platform-scaling.adoc[Scaling the platform]
 
 . link:monitoring.adoc[PaaS monitoring]
 
 . link:backup-pcf.adoc[Backing up Pivotal CF]
+
+. Review the Keynote on link:Bosh_Overview.key[Bosh Overview]
 
 . link:bosh-troubleshooting.adoc[Bosh basics & troubleshooting]
 
