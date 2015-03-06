@@ -93,6 +93,10 @@ Root Build Script:: This should be something like: `cities/cities-service`.  You
 
 . Jenkins hook url: https://pivotal-cloudbees.<YOUR PCF SYSTEM DOMAIN>/github-webhook/
 
++
+* Make sure you include the trailing slash. The integration between github and jenkins will not work without it. 
++
+
 . Be sure `Active` is checked and click `Add Service`
 
 . You can find the values for CF_JAR and CF_MANIFEST by clicking on `Workspace` in the job config
