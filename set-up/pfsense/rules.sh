@@ -1,7 +1,3 @@
-easyrule pass wan tcp any $PFSENSE_LAN_IP 443
-
-easyrule pass wan tcp any $PFSENSE_LAN_IP 22
-
 easyrule pass wan tcp $PFSENSE_WAN_IP $PFSENSE_LAN_IP any
 
 

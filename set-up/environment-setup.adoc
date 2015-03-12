@@ -186,6 +186,11 @@ Set up the following rules through the web UI (assume defaults unless specified)
 * Save
 
 
+====== System > General Setup
+
+* Change NTP to: 0.pool.ntp.org
+
+
 === vCenter
 
 ==== Installing vCenter
@@ -278,3 +283,29 @@ When it is complete...
 * Windoze is dumb... so select "Home Network" when that pops up.
 
 * You should be good to go now.  Verify by using Remote Desktop Connection to connect to it.
+
+=== Updating PCF Install files
+
+* Log into the Jumpbox and connect to vCenter through the client.
+
+* Go to Datastores and Clusters > NFS Share
+
+* The "pcf-installation-files" folder should contain the most recent install artifacts.  You can delete the existing folder on the jumpbox desktop and download this one.
+
+=== NTP & DNS in vCenter
+
+The default NTP and dns config can cause hard to diagnose issues.
+
+* In vCenter > Hosts & Clusters > Select the host in the left hand pane
+
+* In the right pane: Configuration > DNS & Routing > Properties
++
+** Host Name: localhost
+** Domain: localdomain
+** DNS: 8.8.8.8 and 8.8.4.4
+** Look for hosts in the following domains: Remove anything in here.
+
+* From the Configuration tab > Time Configuration > Properties > Options
++
+** Startup Policy: Start automatically if any ports are open...
+** NTP Settings > Add > Enter 0.pool.ntp.org
