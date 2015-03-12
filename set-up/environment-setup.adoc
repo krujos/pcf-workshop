@@ -98,13 +98,18 @@ In vSphere:
 
 ==== Configuring pfSense
 
+* Map the pfSense interfaces to the VM network NICs
++
+** Identify and write down the MAC address for each network NIC (available by Ctrl + click on the VM > Edit Settings)
+** Match the MAC address to the pfSense interface (le0 or le1) displayed on the pfSense console in the step below
+
 * Start the VM
 
 * In the Console:
 +
 ** Do you want to configure VLANs now: N
-** Enter WAN interface name: Select the NIC on the WAN network (available by Ctrl + click on the VM > Edit Settings )
-** Enter LAN interface name: Select the NIC on the LAN network (available by Ctrl + click on the VM > Edit Settings )
+** Enter WAN interface name (le0 or le1): Select the NIC on the WAN network (available by Ctrl + click on the VM > Edit Settings)
+** Enter LAN interface name (le0 or le1): Select the NIC on the LAN network (available by Ctrl + click on the VM > Edit Settings)
 ** Enter the Optional 1 interface name: leave blank
 ** Do you want to proceed: Y
 
