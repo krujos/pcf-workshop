@@ -67,7 +67,7 @@ In vSphere:
 +
 ** Select `Custom`
 ** Name: pfSense
-** Datastore: datastore1
+** Datastore: ssd
 ** Virtual Machine Version: 8
 ** Guest OS: Other > FreeBSD 32 bit
 ** CPU: Defaults are fine
@@ -98,18 +98,13 @@ In vSphere:
 
 ==== Configuring pfSense
 
-* Map the pfSense interfaces to the VM network NICs
-+
-** Identify and write down the MAC address for each network NIC (available by Ctrl + click on the VM > Edit Settings)
-** Match the MAC address to the pfSense interface (le0 or le1) displayed on the pfSense console in the step below
-
 * Start the VM
 
 * In the Console:
 +
 ** Do you want to configure VLANs now: N
-** Enter WAN interface name (le0 or le1): Select the NIC on the WAN network (available by Ctrl + click on the VM > Edit Settings)
-** Enter LAN interface name (le0 or le1): Select the NIC on the LAN network (available by Ctrl + click on the VM > Edit Settings)
+** Enter WAN interface name: Select the NIC on the WAN network (available by Ctrl + click on the VM > Edit Settings )
+** Enter LAN interface name: Select the NIC on the LAN network (available by Ctrl + click on the VM > Edit Settings )
 ** Enter the Optional 1 interface name: leave blank
 ** Do you want to proceed: Y
 
@@ -196,6 +191,13 @@ Set up the following rules through the web UI (assume defaults unless specified)
 * Change NTP to: 0.pool.ntp.org
 
 
+====== Firewall > Rules > WAN
+
+* The first rule should say something like "Block private networks" in the description.  Click the "e" (edit) icon on this line.
+
+* Under "Private networks", uncheck `Block private networks` and `Block bogon networks`.
+
+
 === vCenter
 
 ==== Installing vCenter
@@ -205,7 +207,7 @@ Set up the following rules through the web UI (assume defaults unless specified)
 * File > Deploy OVF Template
 +
 ** The OVA is available on S3: https://s3-us-west-2.amazonaws.com/pcf-immersion/VMware-vCenter-Server-Appliance-5.5.0.20200-2183109_OVF10.ova
-** Use datastore1 (the non-ssd)
+** Use ssd
 ** Deploy to the WAN Network
 
 ==== Configure vCenter
@@ -273,7 +275,7 @@ This process takes a long time b/c of the jumpbox size.  However, it is not too 
 ** Name: JumpBox
 ** Inventory Location: Discovered virtual machine
 ** Cluster: PCF
-** Storage: datastore1
+** Storage: ssd
 ** Check `Power on this virtual machine after creation`
 ** Accept other defaults
 
