@@ -136,8 +136,7 @@ $ source ~/.bash_profile
 ----
 
 
-* To login to the UI, use the default username/password is vagrant/vagrant.
-
+* To login to the UI, use the default username/password which is vagrant/vagrant.  To open a new terminal window, use the shortcut ctrl+alt+t (control+option+t for mac), then source the bash profile as shown above.
 
 ==== Sharing a directory
 
