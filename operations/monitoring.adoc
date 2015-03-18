@@ -34,15 +34,13 @@ In this section, you will install and configure the Ops Metrics tile.
 
 === Syslog Draining
 
-. Sign up for a free Splunk Storm account: http://www.splunkstorm.com
+. Sign up for a free Papertrail account: https://papertrailapp.com/
 
-. *Follow steps 1-5 ONLY* on link:http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#splunkstorm[Setting up Splunk Storm]
-+
-* For *Step 4*, select `Authorize Automatically` rather than manually configuring.  You should see an address show up once you deploy changes below.
+. *Follow steps 1-4 ONLY* on link:http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#papertrail[Setting up Papertrail]
 
 . In Ops Manager and select `Elastic Runtime` > `External Endpoints`
 
-. Enter the IP address and port displayed in your Splunk Storm project page and click `Save`
+. Enter the address and port displayed for your Papertrail system.  For `Networking Protocol` select TCP protocol.  Click `Save`.
 
 === Apply changes
 
@@ -94,9 +92,9 @@ $ jvisualvm
 . Be sure to save your configuration in jvisualvm
 
 
-=== Using Splunk Storm
+=== Using Papertrail
 
-. When complete, open the Splunk Storm project dashboard and look at the logs.
+. When complete, open the Papertrail dashboard and look at the logs.
 
 
 === Beyond the class

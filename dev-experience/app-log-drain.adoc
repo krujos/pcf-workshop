@@ -6,14 +6,11 @@ In this section, you will configure application log draining into a log analysis
 
 . Review the log draining documentation here: http://docs.pivotal.io/pivotalcf/devguide/services/log-management.html
 
-== Splunk Storm
+== Papertrail
 
-. Sign up for a free Splunk Storm account: http://www.splunkstorm.com
+. Sign up for a free Papertrail account: https://papertrailapp.com/
 
-. Follow the instructions to set up Splunk Storm: http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#splunkstorm
-+
-** Splunk Storm creates projects asynchronously in the background.  The `Select` button under `Network data` may take a few minutes to become active.
-** When authorizing valid CF IP addresses, be sure to select `Syslog` as the `Source type`.
+. Follow the instructions to set up Papertrail: http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#papertrail
 
 . Be sure to add your new User Provided Service to your microservice manifest.
 
