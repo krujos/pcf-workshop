@@ -191,9 +191,7 @@ Set up the following rules through the web UI (assume defaults unless specified)
 * Change NTP to: 0.pool.ntp.org
 
 
-====== Firewall > Rules > WAN
-
-* The first rule should say something like "Block private networks" in the description.  Click the "e" (edit) icon on this line.
+====== Interfaces > WAN
 
 * Under "Private networks", uncheck `Block private networks` and `Block bogon networks`.
 
