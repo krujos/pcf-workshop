@@ -14,7 +14,7 @@ In this section, you will configure application log draining into a log analysis
 
 . Be sure to add your new User Provided Service to your microservice manifest.
 
-. After you have bound and restarted your microservice, perform a few curl requests and ensure logs are draining into Splunk Storm.
+. After you have bound and restarted your microservice, perform a few curl requests and ensure logs are draining into Papertrail.
 
 === Evaluation
 
