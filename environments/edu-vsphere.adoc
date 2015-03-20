@@ -3,7 +3,7 @@
 
 == Urls
 
-[width="80%",frame="topbot",options="header"]
+[width="80%",frame="topbot"]
 |=======
 | Jumpbox         | jumpbox.__.edu.pivotal.io
 | vCenter         | vcenter.__.edu.pivotal.io
@@ -13,7 +13,7 @@
 
 == Users
 
-[width="80%",frame="topbot",options="header"]
+[width="80%",frame="topbot"]
 |=======
 | Jumpbox User    | admin
 | vCenter User    | root
@@ -22,7 +22,7 @@
 
 == Ops Manager Configuration
 
-[width="80%",frame="topbot",options="header"]
+[width="80%",frame="topbot"]
 |=======
 | Datastore           | ssd
 | Provisioning        | Thin
@@ -39,7 +39,7 @@
 
 == vSphere Tile Configuration
 
-[width="80%",frame="topbot",options="header"]
+[width="80%",frame="topbot"]
 |=======
 | Datacenter          | Pivotal
 | Datastore           | datastore1
@@ -56,7 +56,7 @@
 
 === vCenter IPs
 
-[width="80%",frame="topbot",options="header"]
+[width="80%",frame="topbot]
 |=======
 | 1x  | 209.236.122.123
 | 2x  | 209.236.122.129
@@ -75,7 +75,7 @@
 
 == Elastic Runtime Tile Configuration
 
-[width="80%",frame="topbot",options="header"]
+[width="80%",frame="topbot"]
 |=======
 | HA Proxy              | 192.168.5.5
 | Certificate Domain    | *.system.__.edu.pivotal.io, *.apps.__.edu.pivotal.io
@@ -86,7 +86,7 @@
 
 == Ops Metrics Tile Configuration
 
-[width="80%",frame="topbot",options="header"]
+[width="80%",frame="topbot"]
 |=======
 | JMX User          | admin
 |=======
