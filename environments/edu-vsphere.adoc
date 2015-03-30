@@ -5,9 +5,9 @@
 
 [width="80%",frame="topbot"]
 |=======
-| Jumpbox         | jumpbox.__.edu.pivotal.io
-| vCenter         | vcenter.__.edu.pivotal.io
-| Ops Manager     | opsmgr.__.edu.pivotal.io
+| Jumpbox         | jumpbox._x.edu.pivotal.io
+| vCenter         | vcenter._x.edu.pivotal.io
+| Ops Manager     | opsmgr._x.edu.pivotal.io
 |=======
 
 
@@ -78,9 +78,9 @@
 [width="80%",frame="topbot"]
 |=======
 | HA Proxy              | 192.168.5.5
-| Certificate Domain    | *.system.__.edu.pivotal.io, *.apps.__.edu.pivotal.io
-| System Domain         | system.__.edu.pivotal.io
-| Apps Domain           | apps.__.edu.pivotal.io
+| Certificate Domain    | `*.system._x.edu.pivotal.io`, `*.apps._x.edu.pivotal.io`
+| System Domain         | system._x.edu.pivotal.io
+| Apps Domain           | apps._x.edu.pivotal.io
 |=======
 
 
