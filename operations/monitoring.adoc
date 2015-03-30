@@ -42,6 +42,10 @@ In this section, you will install and configure the Ops Metrics tile.
 
 . Enter the address and port displayed for your Papertrail system.  For `Networking Protocol` select TCP protocol.  Click `Save`.
 
+=== Updating Ops Manager Director and Elastic Runtime
+. Configure Ops Manager Director's Metrics IP address and update the Elastic Runtime's Collector instance count: http://docs.pivotal.io/pivotalcf/customizing/deploy-metrics.html
+* *NOTE*: Start at step 8 as you should have already installed Ops Metrics.
+
 === Apply changes
 
 . Before applying changes: Select `Lifecycle Errands` from the `Elastic Runtime` tile.  Uncheck all of the post install errands.  This will speed up the update by ensuring these errands are not re-run.
@@ -49,9 +53,6 @@ In this section, you will install and configure the Ops Metrics tile.
 . From the Ops Manager dashboard, apply your changes.
 
 
-=== Updating Ops Manager Director and Elastic Runtime
-. Configure Ops Manager Director's Metrics IP address and update the Elastic Runtime's Collector instance count: http://docs.pivotal.io/pivotalcf/customizing/deploy-metrics.html
-* *NOTE*: Start at step 8 as you should have already installed Ops Metrics.
 
 
 == Monitoring
