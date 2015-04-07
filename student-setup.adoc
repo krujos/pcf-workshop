@@ -2,6 +2,26 @@
 
 The following resources are required for the class.
 
+== Git Client
+This class requires you to have git client software installed.  If you don't already have git installed, we recommend the following:
+
+=== Mac
+Either of the following:
+
+* GitHub graphical Git client, can download link:https://mac.github.com/[here].  Be sure to install the command line tools during the install.
+* Git command line, can download link:http://git-scm.com/downloads[here].
+
+=== Windows
+ * git for windows, can download link:https://msysgit.github.io/[here].  During the install, select the option for bash shell only.  Then run the Git Bash application from the Start Menu rather than the Git GUI application.  We've found that this approach eliminates a lot of problems for students with windows laptops.
+
+You should be familar with the git command line basics:
+
+* git clone - clone an existing repo
+* git add - add new or existing file to index to be committed
+* git commit -m "commit message" - record changes to the repo
+* git push - push committed changes to the remote repo
+* git status - show status of local changes
+
 == Class Repositories
 
 === PCF Immersion Repository
