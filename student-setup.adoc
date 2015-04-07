@@ -2,6 +2,18 @@
 
 The following resources are required for the class.
 
+== Java JDK
+This class requires version 1.7 of Java JDK, or greater.
+
+== Gradle
+This class requires gradle, which can be downloaded link:https://gradle.org/downloads/[here].
+
+=== Mac
+Directions for installing on Mac link:http://ondrej-kvasnovsky.blogspot.com/2012/05/how-to-install-gradle-on-mac-os.html[here].
+
+=== Windows
+Directions for installing on Windows link:http://rominirani.com/2014/07/28/gradle-tutorial-part-1-installation-setup/[here].
+
 == Git Client
 This class requires you to have git client software installed.  If you don't already have git installed, we recommend the following:
 
