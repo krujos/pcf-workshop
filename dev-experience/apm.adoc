@@ -34,6 +34,8 @@ $ cf cups app-dynamics -p host-name,port,ssl-enabled,account-name,account-access
 
 . Why not?
 
+Note:  If you see permgen errors in the log, treat them as general out of memory errors.  You don't need to hack the java buildpack as part of this exercise.  :)
+
 
 == Checking your work
 
