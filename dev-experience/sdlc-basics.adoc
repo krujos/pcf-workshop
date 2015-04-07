@@ -8,7 +8,7 @@ Use `cf help` and/or `cf <command> --help` for details on each of the commands b
 
 . Review the docs: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/deploy-app.html
 
-. Verify you are logged in and targeted to your PCF instance:
+. Verify you are logged in with your own userid (*not admin*) and targeted to your PCF instance:
 +
 [source,bash]
 ----
@@ -85,6 +85,15 @@ dependencies {
 +
 [source,java]
 ----
+package org.example.cities.config;
+
+import javax.sql.DataSource;
+
+import org.springframework.cloud.config.java.AbstractCloudConfig;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+
 @Profile("cloud")
 @Configuration
 public class CloudDataSourceConfig extends AbstractCloudConfig {
@@ -93,6 +102,7 @@ public class CloudDataSourceConfig extends AbstractCloudConfig {
         return connectionFactory().dataSource();
     }
 }
+
 ----
 
 . As before, have the IDE import the appropriate dependencies.
@@ -124,7 +134,7 @@ $ cf push
 
 === Troubleshooting
 
-Did it work?  Let's figure out why not.
+Did it work? - It should *not* have worked -  Let's figure out why not.
 
 . Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/troubleshoot-app-health.html[Troubleshooting App Health]
 
@@ -172,7 +182,7 @@ It looks like we need to modify our security group to allow egress.  But how do 
 
 . Set the `SPRING_PROFILES_ACTIVE` environment variable to `cloud` in your deployment manifest.
 
-. Now, manually unbind the service and re-push your app using the manifest.
+. Now, manually unbind the service and re-push your app using the manifest.  Was the database populated?
 
 . QUESTION: How would you set the `SPRING_PROFILES_ACTIVE` variable from the CLI?
 
@@ -206,7 +216,7 @@ The goal of this exercise is to use what you have learned to deploy the `cities-
 
 * A `manifest.yml` is included in the cities-ui app.  Edit this manifest with your initials and be sure this manifest works with the service you create below.
 
-* The cities-ui and cities-client can be both built at once using the `build.gradle` in the parent cities directory.
+* The cities-ui and cities-client can be both built at once by running `gradle assemble` in the parent +cities+ directory.
 
 === Creating a Service Instance & Deploy
 
