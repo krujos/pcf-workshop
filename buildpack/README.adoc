@@ -15,6 +15,8 @@ The student VM contains the correct versions of Ruby and Bundler.
 
 == Exercise
 
+. Review the keynote on link:BuildpacksAndServices.key[Buildpacks and Service Brokers]
+
 . Review the documentation on link:http://docs.pivotal.io/pivotalcf/buildpacks/[Buildpacks]
 
 . Review the documentation on link:http://docs.pivotal.io/pivotalcf/buildpacks/custom.html[Custom Buildpacks]
