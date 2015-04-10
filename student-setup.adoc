@@ -15,7 +15,7 @@ Directions for installing on Mac link:http://ondrej-kvasnovsky.blogspot.com/2012
 Directions for installing on Windows link:http://rominirani.com/2014/07/28/gradle-tutorial-part-1-installation-setup/[here].
 
 == Git Client
-This class requires you to have git client software installed.  If you don't already have git installed, we recommend the following:
+This class requires you to have git client software installed.  If you don't already have git installed, a nice GUI interface is link:http://www.sourcetreeapp.com/[SourceTree], which is available for both Mac OSX and Windows.  Otherwise you can use the following command-line utilities:
 
 === Mac
 Either of the following:
@@ -100,7 +100,7 @@ $ git merge upstream/master
 
 == Student VM
 
-A student VM is provided which includes all the tools needed for the class.  Use of this VM is optional.
+A student VM is provided which includes all the tools needed for the class.  Use of this VM is optional.  If you are setting up prior to the class, you can download it from link:https://s3-us-west-2.amazonaws.com/pcf-immersion/pcf-immersion-ubuntu-14.04.1-amd64.box[here].
 
 === VM Details
 
