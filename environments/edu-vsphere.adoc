@@ -44,10 +44,11 @@
 | Datacenter                   | Pivotal
 | Datastore                    | datastore1
 | Cluster                      | PCF
-| vSphere Network              | LAN
 | NTP                          | 0.pool.ntp.org
 | Enable VM Resurrector Plugin | yes
 | Availability Zone            | az1
+| Cluster                      | PCF
+| vSphere Network              | LAN
 | Subnet                       | 192.168.5.0/24
 | Excluded IPs                 | 192.168.5.0-192.168.5.3
 | DNS                          | 8.8.8.8
