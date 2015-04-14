@@ -52,4 +52,4 @@ In this exercise, you will install and configure the products which will be used
 *** Reduce Proxy instances to 1
 *** Reduce Broker instances to 1
 
-. When you have completed configuration, select `Apply changes` in the Ops Manager interface.
+. When you have completed configuration, select `Install` or `Apply Changes` in the Ops Manager interface.
