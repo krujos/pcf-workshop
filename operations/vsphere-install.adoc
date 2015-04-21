@@ -41,7 +41,7 @@ $ remmina
 . Follow the instructions on link:http://docs.pivotal.io/pivotalcf/customizing/vsphere-config.html[Configuring Ops Manager Director for VMware vSphere]
 +
 * Configuration information is provided by the instructors.
-* Because we are resource constrained, we will not be taking advantage of the following: Availability Zones, Multiple Newtorks, Multiple Datastores.  However, you must still configure each in Ops Manager.
+* Because we are resource constrained, we will not be taking advantage of the following: Availability Zones, Multiple Networks, Multiple Datastores.  However, you must still configure each in Ops Manager.
 +
 
 . *Director Config*: *Be sure to select the `Enable VM Resurrector Plugin`*.
@@ -50,7 +50,7 @@ $ remmina
 
 . *Networks*: Your vSphere environment is pre-configured with one network due to resource constraints.
 +
-* `NAT` should be used for both `Infrastructure` and `Deployment`
+* `LAN` should be used for both `Infrastructure` and `Deployment`
 * Review the link:http://docs.pivotal.io/pivotalcf/customizing/network-segmentation.html[Network Segmentation] documentation.
 +
 
@@ -58,4 +58,4 @@ $ remmina
 
 . Be sure all tabs on the left have a green check mark and that the tile is green on the dashboard before continuing to the next exercise.
 
-. In the interest of time, *DO NOT* click `Install` at this point.  We will first add additional products via Ops Manager (next section).
+. In the interest of time, *DO NOT* click `Apply changes` at this point.  We will first add additional products via Ops Manager (next section).

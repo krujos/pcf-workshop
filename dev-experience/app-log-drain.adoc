@@ -1,6 +1,6 @@
 = Application Log Draining
 
-In this section, you will configure application log draining into a log analysis tool.  We will use the free Splunk Storm, but any tool that supports tcp syslog draining can be used.
+In this section, you will configure application log draining into a log analysis tool.  We will use the free Papertrail tool, but any tool that supports tcp syslog draining can be used.
 
 == How it Works
 
@@ -27,6 +27,8 @@ In this section, you will configure application log draining into a log analysis
 . Why didn't you have to add an application security group rule?
 
 . How would you prevent log draining to an external service?
+
+Note:  The questions above are not included on the quiz.  But try to answer/discuss them anyway...  :)
 
 
 == Other External Tools
