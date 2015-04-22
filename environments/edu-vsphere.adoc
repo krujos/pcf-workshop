@@ -41,6 +41,7 @@
 
 [width="80%",frame="topbot"]
 |=======
+| vCenter IP                   | See table below
 | Datacenter                   | Pivotal
 | Datastore                    | datastore1
 | NTP                          | 0.pool.ntp.org
