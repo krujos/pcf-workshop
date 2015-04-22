@@ -8,7 +8,7 @@ To install and configure Pivotal CF on vSphere with services.
 
 === Notes
 
-* The instructor will point to the link:../environments[environment] information.
+* The instructor will point to the link:../environments/edu-vsphere.adoc[environment] information.
 * Each student should pair up with another to complete the installation.
 
 === Installing Pivotal CF
