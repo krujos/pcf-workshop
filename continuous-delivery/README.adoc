@@ -72,7 +72,8 @@ Root Build Script:: This should be something like: `cities/cities-service`.  You
 
 . From the job config, select `This build is parameterized` and enter the following `String values` with appropriate defaults:
 +
-* CF_DOMAIN: the CF system domain
+* CF_SYSTEM_DOMAIN: the CF system domain
+* CF_APPS_DOMAIN: the CF apps domain
 * CF_USER: the user account
 * CF_ORG: org to deploy to
 * CF_SPACE: space to deply to
@@ -94,7 +95,7 @@ Root Build Script:: This should be something like: `cities/cities-service`.  You
 . Jenkins hook url: https://pivotal-cloudbees.<YOUR PCF SYSTEM DOMAIN>/github-webhook/
 
 +
-* Make sure you include the trailing slash. The integration between github and jenkins will not work without it. 
+* Make sure you include the trailing slash. The integration between github and jenkins will not work without it.
 +
 
 . Be sure `Active` is checked and click `Add Service`
@@ -110,7 +111,7 @@ Root Build Script:: This should be something like: `cities/cities-service`.  You
 [source,bash]
 ----
 
-cf login -a https://api.$CF_DOMAIN <Add the correct flags to include the username, password, org and space> --skip-ssl-validation
+cf login -a https://api.$CF_SYSTEM_DOMAIN <Add the correct flags to include the username, password, org and space> --skip-ssl-validation
 
 DEPLOYED_VERSION_CMD=$(CF_COLOR=false cf apps | grep $CF_APP- | cut -d" " -f1)
 DEPLOYED_VERSION="$DEPLOYED_VERSION_CMD"
@@ -120,7 +121,7 @@ echo "Route Version: $ROUTE_VERSION"
 
 # push a new version and map the route
 cf <???> "$CF_APP-$BUILD_NUMBER" -n "$CF_APP-$ROUTE_VERSION" -d $CF_DOMAIN -p $CF_JAR -f $CF_MANIFEST
-cf <???> "$CF_APP-${BUILD_NUMBER}" $CF_DOMAIN -n $CF_APP
+cf <???> "$CF_APP-${BUILD_NUMBER}" $CF_APPS_DOMAIN -n $CF_APP
 
 if [ ! -z "$DEPLOYED_VERSION" -a "$DEPLOYED_VERSION" != " " -a "$DEPLOYED_VERSION" != "$CF_APP-${BUILD_NUMBER}" ]; then
   echo "Performing zero-downtime cutover to $BUILD_NUMBER"
@@ -129,9 +130,9 @@ if [ ! -z "$DEPLOYED_VERSION" -a "$DEPLOYED_VERSION" != " " -a "$DEPLOYED_VERSIO
     if [ ! -z "$line" -a "$line" != " " -a "$line" != "$CF_APP-${BUILD_NUMBER}" ]; then
       echo "Scaling down, unmapping and removing $line"
       # Unmap the route and delete
-      cf <???>-route "$line" $CF_DOMAIN -n $CF_APP
+      cf <???>-route "$line" $CF_APPS_DOMAIN -n $CF_APP
       cf <???> "$line" -f
-      cf delete-route $CF_DOMAIN -n "$line" -f 
+      cf delete-route $CF_APPS_DOMAIN -n "$line" -f
     else
       echo "Skipping $line"
     fi
