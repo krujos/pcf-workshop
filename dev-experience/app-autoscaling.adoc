@@ -8,24 +8,15 @@ In this section you will leverage Pivotal's Autoscaling Service to scale your mi
 
 === Configuring Autoscaling
 
-. Review the documentation on link:http://docs.pivotal.io/pivotalcf/autoscaling[Autoscaling]
-
-. Follow the instructions on link:http://docs.pivotal.io/pivotalcf/autoscaling/create-bind-from-console.html[Autoscaling binding from the Console] to create a new instance and bind it to your microservice.
+. Using Apps Manager, create a new instance of the Autoscaler from the Marketplace.
 +
 * Be sure to name your service instance: <first-initial><last-initial>-cities-service-autoscaler
-* The autoscale service requires configuration through the service dashboard.  For this reason, we opt to create it through the console as well.
+* Be sure to select the Gold plan
+* Bind this instance to your cities-service
+
+. Follow the instructions on link:http://docs.pivotal.io/pivotalcf/autoscaling[Autoscaling] to configure and enable your autoscaling service.
 
 . Launch the autoscaling dashboard for your service.
-
-=== Disable data loading into your service
-
-Because the cities-service is written to load data on startup and because the startup takes a long time we want to disable this for this exercise.
-
-. Under the cities-service, edit the `src/main/resources/application.properties`
-
-. Comment out the: `spring.jpa.hibernate.ddl-auto=create` with a `#` and save the file.  You can re-enable this after this exercise if you wish.
-
-. Rebuild with gradle assemble and re-push your app.
 
 
 === Set memory to ensure scaling will happen
