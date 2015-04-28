@@ -25,6 +25,8 @@ In this section, you will install and configure the Ops Metrics tile.
 
 . Follow steps 8 thru 15 to install & configure Ops Metrics: http://docs.pivotal.io/pivotalcf/customizing/deploy-metrics.html
 
+. Be sure you have set the Instance count of the Collector (under Elastic Runtime) to 1.
+
 . DO NOT enable SSL in the Ops Metrics tile.  This step is optional and jvisualvm won't be able to connect.
 
 +
@@ -42,9 +44,6 @@ In this section, you will install and configure the Ops Metrics tile.
 
 . Enter the address and port displayed for your Papertrail system.  For `Networking Protocol` select TCP protocol.  Click `Save`.
 
-=== Updating Ops Manager Director and Elastic Runtime
-. Configure Ops Manager Director's Metrics IP address and update the Elastic Runtime's Collector instance count: http://docs.pivotal.io/pivotalcf/customizing/deploy-metrics.html
-* *NOTE*: Start at step 8 as you should have already installed Ops Metrics.
 
 === Apply changes
 
