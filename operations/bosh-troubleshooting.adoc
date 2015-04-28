@@ -24,7 +24,7 @@ If your Ops Manager application becomes unresponsive, you may need to restart it
 
 . SSH into the Ops Manager VM
 
-. Restart Ops Mgr:
+. *DO NOT DO THIS IF YOU HAVE AN UPDATE/INSTALL RUNNING* - To restart Ops Mgr:
 +
 [source,bash]
 ----
