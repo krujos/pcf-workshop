@@ -2,7 +2,7 @@
 
 == Goals
 
-To deploy and configure a microservice and UI, leverage the platform for monitoring & management of the microservice, and automate a continuous delivery pipeline.
+To deploy and configure an application, leverage the platform for monitoring & management of the microservices, and automate a continuous delivery pipeline.
 
 == Exercises
 
