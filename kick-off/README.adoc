@@ -8,10 +8,6 @@ Where are you from?  What is your role?  What is your background?  Any experienc
 
 Review any pertinent logistics.
 
-== Accreditation Expectations
-
-If applicable, review the expectations for accreditation.
-
 == Set Up
 
 Follow the directions for link:../student-setup.adoc[student set up].

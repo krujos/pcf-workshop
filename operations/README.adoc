@@ -1,42 +1,27 @@
-= The Operator Experience
+= The Platform Operators Benevolence 
 
+During this workshop your instructors (Josh and Duncan OR Chris) have assumed the role of Platform Operator. It's likely that at some point during the class we'll hand over the keys and have you operate the platform if you desire. Each student has been provided an organization that follows the naming pattern <first_initial><last_initial>-org. So Josh's would be `jk-org`. 
 
-== Goals
+An organization is the unit of tenancy in Cloud Foundry. Within your org you'll find two spaces. The development space is meant as a safe place for experimentation. The production space is intended for live apps serving customers. Of course your actual deployment may have more spaces. These are configurable per Tennant and generally the tenant's concern and management responsibility. We've preconfigured spaces and orgs for you to illustrate some platform features. This will become evident further on `<evil laugh>`. 
 
-At the end of this session, students will have a Pivotal CF environment for use in the rest of the class.  They will have:
+You've also been provided a user account. Please login to the platform using your Home Depot email address (all lower case) and the password 'password'. Follow the prompts, and select the 'production' space. 
 
-* Installed Pivotal CF via Ops Manager
-* Added necessary services through Ops Manager
-* Understand how to scale Pivotal CF
-* Monitor Pivotal CF through JMX
-* Set up Elastic Runtime syslog draining into an external log analysis tool
-* Export/backup Pivotal CF
-* Bosh basics & troubleshooting
-* Establish Orgs, spaces, roles, permissions, and quotas
-* Establish application egress security rules
+We'll discuss a few things here: 
 
-== Exercises
+. Orgs
 
-. link:vsphere-install.adoc[Installing on vSphere]
+. Spaces
 
-. link:managing-products.adoc[Managing Products with Ops Manager]
+. Quotas
 
-. Review the Keynote on link:PCF_Deployments.key[Pivotal CF Deployments]
+. Users and their scope
 
-. Review the Keynote on link:pcf-regional-deployment.key[Multi-Region Deployments]
+. Application security groups
+We will cover these briefly and *experience* them later.
 
-. link:platform-scaling.adoc[Scaling the platform]
+== Additional Reading
 
-. link:monitoring.adoc[PaaS monitoring]
+. link:http://docs.pivotal.io/pivotalcf/concepts/roles.html[Orgs, Spaces, Roles, and Permissions]
 
-. link:backup-pcf.adoc[Backing up Pivotal CF]
+. link:http://docs.pivotal.io/pivotalcf/adminguide/app-sec-groups.html[Application Security Groups]
 
-. Review the Keynote on link:Bosh_Overview.key[Bosh Overview]
-
-. link:bosh-troubleshooting.adoc[Bosh basics & troubleshooting]
-
-. link:orgs-spaces-quotas-users.adoc[Orgs, Spaces, Quotas, Users & Roles]
-
-. link:app-security-groups.adoc[Application Security Groups]
-
-. Log out of the CF CLI as the admin user and log in using the account you created.

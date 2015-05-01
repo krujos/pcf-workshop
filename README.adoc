@@ -3,13 +3,6 @@
 
 == Prerequisites
 
-=== Pivotal Academy
-
-Students will have completed the following courses on Pivotal Academy:
-
-* link:https://pivotalpartners.biglms.com/courses/Partners/Pivotal100/VWN/about[Pivotal100]: Introduction to Pivotal
-* link:https://pivotalpartners.biglms.com/courses/PivotalU/CF200/VWZP/about[CF200]: Pivotal CF Getting Started
-
 === Student Set Up
 
 * Follow the instructions on link:student-setup.adoc[Student Set Up].  This is crucial to your success in the course.
@@ -32,7 +25,7 @@ Students will have completed the following courses on Pivotal Academy:
 
 . link:overview/README.adoc[Pivotal CF Overview]
 
-. link:operations/README.adoc[The Operator Experience]
+. link:operations/README.adoc[What the Platform Operator has setup for you]
 
 . link:dev-experience/README.adoc[The Developer Experience]
 

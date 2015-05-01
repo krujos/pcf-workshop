@@ -21,5 +21,6 @@ To understand:
 ** How the components and capabilities contribute to the 4 Core Tenents of Cloud Foundry
 ** The 4 Levels of High Availability
 
-* link:Resources.key[Resources] _(link:Resources.pptx[powerpoint])_
-** Where to go for more information
+* Resources
+** link:http://docs.pivotal.io/pivotalcf/getstarted/pcf-docs.html[Pivotal Cloud Foundry Docs]
+** Josh or Chris (jkruck@pivotal.io, cdelashmutt@pivotal.io)

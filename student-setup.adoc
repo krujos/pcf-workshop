@@ -36,7 +36,7 @@ You should be familar with the git command line basics:
 
 == Class Repositories
 
-=== PCF Immersion Repository
+=== The Home Depot Workshop Repository
 
 Clone this repository so that you have access to the presentations.
 PDF copies are included in the same directory as each Keynote.
@@ -45,58 +45,6 @@ PDF copies are included in the same directory as each Keynote.
 ----
 $ git clone <this-repo>
 ----
-
-
-=== Exercise Repository: pcf-immersion-workspace
-
-A repository has been set up for individual class exercises.  You will need to fork link:https://github.com/pcf-alliances-immersion/pcf-immersion-workspace[this repository] and make it public in your github account.  Do not rename the repository and be sure you *commit all of your work to your fork*.
-
-==== Updating the pcf-immersion-workspace
-
-If you need to pull in changes to the workspace repository, you need to fetch the upstream changes and merge them.  From your fork:
-
-* Display your current fork:
-+
-[source,bash]
-----
-$ git remote -v
-----
-+
-
-* Add the upstream remote:
-+
-[source,bash]
-----
-$ git remote add upstream https://github.com/pcf-alliances-immersion/pcf-immersion-workspace.git
-----
-+
-
-* Verify you now have an upstream:
-+
-[source,bash]
-----
-$ git remote -v
-----
-+
-
-* Now fetch upstream changes:
-+
-[source,bash]
-----
-$ git fetch upstream
-----
-+
-
-* Merge the changes:
-+
-[source,bash]
-----
-$ git merge upstream/master
-----
-+
-
-* You now have the changes.  Be sure to commit and push at some point.
-
 
 == Student VM
 
