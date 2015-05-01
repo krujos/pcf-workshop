@@ -1,25 +1,10 @@
-= Pivotal CF Associate Training
+= Pivotal CF Workshop
 
+== Student Set Up
 
-== Prerequisites
+* Follow the instructions on link:student-setup.adoc[Student Set Up]. 
 
-=== Student Set Up
-
-* Follow the instructions on link:student-setup.adoc[Student Set Up].  This is crucial to your success in the course.
-
-== Associate Certification
-
-=== Success Criteria
-
-* Students will be allowed to pair during the class but each have to submit their own completed exercises.
-
-* Students are expected to complete every exercise.
-
-* Artifacts must be pushed by students into their own fork of the `pcf-immersion-workspace` for review.
-
-* Students must complete the *QUIZ*.  It is highly recommended you complete the questions as you work on each module.
-
-=== Agenda
+== Agenda
 
 . link:kick-off/README.adoc[Kick Off]
 
@@ -40,6 +25,9 @@
 *Note*: Powerpoint versions of the presentations are included.  These are exported from Keynote and may have formatting issues.
 +
 
-* *Docs* are for detail.  Students should get in the habit of reading and referring to the docs site.  Open book "quizzes" in the curriculum help ensure students read the docs.
+* *Docs* are for detail.  Students, developers and operators should get in the habit of reading and referring to the docs site.  Open book "quizzes" in the curriculum help ensure students read the docs.
 
 * *Asciidoc* docs in git define the course, links and work.  They are easy to edit, format and navigate.
+
+* *Material* is sourced from our partner training and tailored to suit The Home Depot's needs. This course is to facilitate your learning. It is intended to be highly interactive and hands on. If there are topics that interest the class we will happily diverge. Some exercises are intended to fail, either to educate about the platform or to demonstrate common pitfalls. 
+
