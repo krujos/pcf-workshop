@@ -25,7 +25,7 @@
 *Note*: Powerpoint versions of the presentations are included.  These are exported from Keynote and may have formatting issues.
 +
 
-* *Docs* are for detail.  Students, developers and operators should get in the habit of reading and referring to the docs site.  Open book "quizzes" in the curriculum help ensure students read the docs.
+* *Docs* are for detail.  Students, developers and operators should get in the habit of reading and referring to the link:http://docs.pivotal.io/pivotalcf[docs site].  Open book "quizzes" in the curriculum help ensure students read the docs.
 
 * *Asciidoc* docs in git define the course, links and work.  They are easy to edit, format and navigate.
 
