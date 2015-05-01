@@ -1,10 +1,14 @@
 = The Platform Operators Benevolence 
 
-During this workshop your instructors (Josh and Duncan OR Chris) have assumed the role of Platform Operator. It's likely that at some point during the class we'll hand over the keys and have you operate the platform if you desire. Each student has been provided an organization that follows the naming pattern <first_initial><last_initial>-org. So Josh's would be `jk-org`. 
+During this workshop your instructors (Josh and Duncan OR Chris) have assumed the role of Platform Operator. It's likely that at some point during the class we'll hand over the keys and have you operate the platform if you desire. You can assume that what you're being given is similar to what a new project team would receive upon requesting a fresh environment from which ever group you would ask for such things (`Dillon`).
 
-An organization is the unit of tenancy in Cloud Foundry. Within your org you'll find two spaces. The development space is meant as a safe place for experimentation. The production space is intended for live apps serving customers. Of course your actual deployment may have more spaces. These are configurable per Tennant and generally the tenant's concern and management responsibility. We've preconfigured spaces and orgs for you to illustrate some platform features. This will become evident further on `<evil laugh>`. 
+An organization is the unit of tenancy in Cloud Foundry. Within an organization there are spaces. Spaces are used to group applications and services. Spaces are generally created according to a projects SDLC or build pipeline,. Spaces are free form and we believe development teams should organize them in whatever way suits their needs and objectives. 
+
+Each student has been provided an organization that follows the naming pattern <first_initial><last_initial>-org. So Josh's would be `jk-org`. 
 
 You've also been provided a user account. Please login to the platform using your Home Depot email address (all lower case) and the password 'password'. Follow the prompts, and select the 'production' space. 
+
+Within your org you'll find two spaces. The development space is meant as a safe place for experimentation, which in this case means the only thing you can hurt is yourself. The production space is intended for live apps serving customers. Of course a real organization will may have more spaces. Spaces  are configurable per tenant and are the tenant's concern and management responsibility. We've preconfigured spaces and orgs for you to illustrate platform features. This will become evident further on `<evil laugh>`. It's expected during the courseourse of normal operations a development team would customize the space layout and services to their liking, but we ask that you hold back during the workshop to facilitate our exercises. 
 
 We'll discuss a few things here: 
 
