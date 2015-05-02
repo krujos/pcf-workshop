@@ -29,7 +29,7 @@ In this section, you will configure application log draining into a log analysis
 
 . After you have bound your service and restaged your app, perform a few curl requests and ensure logs are draining into Papertrail.
 
-. Scale your app to 3 instances (cf scale <app> -i 3) and generate some more load. Notice how the app index shows up in each log message, and how the GUID changes? 
+. Scale your app to 3 instances (`cf scale <app> -i 3`) and generate some more load. Notice how the app index shows up in each log message, and how the GUID changes? 
 
 == More Docs
 
