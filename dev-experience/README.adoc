@@ -42,25 +42,16 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/README.md[`README.md`] and push some apps!!
 
-== More Exercises
-
-Now we're going to switch to a java application called `cities`. We will use this application for the remainder of the workshop.
-
-The `pcf-immersion-workshop` project you forked has a directory called `cities` we will use for this section.
+== More talking
 
 * Review the Keynote on link:Cloud_Ready_Apps.key[Cloud Ready Apps]
+** This should drive home how to build applications that will run on PCF. As we'll cover PCF can work with lots of applications, but cloud native is the best fit. 
 
-* Review the link:https://github.com/pcf-alliances-immersion/pcf-immersion-workspace/tree/master/cities[overview] of the `cities` repository.  It is important to understand the components of this project as we will use them throughout the remainder of the class.
+== More Exercises
 
-== Verifying our setup 
+* We're going to switch to a java application called `cities-service`. We will use this application for the remainder of the workshop. Find and download the cities jars at the following location. 
 
-. login to the console at https://console.run.pcf.jkruckcloud.comoh
-=== Running the cities-service locally
-
-* link:local-microservice.adoc[Run the cities-service locally]
-** Import the project into STS
-** Run it locally using Spring Boot
-** Understanding Spring Boot Actuator
+** https://s3-us-west-1.amazonaws.com/pcf-icm/cities-service.jar
 
 === Applications on Pivotal CF
 
@@ -77,11 +68,9 @@ The `pcf-immersion-workshop` project you forked has a directory called `cities` 
 ** Environment variables
 ** Scaling apps
 
-The following exercises should be completed for your `cities-service`, not the `cities-ui`.
+The following exercises should be completed for `cities-service`.
 
 * link:user-console.adoc[User Console]
-
-* link:ide-integration.adoc[IDE integration]
 
 * link:app-log-drain.adoc[Application Log Draining]
 
