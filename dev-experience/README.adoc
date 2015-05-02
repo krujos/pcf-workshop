@@ -18,7 +18,7 @@ Before we do anything lets take a look at the developer console and confirm inst
 * Login with your THD email and a password of `password`
 * Navigate to "Tools" (Left side)
 * Download and install the CLI for your platform.
-
+* Note theres some minimal instructions about what you'll do next given to you in the console. 
 
 === CLI
 Now that we have the CLI, lets push some basic applications quickly and navigate our way around the CLI. 
