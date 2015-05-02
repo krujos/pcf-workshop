@@ -31,6 +31,12 @@ In this section, you will configure application log draining into a log analysis
 
 . Scale your app to 3 instances (cf scale <app> -i 3) and generate some more load. Notice how the app index shows up in each log message, and how the GUID changes? 
 
+== More Docs
+
+. http://docs.cloudfoundry.org/services/app-log-streaming.html
+. http://docs.run.pivotal.io/devguide/deploy-apps/streaming-logs.html
+. This page talks about sending logs w/ TLS, make sure to check that out if the plain text setting above bothered you
+.. http://docs.run.pivotal.io/devguide/services/log-management.html 
 
 == Other External Tools
 
