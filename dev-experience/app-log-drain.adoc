@@ -6,29 +6,30 @@ In this section, you will configure application log draining into a log analysis
 
 . Review the log draining documentation here: http://docs.pivotal.io/pivotalcf/devguide/services/log-management.html
 
+. Log draining is done through a user provided service, which gives us a means of injecting credentials and coordinates (URI's, hostnames, ports, etc) into an application.  
+
 == Papertrail
 
 . Sign up for a free Papertrail account: https://papertrailapp.com/
 
-. Follow the instructions to set up Papertrail: http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#papertrail
+. We've got some instructions set up Papertrail: http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#papertrail. There so-so and on Josh's list of things to improve. 
 
+. In a nubshell
+.. Create a Papertrail account, fill in your email and whatnot.
+.. Navigate to "Account" on the top nav 
+.. Click "Log Destinations" on the right side. 
+.. Click "Create Log Destination"
+.. Ensure that "Accept logs from unrecognized systems?" has "Yes" checked
+.. Ensure PlainText is checked as an access method under "Accept Connections Via" 
+.. Click create
+.. take note of the url (logs2.papertrail.com:<some-port>)
+
+. Now hook it up to CF with the commands you read about above (cf cups plus some options). 
 . Be sure to add your new User Provided Service to your microservice manifest.
 
-. After you have bound and restarted your microservice, perform a few curl requests and ensure logs are draining into Papertrail.
+. After you have bound your service and restaged your app, perform a few curl requests and ensure logs are draining into Papertrail.
 
-=== Evaluation
-
-. Review the details on log formats: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/streaming-logs.html#format
-
-. How do you see only logs related to application staging?
-
-. How can you view logs for a specific application instance?
-
-. Why didn't you have to add an application security group rule?
-
-. How would you prevent log draining to an external service?
-
-Note:  The questions above are not included on the quiz.  But try to answer/discuss them anyway...  :)
+. Scale your app to 3 instances (cf scale <app> -i 3) and generate some more load. Notice how the app index shows up in each log message, and how the GUID changes? 
 
 
 == Other External Tools
@@ -37,5 +38,5 @@ Any tcp syslog compliant log tools can be used with CloudFoundry.  A few popular
 
 . Log Insight
 . Splunk Enterprise
-. Logstash w/ Elastic Search & Kibana
+. Elastic Search,  Logstash & Kibana (ELK)
 . More: http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html
