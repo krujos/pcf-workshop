@@ -44,8 +44,6 @@ The following exercises should be completed for your `cities-service`, not the `
 
 * link:apm.adoc[Monitoring with APM tools]
 
-* link:remote-debugging.adoc[Remote debugging]
-
 * link:app-autoscaling.adoc[Application Autoscaling]
 
 * link:../continuous-delivery/README.adoc[Continuous Delivery]
