@@ -6,12 +6,43 @@ To deploy and configure an application, leverage the platform for monitoring & m
 
 == Exercises
 
-Bring on the applications!  The `pcf-immersion-workshop` project you forked has a directory called `cities` we will use for this section.
+Before we do anything lets take a look at the developer console and confirm install of the Cloud Foundry CLI on our laptops/desktops. 
+
+* link:user-console.adoc[User Console]
+
+Once we have the CLI, lets push some basic applications quickly and navigate our way around the CLI. 
+
+* Login to Cloud Foundy
+
+`cf login -a https://api.run.pcf.jkruckcloud.com -u <your email> -p password`
+
+. `-a` is the api we're targeting. Meaning all actions we perform will take place on this Cloud Foundry Foundation (deployment)
+
+. `-u` is your username, in this workshop it's your email address.
+
+. `-p` is your password. I've set it to password
+
+* Clone our example applications
+
+`git clone https://github.com/krujos/cf-hello-world-sample-apps`
+
+`cd cf-hello-world-sample-apps`
+
+Read `README.md` and push some apps!!
+
+== More Exercises
+
+Now we're going to switch to a java application called `cities`. We will use this application for the remainder of the workshop.
+
+The `pcf-immersion-workshop` project you forked has a directory called `cities` we will use for this section.
 
 * Review the Keynote on link:Cloud_Ready_Apps.key[Cloud Ready Apps]
 
 * Review the link:https://github.com/pcf-alliances-immersion/pcf-immersion-workspace/tree/master/cities[overview] of the `cities` repository.  It is important to understand the components of this project as we will use them throughout the remainder of the class.
 
+== Verifying our setup 
+
+. login to the console at https://console.run.pcf.jkruckcloud.comoh
 === Running the cities-service locally
 
 * link:local-microservice.adoc[Run the cities-service locally]
