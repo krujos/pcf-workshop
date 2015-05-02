@@ -6,13 +6,24 @@ To deploy and configure an application, leverage the platform for monitoring & m
 
 == Exercises
 
+=== Console
+
 Before we do anything lets take a look at the developer console and confirm install of the Cloud Foundry CLI on our laptops/desktops. 
 
-* link:user-console.adoc[User Console]
+* link:http://docs.pivotal.io/pivotalcf/console/dev-console.html[User Console Docs]
 
-Once we have the CLI, lets push some basic applications quickly and navigate our way around the CLI. 
+* login to the console at https://console.run.pcf.jkruckcloud.com
+* We use self signed certs, go through that little dance in your browser. 
+* If you're using chrome, make sure it's a recent. Folks from THD have had some issues with an older version 
+* Login with your THD email and a password of `password`
+* Navigate to "Tools" (Left side)
+* Download and install the CLI for your platform.
 
-* Login to Cloud Foundy
+
+=== CLI
+Now that we have the CLI, lets push some basic applications quickly and navigate our way around the CLI. 
+
+* Login to Cloud Foundry
 
 `cf login -a https://api.run.pcf.jkruckcloud.com -u <your email> -p password`
 
@@ -22,6 +33,7 @@ Once we have the CLI, lets push some basic applications quickly and navigate our
 
 . `-p` is your password. I've set it to password
 
+=== Pushing apps
 * Clone our example applications
 
 `git clone https://github.com/krujos/cf-hello-world-sample-apps`
