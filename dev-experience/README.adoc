@@ -40,7 +40,7 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 `cd cf-hello-world-sample-apps`
 
-Read `README.md` and push some apps!!
+Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/README.md[`README.md`] and push some apps!!
 
 == More Exercises
 
