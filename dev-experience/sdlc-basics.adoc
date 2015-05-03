@@ -181,7 +181,7 @@ The goal of this exercise is to use what you have learned to deploy the `cities-
 ** Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/services/user-provided.html[User Provided Service Instances]
 ** Look for the details by running `cf help`.
 
-* You will need to specify two parameters when you create the service instance: `uri` and `tag` (see: link:dev-expierence/cities/cities-client/src/main/java/com/example/cities/client/cloud/cloudfoundry/CitiesWebServiceInfoCreator.java[CitiesWebServiceInfoCreator.java]).
+* You will need to specify two parameters when you create the service instance: `uri` and `tag` (see: link:cities/cities-client/src/main/java/com/example/cities/client/cloud/cloudfoundry/CitiesWebServiceInfoCreator.java[CitiesWebServiceInfoCreator.java]).
 ** The `uri` should point to your deployed microservice
 ** The `tag` is a property specified in the CitiesWebServiceInfoCreator.  Tags have a special meaning in CF:
 +
