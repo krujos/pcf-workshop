@@ -12,10 +12,12 @@ Use `cf help` and/or `cf <command> --help` for details on each of the commands b
 +
 [source,bash]
 ----
-$ cf target
+$ cf target -s production
 ----
 
-. Push the cities-service:
+. **Make sure you're targeting your `production` space!!!**
+
+. Push the cities-service (heres the link:https://s3-us-west-1.amazonaws.com/pcf-icm/cities-service.jar[to the jar incase you missed it]):
 +
 [source,bash]
 ----
