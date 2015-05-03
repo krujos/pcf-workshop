@@ -47,9 +47,6 @@ Note:  If you see permgen errors in the log, treat them as general out of memory
 $ cf env <first-inital><last-initial>-cities-service
 ----
 
-. Your space security group (not running group) should contain a rule allowing access to the App Dynamics endpoints.
-+
-[source,bash]
-----
-$ cf security-group <first-initial><last-initial>-space-security-group
-----
+. QUESTION / Class Exercise: This should work from production, but not from development. Can you analyze the security groups for each space and explain why? What security group applies to the production space?
+
+
