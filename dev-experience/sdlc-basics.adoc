@@ -191,6 +191,6 @@ Refer to the CitiesWebServiceInfoCreator class for the necessary tag value.
 
 * Create the user provided service instance.
 
-* Deploy using the `manifest.yml` contained in the cities-ui project.
+* Deploy using the `manifest.yml` you downloaded earlier. Again make sure you prefix your initials.
 
-* Access the cities-ui to verify it is connected to your microservice.
+* Access the cities-ui to verify it is connected to your instance of cities-service.
