@@ -37,7 +37,7 @@ Your app should have crashed because it can't find a database. So now we need to
 * link:http://docs.pivotal.io/pivotalcf/devguide/services/managing-services.html[Managing Services]
 +
 
-. Create a mysql service instance from the market place
+. Create a mysql service instance from the market place. We will consider the mysql farm deployed with PCF to be production for our class.
 
 . Launch the DB console via the `Manage` link in the Users Console.  Note the database is empty.
 
@@ -49,7 +49,7 @@ Your app should have crashed because it can't find a database. So now we need to
 
 . Restage your application to inject the new database.
 
-== Binding A Test Database to your Development Instance. 
+== Binding a database to your test instance.
 
 . Target your `development` space. 
 
@@ -66,6 +66,10 @@ $ cf target -s development
 .. This is a good time to read about link:http://docs.pivotal.io/pivotalcf/adminguide/app-sec-groups.html[Application Security Groups]. 
 
 .. You can see what security groups are applied to your space with these commands: 
+	`cf security-groups`
+	
+.. You should try to change it, just to prove to yourself that you can't. Only `admin` can change, create or apply security groups
+	`cf create-security-group test-sg <repo-path>/set-up/development-security-group.json`
 
 === Environment Variables
 
