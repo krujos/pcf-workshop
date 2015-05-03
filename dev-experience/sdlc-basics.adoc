@@ -151,7 +151,6 @@ Apps can be scaled via the CLI or the Console.
 . Instructor led conversation and demo about what a user provided service is. 
 
 == Additional References
-Let's create the service.
 
 Application technology references for how the cities app is built:
 
@@ -173,17 +172,16 @@ The goal of this exercise is to use what you have learned to deploy the `cities-
 ** https://s3-us-west-1.amazonaws.com/pcf-icm/cities-ui.jar
 ** https://s3-us-west-1.amazonaws.com/pcf-icm/manifest.yml
 
-* The cities-ui and cities-client can be both built at once by running `gradle assemble` in the parent +cities+ directory.
 
 === Creating a Service Instance & Deploy
 
-* You will need to connect the application to a service instance representing your microservice (cities-service).
+* You will need to connect the cities-ui application to a cities-service instance.
 
 * You can create a User Provided Service Instance and bind this to the ui application.
 ** Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/services/user-provided.html[User Provided Service Instances]
 ** Look for the details by running `cf help`.
 
-* You will need to specify two parameters when you create the service instance: `uri` and `tag` (see: CitiesWebServiceInfoCreator.java).
+* You will need to specify two parameters when you create the service instance: `uri` and `tag` (see: link:dev-expierence/cities/cities-client/src/main/java/com/example/cities/client/cloud/cloudfoundry/CitiesWebServiceInfoCreator.java[CitiesWebServiceInfoCreator.java]).
 ** The `uri` should point to your deployed microservice
 ** The `tag` is a property specified in the CitiesWebServiceInfoCreator.  Tags have a special meaning in CF:
 +
