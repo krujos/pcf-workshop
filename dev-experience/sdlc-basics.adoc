@@ -146,17 +146,13 @@ Apps can be scaled via the CLI or the Console.
 . QUESTION: What if you run the environment out of space, who can increase DEA capacity.
 .. Check with Instructors for any recommended PCF Foundation Scale operations, time permitting we can do this in class. 
 
-== User Provided Service Instances & Tags
-
-. Instructor led conversation and demo about what a user provided service is. 
-
 == Additional References
 
 Application technology references for how the cities app is built:
 
 * link:http://projects.spring.io/spring-cloud/[Spring Cloud]
 * link:http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Profile.html[Spring Profiles]
-* The source is also contained in this repo in the link:cities[directory]
+* The source is also contained in this repo in the link:cities[dev-experience/cities directory]
 
 == User Provided Service Instances & Tags
 
@@ -195,3 +191,6 @@ Refer to the CitiesWebServiceInfoCreator class for the necessary tag value.
 * Deploy using the `manifest.yml` you downloaded earlier. Again make sure you prefix your initials.
 
 * Access the cities-ui to verify it is connected to your instance of cities-service.
+
+* QUESTION: Could we have used this technique to connect to an external datasource (like your Exadata)? 
+
