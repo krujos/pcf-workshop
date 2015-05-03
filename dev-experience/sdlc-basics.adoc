@@ -17,7 +17,7 @@ $ cf target -s production
 
 . **Make sure you're targeting your `production` space!!!**
 
-. Push the cities-service (heres the link:https://s3-us-west-1.amazonaws.com/pcf-icm/cities-service.jar[to the jar incase you missed it]):
+. Push the cities-service (here is the link:https://s3-us-west-1.amazonaws.com/pcf-icm/cities-service.jar[link to the jar] incase you missed it):
 +
 [source,bash]
 ----
@@ -49,7 +49,23 @@ Your app should have crashed because it can't find a database. So now we need to
 
 . Restage your application to inject the new database.
 
+== Binding A test database to your development instance. 
+
+. Target your `development` space. 
+
++
+[source,bash]
+----
+$ cf target -s development
+----
+. Repeat all the steps from the section above to push and bind a service for your `development` instance of `cities-service`
+
 . Did it work?  Why not?
+.. Think back to what Josh said in link:../operations/README.adoc[the operations section] about what I provisioned for you. Basically, there's a firewall that's preventing you from connecting to the production database. 
+
+.. This is a good time to read about link:http://docs.pivotal.io/pivotalcf/adminguide/app-sec-groups.html[Application Security Groups]. 
+
+.. You can see what security groups are applied to your space with these commands: 
 
 === Environment Variables
 
