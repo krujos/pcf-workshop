@@ -58,14 +58,14 @@ Your app should have crashed because it can't find a database. So now we need to
 ----
 $ cf target -s development
 ----
-. Repeat all the steps from the section above to push and bind a service for your `development` instance of `cities-service`
+. Repeat all the steps from the section above to push and bind a service for your `development` instance of `cities-service`. **Make sure you append `-dev` to the route associated with your app**. Cloud Foundry will not let you deploy and use the same route as another application unless you explicitly tell it to. 
 
 . Did it work?  Why not?
 .. Think back to what Josh said in link:../operations/README.adoc[the operations section] about what I provisioned for you. Basically, there's a firewall that's preventing you from connecting to the production database. 
 
 .. This is a good time to read about link:http://docs.pivotal.io/pivotalcf/adminguide/app-sec-groups.html[Application Security Groups]. 
 
-.. You can see what security groups are applied to your space with these commands: 
+.. You can see what security groups are applied to your space with the command: 
 	`cf security-groups`
 	
 .. You should try to change it, just to prove to yourself that you can't. Only `admin` can change, create or apply security groups
@@ -77,16 +77,22 @@ It looks like we need to modify our security group to allow egress.  But how do 
 
 . Review the document on Environment Variables: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/environment-variable.html
 
+. Take a peek at Production, we'll connect to the same database farm for development, so the IP there suits our needs.
+
 . QUESTION: What variable shows your mysql service instance?
 
-. Modify your space security group (not the running-security-group) to allow egress to the bound mysql 
+. At this point, holler at Josh and I'll change the security group. 
 
-. Now, restart and verify you can access your application via a curl request:
+.. You can now bind your service, but you're not seeing data from the production instance, you have you're own separate copy. 
+
+.. Provisioned instances can only be shared **inside** of a space.
+
+. Now, restart and verify you can access your application in the `development` space via a curl request:
 
 +
 [source,bash]
 ----
-$ curl -i <your-app>/cities
+$ curl -i <your-app>-dev/cities
 ----
 
 === Using Manifests
