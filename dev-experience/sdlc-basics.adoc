@@ -156,7 +156,8 @@ Application technology references for how the cities app is built:
 
 * link:http://projects.spring.io/spring-cloud/[Spring Cloud]
 * link:http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Profile.html[Spring Profiles]
-* The source is also contained in this repo in the link:cities/[directory]
+* The source is also contained in this repo in the link:cities[directory]
+* 
 == User Provided Service Instances & Tags
 
 The s3 bucket  also includes a `cities-ui.jar`. This is an application which uses the `cities-client` to consume from the `cities-service`.
