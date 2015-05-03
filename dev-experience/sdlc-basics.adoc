@@ -8,7 +8,7 @@ Use `cf help` and/or `cf <command> --help` for details on each of the commands b
 
 . Review the docs: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/deploy-app.html
 
-. Verify you are logged in with your own userid (*not admin*) and targeted to your PCF instance:
+. Verify you are logged in and targeted to your PCF instance:
 +
 [source,bash]
 ----
@@ -19,131 +19,15 @@ $ cf target
 +
 [source,bash]
 ----
-$ cf push <your_app> -i 1 -m 512M -p cities-service-0.0.1-SNAPSHOT.jar
+$ cf push <your_app> -i 1 -m 512M -p cities-service.jar
 ----
 +
 * Be sure to name your application '<first-initial><last-initial>-cities-service'
 
-. Verify you can access your application via a curl request:
-+
-[source,bash]
-----
-$ curl -i <your-app>/cities
-----
-
-=== Using Manifests
-
-Now, use a manifest to help automate deployment.
-
-. Review the documentation: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/manifest.html
-
-. Create an application manifest in your `cities-service` directory called `manifest.yml`.  Minimally, you must set the name of the app, the amount of memory, the number of instances, and the path to the .jar file.
-+
-*Be sure to name your application '<first-initial><last-initial>-cities-service' and use this as the host value.*
-+
-We must be able to access your application at https://<first-initial><last-initial>-cities-service.YOUR_PCF_APP_DOMAIN
-
-. The IBM Bluemix team has created a manifest generator app that can also be used:
-+
-* Hosted: http://cfmanigen.mybluemix.net/
-* Source: https://github.com/IBM-Bluemix/cf-manifest-generator
-+
-
-. Test your manifest by re-pushing your app with no parameters:
-+
-[source,bash]
-----
-$ cf push
-----
-
-== Binding Services with Spring Cloud & Profiles
-
-At present we're still using the in-memory database. Let's connect to a MySQL database service provided by Cloud Foundry.
-
-References:
-
-* link:http://projects.spring.io/spring-cloud/[Spring Cloud]
-* link:http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Profile.html[Spring Profiles]
-
-=== Enabling Spring Cloud & Profiles
-
-. Review link:http://docs.pivotal.io/pivotalcf/buildpacks/java/spring-service-bindings.html[Configuring Service Connections in Spring]
-
-. Note the Spring Cloud and MySQL dependencies to our Gradle build:
-+
-[source,groovy]
-----
-dependencies {
-    // ....
-    compile("org.springframework.cloud:spring-cloud-spring-service-connector:1.0.0.RELEASE")
-    compile("org.springframework.cloud:spring-cloud-cloudfoundry-connector:1.0.0.RELEASE")
-    runtime("mysql:mysql-connector-java:5.1.25")
-}
-----
-
-. Next, let's create the package +org.example.cities.config+ and create in that package the class +CloudDataSourceConfig+. Add the following code:
-+
-[source,java]
-----
-package org.example.cities.config;
-
-import javax.sql.DataSource;
-
-import org.springframework.cloud.config.java.AbstractCloudConfig;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-
-@Profile("cloud")
-@Configuration
-public class CloudDataSourceConfig extends AbstractCloudConfig {
-    @Bean
-    public DataSource dataSource() {
-        return connectionFactory().dataSource();
-    }
-}
-
-----
-
-. As before, have the IDE import the appropriate dependencies.
-+
-* Be sure to import the javax.sql.DataSource.
-* The `@Profile` annotation will cause this class (which becomes Spring configuration when annotated as `@Configuration`) to be added to the configuration set because of the `SPRING_PROFILES_ACTIVE` environment variable (more on this later). You can still run the application locally (with the default profile) using the embedded database.
-* With this code, Spring Cloud will detect a bound service that is compatible with +DataSource+, read the credentials, and then create a +DataSource+ as appropriate (it will throw an exception otherwise).
-
-. The properties file at `src/main/resources/application.properties` will cause Hibernate to create the database schema and import data at startup. This is done automatically for embedded databases, not for custom ++DataSource++s. Other Hibernate native properties can be set in a similar fashion:
-+
-[source,java]
-----
-spring.jpa.hibernate.ddl-auto=create
-----
-
-. Build the application:
-+
-[source,bash]
-----
-$ gradle assemble
-----
-
-. Re-push the application:
-+
-[source,bash]
-----
-$ cf push
-----
-
-=== Troubleshooting
-
-Did it work? - It should *not* have worked -  Let's figure out why not.
-
-. Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/troubleshoot-app-health.html[Troubleshooting App Health]
-
-. What do the recent logs tell you?
+Your app should have crashed because it can't find a database. So now we need to bind a service to your application to provide the database. 
 
 
-=== Manually Creating a Service
-
-Looks like we need a service.  Let's create one.
+== Binding A Production Database to your App
 
 . Review the docs on Services:
 +
@@ -151,7 +35,7 @@ Looks like we need a service.  Let's create one.
 * link:http://docs.pivotal.io/pivotalcf/devguide/services/managing-services.html[Managing Services]
 +
 
-. Create a mysql service instance
+. Create a mysql service instance from the market place
 
 . Launch the DB console via the `Manage` link in the Users Console.  Note the database is empty.
 
@@ -173,18 +57,41 @@ It looks like we need to modify our security group to allow egress.  But how do 
 
 . QUESTION: What variable shows your mysql service instance?
 
-. Modify your space security group (not the running-security-group) to allow egress to the bound mysql service
+. Modify your space security group (not the running-security-group) to allow egress to the bound mysql 
+
+. Now, restart and verify you can access your application via a curl request:
+
++
+[source,bash]
+----
+$ curl -i <your-app>/cities
+----
+
+=== Using Manifests
+
+Now, use a manifest to help automate deployment.
+
+. Review the documentation: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/manifest.html
+
+. Create an application manifest called `manifest.yml` in the same directory as your jar file.  Minimally, you must set the name of the app, the amount of memory, the number of instances, and the path to the .jar file.
++
+*Be sure to name your application '<first-initial><last-initial>-cities-service' and use this as the host value.*
++
+We should be able to access your application at https://<first-initial><last-initial>-cities-service.apps.jkruckcloud.com
 
 
-=== Binding via the Manifest
+==== Binding via the Manifest
 
-. Add the services binding to your deployment manifest.
+. Add the services binding to your deployment manifest and repush the app by running `cf push` with no parameters.
 
-. Set the `SPRING_PROFILES_ACTIVE` environment variable to `cloud` in your deployment manifest.
+. Verify you can access your application via a curl request:
++
+[source,bash]
+----
+$ curl -i <your-app>/cities
+----
 
-. Now, manually unbind the service and re-push your app using the manifest.  Was the database populated?
-
-. QUESTION: How would you set the `SPRING_PROFILES_ACTIVE` variable from the CLI?
+. In the developer console, navigate to the manage tab for the database associated with your application and checkout the available information.
 
 == Scaling
 
@@ -204,9 +111,28 @@ Apps can be scaled via the CLI or the Console.
 
 . QUESTION: What happens?  How long does it take?  Why?
 
+. Attempt to Scale your app to 20 instances
+
+. QUESTION: What happens? Why? 
+.. Quota? How do you get more?
+. QUESTION: What if you run the environment out of space, who can increase DEA capacity.
+.. Check with Instructors for any recommended PCF Foundation Scale operations, time permitting we can do this in class. 
+
 == User Provided Service Instances & Tags
 
-The `cities` directory also includes a `cities-ui` application which uses the `cities-client` to consume from the `cities-service`.
+. Instructor led conversation and demo about what a user provided service is. 
+
+== Additional References
+Let's create the service.
+
+Application technology references for how the cities app is built:
+
+* link:http://projects.spring.io/spring-cloud/[Spring Cloud]
+* link:http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Profile.html[Spring Profiles]
+
+== User Provided Service Instances & Tags
+
+The s3 bucket  also includes a `cities-ui.jar`. This is an application which uses the `cities-client` to consume from the `cities-service`.
 
 The `cities-client` demonstrates using the link:http://cloud.spring.io/spring-cloud-connectors[Spring Cloud Connector] project to consume from a microservice.  This is a common pattern for 3rd platform apps.  Be sure you understand how it works.
 
@@ -214,7 +140,10 @@ The goal of this exercise is to use what you have learned to deploy the `cities-
 
 === Deploying the Cities UI App
 
-* A `manifest.yml` is included in the cities-ui app.  Edit this manifest with your initials and be sure this manifest works with the service you create below.
+* A `manifest.yml` is included provided for the cities-ui app, you can download both at the links below.  Edit this manifest with your initials and be sure this manifest works with the service you create below.
+
+** https://s3-us-west-1.amazonaws.com/pcf-icm/cities-ui.jar
+** https://s3-us-west-1.amazonaws.com/pcf-icm/manifest.yml
 
 * The cities-ui and cities-client can be both built at once by running `gradle assemble` in the parent +cities+ directory.
 
