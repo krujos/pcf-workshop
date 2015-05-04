@@ -24,7 +24,7 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 * Login to Cloud Foundry
 
-`cf login -a https://api.run.pcf.jkruckcloud.com -u <your email> -p password --skip-ssl-validation` 
+`cf login -a https://api.run.pcf.jkruckcloud.com -u <your email> -p password -o <your org> -s development --skip-ssl-validation` 
 
 . `-a` is the api we're targeting. Meaning all actions we perform will take place on this Cloud Foundry Foundation (deployment)
 
@@ -32,9 +32,15 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 . `-p` is your password. I've set it to `password`
 
+. `-o` is the name of your organization
+
+. `-s` is the name of your space
+
 . `--skip-ssl-validation` lets the CLI use a self signed cert.
 
 === Pushing apps
+* **Make sure you're logged into your development space (run `cf target` to check)**
+
 * Clone our example applications
 
 `git clone https://github.com/krujos/cf-hello-world-sample-apps`

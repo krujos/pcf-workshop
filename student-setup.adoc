@@ -31,5 +31,5 @@ PDF copies are included in the same directory as each Keynote.
 
 [source,bash]
 ----
-$ git clone <this-repo>
+$ git clone https://github.com/krujos/pcf-workshop/
 ----
