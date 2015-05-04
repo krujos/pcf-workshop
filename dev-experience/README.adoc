@@ -56,7 +56,7 @@ Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/READM
 
 ** https://s3-us-west-1.amazonaws.com/pcf-icm/cities-service.jar
 
-** You can also find the code in this repository link:cities/[in dev-experience/cities]. You can build the examples yourself if you wish, we provide pre build jars for expedience. Please note that we won't spend time troubleshooting build environments in class. 
+** You can also find the code in this repository link:cities/[in dev-experience/cities]. We've made some changes to the code in the jar referenced above to force a failure early on. If you choose to compile and run the code yourself please remove the `hsqldb` dependency from the build file. Please note there is not time in the class to troubleshoot build issues, so if you experience problems please use the jar above. 
 
 === Applications on Pivotal CF
 
