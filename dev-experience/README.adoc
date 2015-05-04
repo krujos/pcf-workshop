@@ -58,6 +58,8 @@ Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/READM
 
 ** You can also find the code in this repository link:cities/[in dev-experience/cities]. We've made some changes to the code in the jar referenced above to force a failure early on. If you choose to compile and run the code yourself please remove the `hsqldb` dependency from the build file. Please note there is not time in the class to troubleshoot build issues, so if you experience problems please use the jar above. 
 
+* Take a quick look at the link:cities/README.adoc[architecture] of the cities application. 
+
 === Applications on Pivotal CF
 
 * Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/prepare-to-deploy.html[Considerations for Designing and Running an Application in the Cloud]
