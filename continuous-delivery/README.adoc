@@ -14,19 +14,11 @@ This lab will guide you through building a BASIC continuous delivery pipeline us
 
 ==== Jenkins Setup Steps
 
-We will leverage the Jenkins instance deployed by Ops Manager.  This is located at https://pivotal-cloudbees.<YOUR SYSTEM DOMAIN>
+We will leverage the Jenkins instance deployed by Ops Manager.  This is located at https://pivotal-cloudbees.run.pcf.jkruckcloud.com
 
-. Login to your Jenkins instance deployed by Ops Manager.  Use the `Admin` user under `UAA`.
+. Login to your Jenkins instance deployed by Ops Manager.  Use the `Admin` user you've been using from the command line. 
 
 . Navigate to `Manage Jenkins` > `Configure System`
-
-. Add the JDK 1.8 installation under the `JDK` section
-+
-* `Add Installer` > `Install from java.sun.com`
-* Agree to the license
-* Provide your Oracle login information
-* Ensure `Install automatically` is selected
-+
 
 . Add the latest stable Gradle under the `Gradle section`
 +
@@ -70,13 +62,13 @@ Root Build Script:: This should be something like: `cities/cities-service`.  You
 
 === Configure the CF Deployments
 
-. From the job config, select `This build is parameterized` and enter the following `String values` with appropriate defaults:
+. From the job config, select `This build is parameterized` and enter the following `String values` with appropriate values for your account:
 +
-* CF_SYSTEM_DOMAIN: the CF system domain
-* CF_APPS_DOMAIN: the CF apps domain
-* CF_USER: the user account
-* CF_ORG: org to deploy to
-* CF_SPACE: space to deply to
+* CF_SYSTEM_DOMAIN: api.run.pcf.jkruckcloud.com
+* CF_APPS_DOMAIN: apps.pcf.jkruckcloud.com
+* CF_USER: your home depot email.
+* CF_ORG: your org
+* CF_SPACE: your development space
 * CF_APP: the app name
 * CF_JAR: path to the jar on jenkins
 * CF_MANIFEST: path to the manifest on jenkins
@@ -92,7 +84,7 @@ Root Build Script:: This should be something like: `cities/cities-service`.  You
 
 . Go to https://github.com/<YOUR ACCOUNT>/pcf-immersion-workspace > Settings > Webhooks & Services > Services > Add a Service > Jenkins (Github plugin)
 
-. Jenkins hook url: https://pivotal-cloudbees.<YOUR PCF SYSTEM DOMAIN>/github-webhook/
+. Jenkins hook url: https://pivotal-cloudbees.run.pcf.jkruckcloud.com/github-webhook/
 
 +
 * Make sure you include the trailing slash. The integration between github and jenkins will not work without it.
@@ -111,7 +103,7 @@ Root Build Script:: This should be something like: `cities/cities-service`.  You
 [source,bash]
 ----
 
-cf login -a https://api.$CF_SYSTEM_DOMAIN <Add the correct flags to include the username, password, org and space> --skip-ssl-validation
+cf login -a https://api.run.pcf.jkruckcloud.com <Add the correct flags to include the username, password, org and space> --skip-ssl-validation
 
 DEPLOYED_VERSION_CMD=$(CF_COLOR=false cf apps | grep $CF_APP- | cut -d" " -f1)
 DEPLOYED_VERSION="$DEPLOYED_VERSION_CMD"
@@ -165,3 +157,5 @@ Ideally, you want to build your artifacts (jars/wars) and publish them to a repo
 === Notification
 
 Jenkins supports many notification plugins.  It is important for code owners to be aware of build status.
+
+== Time permitting we can demo a build pipeline that does all of the above.

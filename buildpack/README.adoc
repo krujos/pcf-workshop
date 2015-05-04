@@ -2,118 +2,17 @@
 
 == Goal
 
-In this section, students will customize a build pack and use it to deploy an application.
+In this section, students will deploy a build pack and use it to deploy an application.
 
-== Required Tools
+== Obtain the modified buildpack
+. You need to be logged in as admin for these exercises. 
 
-The following are required to repackage your modified build pack:
+* Download the buildpack from S3 to your laptop.
+** https://s3-us-west-1.amazonaws.com/pcf-icm/java-buildpack-staging-timestamp.zip
 
-* link:http://rvm.io/[Ruby]
-* link:http://bundler.io/[Bundler]
+. This buildpack has an added *framework* component that will set a Java system property containing a timestamp that indicates when the application was staged. 
 
-The student VM contains the correct versions of Ruby and Bundler.
-
-== Exercise
-
-. Review the keynote on link:BuildpacksAndServices.key[Buildpacks and Service Brokers]
-
-. Review the documentation on link:http://docs.pivotal.io/pivotalcf/buildpacks/[Buildpacks]
-
-. Review the documentation on link:http://docs.pivotal.io/pivotalcf/buildpacks/custom.html[Custom Buildpacks]
-
-=== Adding Functionality
-
-. Fork the Cloud Foundry Java Buildpack from GitHub.
-
-. Clone your fork.  You should clone into the home directory of the student VM, not the `/vagrant` share.
-+
-[source,bash]
-----
-$ cd ~
-$ git clone https://github.com/<YOURFORK>/java-buildpack
-$ cd java-buildpack
-----
-
-. Open the Buildpack source code directory in your favorite editor.
-
-. We'll add a *framework* component that will set a Java system property containing a timestamp that indicates when the application was staged. To do that, first create +java-buildpack/lib/java_buildpack/framework/staging_timestamp.rb+ and add the following contents:
-+
-[source,ruby]
-----
-require 'java_buildpack/framework'
-
-module JavaBuildpack::Framework
-
-  # Adds a system property containing a timestamp of when the application was staged.
-  class StagingTimestamp < JavaBuildpack::Component::BaseComponent
-    def initialize(context)
-      super(context)
-    end
-
-    def detect
-      'staging-timestamp'
-    end
-
-    def compile
-    end
-
-    def release
-      @droplet.java_opts.add_system_property('staging.timestamp', "'#{Time.now}'")
-    end
-  end
-end
-----
-
-. Next we need to ``turn on'' our new framework component by adding it to +java-buildpack/config/components.yml+ as seen here:
-+
-[source,yaml]
-----
-frameworks:
-  - "JavaBuildpack::Framework::AppDynamicsAgent"
-  - "JavaBuildpack::Framework::JavaOpts"
-  - "JavaBuildpack::Framework::MariaDbJDBC"
-  - "JavaBuildpack::Framework::NewRelicAgent"
-  - "JavaBuildpack::Framework::PlayFrameworkAutoReconfiguration"
-  - "JavaBuildpack::Framework::PlayFrameworkJPAPlugin"
-  - "JavaBuildpack::Framework::PostgresqlJDBC"
-  - "JavaBuildpack::Framework::SpringAutoReconfiguration"
-  - "JavaBuildpack::Framework::SpringInsight"
-  - "JavaBuildpack::Framework::StagingTimestamp" #Here's the bit you need to add!
-----
-
-
-=== Change JRE Version
-
-In this section you'll update your buildpack to utilize java 1.8.0_25 rather than simply the latest 1.8.
-
-. Change +java-buildpack/config/open_jdk_jre.yml+ as shown:
-+
-[source,yaml]
-----
-repository_root: "{default.repository.root}/openjdk/{platform}/{architecture}"
-version: 1.8.0_+ # becomes 1.8.0_25
-memory_sizes:
-  metaspace: 64m.. # permgen becomes metaspace
-memory_heuristics:
-  heap: 85
-  metaspace: 10 # permgen becomes metaspace
-  stack: 5
-  native: 10
-----
-
-
-=== Repackage the Buildpack
-
-. Now that we've extended the buildpack, we need to package it. This is achieved using a http://rake.rubyforge.org[Rake] task. Before we do that, we need to install the dependent Ruby gems for the buildpack using http://bundler.io[Bundler]. We'll also leverage Bundler to run the Rake task.
-+
-[source,bash]
-----
-$ bundle install
-$ bundle exec rake package
-----
-+
-
-. Now it's time to upload our extended Java buildpack to Cloud Foundry. We'll leverage the cf CLI. Ensure that you're logged in to your CF instance as an admin user.
+* Upload our extended Java buildpack to Cloud Foundry. We'll leverage the cf CLI. Ensure that you're logged in to your CF instance as an admin user.
 +
 To add our buildpack, we'll leverage +cf create-buildpack+. Run that with zero command-line options to see how the command works:
 +
@@ -182,28 +81,3 @@ Application was staged at: 2014-05-27 15:52:41 +0000
 +
 
 . Edit your manifest to ensure future pushes leverage your build pack.
-
-=== Push your changes to your buildpack fork
-
-. Be sure to commit your changes to your forked buildpack repo (not the class workspace).
-
-== Checking your work
-
-. A buildpack named <first-initial><last-initial>-java-buildpack should show as a registered buildpack:
-+
-[source,bash]
-----
-$ cf buildpacks
-----
-
-. Your cities-service manifest should specify the above buildpack.
-
-. A curl request should return the staging timestamp:
-
-+
-[source,bash]
-----
-$ curl -i http://<cities-service>/staging
-----
-
-. The buildpack changes should be pushed to your java buildpack fork.
