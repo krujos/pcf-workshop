@@ -56,6 +56,8 @@ Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/READM
 
 ** https://s3-us-west-1.amazonaws.com/pcf-icm/cities-service.jar
 
+** You can also find the code in this repository link:cities/[in dev-experience/cities]. You can build the examples yourself if you wish, we provide pre build jars for expedience. Please note that we won't spend time troubleshooting build environments in class. 
+
 === Applications on Pivotal CF
 
 * Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/prepare-to-deploy.html[Considerations for Designing and Running an Application in the Cloud]
