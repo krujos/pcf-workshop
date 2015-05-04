@@ -1,18 +1,6 @@
 = Student Set Up
 
-The following resources are required for the class.
-
-== Java JDK
-This class requires version 1.7 of Java JDK, or greater.
-
-== Gradle
-This class requires gradle, which can be downloaded link:https://gradle.org/downloads/[here].
-
-=== Mac
-Directions for installing on Mac link:http://ondrej-kvasnovsky.blogspot.com/2012/05/how-to-install-gradle-on-mac-os.html[here].
-
-=== Windows
-Directions for installing on Windows link:http://rominirani.com/2014/07/28/gradle-tutorial-part-1-installation-setup/[here].
+The following resources are required for the class. If you want a copy of the materials from this course you need to clone the repo, otherwise you can skip this. 
 
 == Git Client
 This class requires you to have git client software installed.  If you don't already have git installed, a nice GUI interface is link:http://www.sourcetreeapp.com/[SourceTree], which is available for both Mac OSX and Windows.  Otherwise you can use the following command-line utilities:
@@ -26,7 +14,7 @@ Either of the following:
 === Windows
  * git for windows, can download link:https://msysgit.github.io/[here].  During the install, select the option for bash shell only.  Then run the Git Bash application from the Start Menu rather than the Git GUI application.  We've found that this approach eliminates a lot of problems for students with windows laptops.
 
-You should be familar with the git command line basics:
+You should be familiar with the git command line basics:
 
 * git clone - clone an existing repo
 * git add - add new or existing file to index to be committed
@@ -45,100 +33,3 @@ PDF copies are included in the same directory as each Keynote.
 ----
 $ git clone <this-repo>
 ----
-
-== Student VM
-
-A student VM is provided which includes all the tools needed for the class.  Use of this VM is optional.  If you are setting up prior to the class, you can download it from link:https://s3-us-west-2.amazonaws.com/pcf-immersion/pcf-immersion-ubuntu-14.04.1-amd64.box[here].
-
-=== VM Details
-
-The VM is Ubuntu 14.04.1.  It contains:
-
-* Cloud Foundry CLI
-* Ruby
-* Bundler
-* Bosh CLI
-* Git
-* Java
-* Gradle
-* Spring Source Tool Suite
-* Remmina (Remote Desktop Client)
-* JMeter
-
-The packer scripts used to build the box are included in this repository in the `packer` directory in case you would like to make changes to the box.
-
-=== Using the box
-
-The student VM is distributed as a vagrant box.  Be sure you have Vagrant and the Virtual Box provider installed.
-
-==== Adding the box
-
-The box will be distributed via thumb drive.
-
-. Copy the .box file to your local machine.
-
-. Add the box to vagrant:
-+
-[source,bash]
-----
-$ vagrant box add pcf-immersion-box <PATH_TO_THE_BOX_FILE>
-----
-+
-
-
-==== Launching the VM
-
-A Vagrantfile is included in the `pcf-immersion-workspace` project.
-
-To launch the box:
-
-[source,bash]
-----
-$ cd pcf-immersion-workspace
-$ vagrant up
-----
-
-
-==== Logging into the box
-
-* The vm will launch with a UI.  However, unless you are using Remote Desktop or STS, you don't need to be logged into the UI.  Instead you can simply ssh.  From your `pcf-immersion-workspace` directory:
-+
-[source,bash]
-----
-$ vagrant ssh
-----
-
-* If you can't find the installed software on the path, you may need to explicitly load the profile:
-+
-[source,bash]
-----
-$ source ~/.bash_profile
-----
-
-
-* To login to the UI, use the default username/password which is vagrant/vagrant.  To open a new terminal window, use the shortcut ctrl+alt+t (control+option+t for mac), then source the bash profile as shown above.
-
-==== Sharing a directory
-
-By default, vagrant will share the project directory containing the Vagrantfile and sync it between your machine and the VM.  In the VM, the share is be default located at `/vagrant`.
-
-*It is HIGHLY recommended that you use this directory for classwork.*
-
-This will prevent you from losing your work in the event you run a `vagrant destroy` or otherwise harm the VM.
-
-Note: You should also be committing and pushing to your fork frequently.
-
-==== Cutting & Pasting
-
-By default, VirtualBox disables cutting and pasting between your host and the VM.  To enable it:
-
-. Be sure the VM is running
-. VirtualBox > Settings > General > Advanced > Shared Clipboard (Bidirectional)
-. Restart the VM:
-+
-[source,bash]
-----
-$ vagrant halt
-$ vagrant up
-----
-+
