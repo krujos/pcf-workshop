@@ -2,7 +2,7 @@
 
 == Session Overview
 
-This section provides the basic information and understanding required to understand Cloud Foundry.  The session consists of 3 Keynote presentations.
+This section provides the basic information and understanding required to understand Cloud Foundry.  The session consists of 2 Keynote presentations. 
 
 == Goal
 
