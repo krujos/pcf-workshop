@@ -41,6 +41,8 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 `cd cf-hello-world-sample-apps`
 
+* No git? link:https://s3-us-west-1.amazonaws.com/pcf-icm/demo-apps.zip[No problem.]
+
 Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/README.md[`README.md`] and push some apps!!
 
 == More talking
