@@ -17,14 +17,17 @@ $ cf target -s production
 
 . **Make sure you're targeting your `production` space!!!**
 
-. Push the cities-service (here is the link:https://s3-us-west-1.amazonaws.com/pcf-icm/cities-service.jar[link to the jar] incase you missed it):
+. Push the cities-service (here is the link:https://s3-us-west-1.amazonaws.com/pcf-icm/cities-service.jar[link to the jar] incase you missed it).
+
+.. Be sure to name your application '<first-initial><last-initial>-cities-service'
+
+
 +
 [source,bash]
 ----
 $ cf push <your_app> -i 1 -m 512M -p cities-service.jar
 ----
 +
-* Be sure to name your application '<first-initial><last-initial>-cities-service'
 
 Your app should have crashed because it can't find a database. So now we need to bind a service to your application to provide the database. 
 
