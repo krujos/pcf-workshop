@@ -18,7 +18,6 @@ Before we do anything lets take a look at the developer console and confirm inst
 * Login with your THD email and a password of `password`
 * Navigate to "Tools" (Left side)
 * Download and install the CLI for your platform.
-* Note theres some minimal instructions about what you'll do next given to you in the console. 
 
 === CLI
 Now that we have the CLI, lets push some basic applications quickly and navigate our way around the CLI. 
@@ -31,7 +30,9 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 . `-u` is your username, in this workshop it's your email address.
 
-. `-p` is your password. I've set it to password
+. `-p` is your password. I've set it to `password`
+
+. `--skip-ssl-validation` lets the CLI use a self signed cert.
 
 === Pushing apps
 * Clone our example applications
