@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cf create-security-group development-security-group ./development-security-group.json
+#cf create-security-group development-security-group ./development-security-group.json
 
 for email in `cat class-participant-emails.txt` ; do
 
@@ -18,6 +18,6 @@ for email in `cat class-participant-emails.txt` ; do
 	cf set-space-role $email $org development SpaceDeveloper
 	cf set-space-role $email $org production SpaceManager
 	cf set-space-role $email $org production SpaceDeveloper
-	cf bind-security-group development-security-group $org development
+	cf bind-security-group all_open $org production
 
 done
