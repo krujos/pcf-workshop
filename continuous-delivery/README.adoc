@@ -14,48 +14,29 @@ This lab will guide you through building a BASIC continuous delivery pipeline us
 
 We will leverage the Jenkins instance deployed by Ops Manager.  This is located at https://pivotal-cloudbees.run.pcf.jkruckcloud.com
 
+This section of the course relies on you having a github account. If you don't have one, it's time that you do. link:http://github.com
+
+Fork this repo, and add me (krujos) as a collaborator to your fork. 
 
 === Create the Initial Build Job
 
-. Click `new item`, give it a name and select `Build a free-style software project` Then click `OK`.
+. Click `new item`, give it a name and select `maven project` Then click `OK`.
 
-. Under `Source Code Management`, select `Git`, and supply your repository URL and credentials
+. Under `Source Code Management`, select `Git`, and supply your repository URL and select my credentials (krujos)
 
 . Under `Build Triggers`, select `Build when a change is pushed to GitHub`
 
-. Under `Build`, add a `Invoke Gradle Script` build step.
-+
-Gradle Version:: The one you created above
-Build Step Description:: +build environment agnostic artifact+
-Switches:: `-Pbuildversion=$BUILD_NUMBER`
-Tasks:: `clean assemble`
-Root Build Script:: This should be something like: `cities/cities-service`.  You can verify by manually triggering a build then viewing the 'Workspace' link.
+. Add a post build step which pushes to your development space. 
 
-. Save the config and try running the build by clicking ``Build Now''.
+.. It's an "execute shell" type of step
 
-=== Configure the CF Deployments
+.. the shell script is up to you, but it should be as simple as `cf login -a -u -p -s -o --skip-ssl-validation` and `cf push --random-route`
 
-. From the job config, select `This build is parameterized` and enter the following `String values` with appropriate values for your account:
-+
-* CF_SYSTEM_DOMAIN: api.run.pcf.jkruckcloud.com
-* CF_APPS_DOMAIN: apps.pcf.jkruckcloud.com
-* CF_USER: your home depot email.
-* CF_ORG: your org
-* CF_SPACE: your development space
-* CF_APP: the app name
-* CF_JAR: path to the jar on jenkins
-* CF_MANIFEST: path to the manifest on jenkins
-+
-
-. Create a `Password Paramter` for:
-+
-* CF_PWD: your password
-+
-
+.. This is a good time to demo what a "better" ci pipeline would look like with a demo of something real. 
 
 === Github Set Up
 
-. Go to https://github.com/<YOUR ACCOUNT>/pcf-immersion-workspace > Settings > Webhooks & Services > Services > Add a Service > Jenkins (Github plugin)
+. Go to https://github.com/<YOUR ACCOUNT>/hello-java > Settings > Webhooks & Services > Services > Add a Service > Jenkins (Github plugin)
 
 . Jenkins hook url: https://pivotal-cloudbees.run.pcf.jkruckcloud.com/github-webhook/
 
@@ -64,51 +45,6 @@ Root Build Script:: This should be something like: `cities/cities-service`.  You
 +
 
 . Be sure `Active` is checked and click `Add Service`
-
-. You can find the values for CF_JAR and CF_MANIFEST by clicking on `Workspace` in the job config
-
-=== Configuring your Green/Blue deploy
-
-. Back to the Jenkins job config...
-
-. Select `Add build step` > `Execute Shell`.  Add the following and edit to ensure a blue-green deployment:
-+
-[source,bash]
-----
-
-cf login -a https://api.run.pcf.jkruckcloud.com <Add the correct flags to include the username, password, org and space> --skip-ssl-validation
-
-DEPLOYED_VERSION_CMD=$(CF_COLOR=false cf apps | grep $CF_APP- | cut -d" " -f1)
-DEPLOYED_VERSION="$DEPLOYED_VERSION_CMD"
-ROUTE_VERSION=$(echo "${BUILD_NUMBER}" | cut -d"." -f1-3 | tr '.' '-')
-echo "Deployed Version: $DEPLOYED_VERSION"
-echo "Route Version: $ROUTE_VERSION"
-
-# push a new version and map the route
-cf <???> "$CF_APP-$BUILD_NUMBER" -n "$CF_APP-$ROUTE_VERSION" -d $CF_APPS_DOMAIN -p $CF_JAR -f $CF_MANIFEST
-cf <???> "$CF_APP-${BUILD_NUMBER}" $CF_APPS_DOMAIN -n $CF_APP
-
-if [ ! -z "$DEPLOYED_VERSION" -a "$DEPLOYED_VERSION" != " " -a "$DEPLOYED_VERSION" != "$CF_APP-${BUILD_NUMBER}" ]; then
-  echo "Performing zero-downtime cutover to $BUILD_NUMBER"
-  echo "$DEPLOYED_VERSION" | while read line
-  do
-    if [ ! -z "$line" -a "$line" != " " -a "$line" != "$CF_APP-${BUILD_NUMBER}" ]; then
-      echo "Scaling down, unmapping and removing $line"
-      # Unmap the route and delete
-      cf <???>-route "$line" $CF_APPS_DOMAIN -n $CF_APP
-      cf <???> "$line" -f
-      cf delete-route $CF_APPS_DOMAIN -n "$line" -f
-    else
-      echo "Skipping $line"
-    fi
-  done
-fi
-----
-
-. Click `Save` and run your build
-
-. Commit a change to git and watch the magic
-
 
 == Beyond the Class
 
