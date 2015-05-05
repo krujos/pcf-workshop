@@ -27,38 +27,9 @@ In this section, students will deploy a custom service broker.
 
 The Service Broker for this lab is for a service called HashMap as a Service (HaaSh). It wraps a minimal REST API around a Java HashMap implementation, and each service creation event results in a newly allocated Map.
 
-Use the service-broker folder which has the haash-broker and haash-client.
-
 === haash-broker
-
-* Edit the src/main/resources/import.sql file:
-+
-[source,bash]
-----
-insert into services (id, name, description, bindable) values ('<first-initial><last-initial>', '<first-initial><last-initial>-HaaSh', 'HaaSh - HashMap as a Service', true)
-insert into plans (id, name, description, service_id) values ('<first-initial><last-initial>', 'basic', 'Basic Plan','<first-initial><last-initial>');
-----
-+
-
-* Edit the haash-broker dashboard client code, add your initials to the String id field.
-The DashboardClient class is in the src/main/java/io/pivotal/pcf/haash/model folder.
-+
-[source,bash]
-----
-public class DashboardClient {
-
-	private final String id = "fooXX";
-	private final String redirectURI = "http://example.com";
-	private final String secret = "secret";
-----
-
-* Build the haash-broker, from the haash-broker folder.
-+
-[source,bash]
-----
-$ gradle assemble
-----
-
+* Download the hash broker
+** https://s3-us-west-1.amazonaws.com/pcf-icm/haash-broker.jar
 * Push the broker as an app to CF.  Use the name: <first-initial><last-initial>-haash-broker
 
 * Register the broker with the cloud controller:
@@ -68,7 +39,7 @@ $ gradle assemble
 $ cf create-service-broker ...
 ----
 +
-The username & password you need for the broker are in: src/main/resources/application.properties
+The username & password you need for the broker are warreng/natedogg (regulate!)
 
 * Next, you need to make the plan public:
 +
@@ -77,9 +48,9 @@ The username & password you need for the broker are in: src/main/resources/appli
 $ cf enable-service-access ...
 ----
 +
-You will need to figure out the plan name.  You can do this by accessing your service broker's catalog from a browser.
+You will need to figure out the plan name.  You can do this by accessing your service broker's catalog from a browser or the cli. <broker url>/v2/catalog and look for name in the services array ("HaaSh")
 
-* Verify you can see your new service in the marketplace.  There is a cf command for this.
+* Verify you can see your new service in the marketplace.  There is a cf command for this
 
 * Create a new instance of your service using the CF commands.  Name the instance <first-initial><last-initial>-haash-service.
 
@@ -89,7 +60,8 @@ You will need to figure out the plan name.  You can do this by accessing your se
 
 * Be sure to connect the haash-client to the service instance you created above.
 
-* Build the haash-client with gradle
+* Download the haash-client from S3.
+** https://s3-us-west-1.amazonaws.com/pcf-icm/haash-client.jar
 
 * Push the haash-client to cf and name it: <first-initial><last-initial>-haash-client
 
@@ -117,6 +89,7 @@ $ curl <your haash-client>/HaaSh/<key>
 There are many community resources to help you build your own more robust service broker.
 
 * Spring developers can use the link:https://github.com/cloudfoundry-community/spring-boot-cf-service-broker[Spring Boot CF Service Broker]
+* PCF Needs additional data to make the console show your service see link:http://docs.pivotal.io/pivotalcf/services/catalog-metadata.html#example-broker-response[catalog metadata] in the docs.
 
 * You following repositories can be used as a reference:
 ** link:https://github.com/cloudfoundry-community/s3-cf-service-broker[S3 CF Service Broker]
