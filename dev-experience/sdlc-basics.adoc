@@ -168,6 +168,8 @@ The goal of this exercise is to use what you have learned to deploy the `cities-
 
 === Deploying the Cities UI App
 
+* Make sure you do this in a different directory than you pushed your cities-service app from. You don't want to accidentally overwrite the manifest for the other app.
+
 * A `manifest.yml` is included provided for the cities-ui app, you can download both at the links below.  Edit this manifest with your initials and be sure this manifest works with the service you create below.
 
 ** https://s3-us-west-1.amazonaws.com/pcf-icm/cities-ui.jar

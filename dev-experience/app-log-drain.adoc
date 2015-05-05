@@ -25,7 +25,7 @@ In this section, you will configure application log draining into a log analysis
 .. take note of the url (logs2.papertrail.com:<some-port>)
 
 . Now hook it up to CF with the commands you read about above (cf cups plus some options). 
-. Be sure to add your new User Provided Service to your microservice manifest.
+. Be sure to add your new User Provided Service to your microservice manifest. Make sure you're doing this in your **production** space!
 
 . After you have bound your service and restaged your app, perform a few curl requests and ensure logs are draining into Papertrail.
 
