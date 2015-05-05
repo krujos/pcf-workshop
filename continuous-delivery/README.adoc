@@ -12,37 +12,10 @@ This lab will guide you through building a BASIC continuous delivery pipeline us
 
 === Set Up
 
-==== Jenkins Setup Steps
-
 We will leverage the Jenkins instance deployed by Ops Manager.  This is located at https://pivotal-cloudbees.run.pcf.jkruckcloud.com
 
-. Login to your Jenkins instance deployed by Ops Manager.  Use the `Admin` user you've been using from the command line. 
-
-. Navigate to `Manage Jenkins` > `Configure System`
-
-. Add the latest stable Gradle under the `Gradle section`
-+
-* Ensure `Install automatically` is selected
-* `Install from Gradle.org`
-
-. Click `Apply` then `Save`
-
-. Navigate to `Manage Jenkins` > `Manage Plugins` > `Available`
-
-. Ensure the following plugins are installed:
-+
-* Gradle (should be installed)
-* Mask Passwords
-* Extensible Choice Parameter Plugin
-* Parameterized Remote Trigger Plugin
-* Github Plugin
-+
-
-. Tell Jenkins to restart after plugin install
 
 === Create the Initial Build Job
-
-. Navigate back to Jenkins Home.
 
 . Click `new item`, give it a name and select `Build a free-style software project` Then click `OK`.
 
