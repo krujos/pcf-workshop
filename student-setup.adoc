@@ -2,6 +2,10 @@
 
 The following resources are required for the class. If you want a copy of the materials from this course you need to clone the repo, otherwise you can skip this. 
 
+== github account
+
+For the continuous delivery exercise you need a github account. If you don't have one find a few moments to create one please. 
+
 == Git Client
 This class requires you to have git client software installed.  If you don't already have git installed, a nice GUI interface is link:http://www.sourcetreeapp.com/[SourceTree], which is available for both Mac OSX and Windows.  Otherwise you can use the following command-line utilities:
 
