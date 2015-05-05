@@ -62,7 +62,7 @@ tar -zxvf cf-linux-amd64.tgz
 .. You have now earned a release party. Notice the test trend graphic as well.
 
 
-This is a good time to demo what a "better" ci pipeline would look like with a demo of something real. 
+This is a good time (depending on where we're at in the class) to show what a "better" ci pipeline would look like with a demo of something real. 
 
 
 == Beyond the Class
@@ -85,5 +85,3 @@ Ideally, you want to build your artifacts (jars/wars) and publish them to a repo
 === Notification
 
 Jenkins supports many notification plugins.  It is important for code owners to be aware of build status.
-
-== Time permitting we can demo a build pipeline that does all of the above.
