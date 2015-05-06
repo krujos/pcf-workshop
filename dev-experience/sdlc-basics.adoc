@@ -9,7 +9,7 @@ Use `cf help` and/or `cf <command> --help` for details on each of the commands b
 . Review the docs: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/deploy-app.html
 
 . Verify you are logged in and targeted to your PCF instance:
-+
++a
 [source,bash]
 ----
 $ cf target -s production
@@ -109,7 +109,7 @@ Now, use a manifest to help automate deployment.
 +
 *Be sure to name your application '<first-initial><last-initial>-cities-service' and use this as the host value.*
 +
-We should be able to access your application at https://<first-initial><last-initial>-cities-service.apps.jkruckcloud.com
+We should be able to access your application at https://<first-initial><last-initial>-cities-service.apps.pcf.jkruckcloud.com
 
 
 ==== Binding via the Manifest
