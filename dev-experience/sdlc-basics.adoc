@@ -103,6 +103,8 @@ $ curl -i <your-app>-dev/cities
 
 Now, use a manifest to help automate deployment.
 
+. switch back to your `production` space
+
 . Review the documentation: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/manifest.html
 
 . Create an application manifest called `manifest.yml` in the same directory as your jar file.  Minimally, you must set the name of the app, the amount of memory, the number of instances, and the path to the .jar file.
