@@ -14,7 +14,7 @@ In this section, you will configure application log draining into a log analysis
 
 . We've got some instructions set up Papertrail: http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#papertrail. There so-so and on Josh's list of things to improve. 
 
-. In a nubshell
+. In a nutshell
 .. Create a Papertrail account, fill in your email and whatnot.
 .. Navigate to "Account" on the top nav 
 .. Click "Log Destinations" on the right side. 
