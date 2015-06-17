@@ -183,6 +183,7 @@ The goal of this exercise is to use what you have learned to deploy the `cities-
 * You can create a User Provided Service Instance and bind this to the ui application.
 ** Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/services/user-provided.html[User Provided Service Instances]
 ** Look for the details by running `cf help`.
+** Windows users, you are better off using the interactive variant of the command 
 
 * You will need to specify two parameters when you create the service instance: `uri` and `tag` (see: link:cities/cities-client/src/main/java/com/example/cities/client/cloud/cloudfoundry/CitiesWebServiceInfoCreator.java[CitiesWebServiceInfoCreator.java]).
 ** The `uri` should point to your deployed microservice
