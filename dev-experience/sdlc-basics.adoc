@@ -181,6 +181,7 @@ The goal of this exercise is to use what you have learned to deploy the `cities-
 === Creating a Service Instance & Deploy
 
 * You will need to connect the cities-ui application to a cities-service instance.
+* Make sure you are in your *production* space!
 
 * You can create a User Provided Service Instance and bind this to the ui application.
 ** Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/services/user-provided.html[User Provided Service Instances]
