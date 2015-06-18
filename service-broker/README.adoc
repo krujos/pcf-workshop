@@ -41,6 +41,8 @@ $ cf create-service-broker ...
 +
 The username & password you need for the broker are warreng/natedogg (regulate!)
 
+Make sure you use a unique name for your broker to avoid conflicts. 
+
 * Next, you need to make the plan public:
 +
 [source,bash]
