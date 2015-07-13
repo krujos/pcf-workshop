@@ -1,2 +1,14 @@
-foo_bar@example.com
+james_a_hall@homedepot.com
+sudhakar_narayanan@homedepot.com
+ganesh_krishnan1@homedepot.com
+mark_v_marlow@homedepot.com
+daniel_p_hurley@homedepot.com
+brent_t_mann@homedepot.com
+joseph_mburu@homedepot.com
+dev_k_gupta@homedepot.com
+jeff_kendall@homedepot.com
+mike_conner@homedepot.com
+jonathan_chuck@homedepot.com
+timothy_chu@homedepot.com
+viral_patel@homedepot.com
 
