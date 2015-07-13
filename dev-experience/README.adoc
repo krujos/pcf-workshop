@@ -51,7 +51,7 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 * No git? link:https://s3-us-west-1.amazonaws.com/pcf-icm/demo-apps.zip[No problem, download the apps here.]
 
-Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/pro/README.md[`README.md`] and push some apps!!
+Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/README.md[`README.md`] and push some apps!!
 
 *MAKE SURE YOU CD INTO THE INDIVIDUAL APP DIRECTORIES*
 
