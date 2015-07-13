@@ -12,10 +12,10 @@ Before we do anything lets take a look at the developer console and confirm inst
 
 * link:http://docs.pivotal.io/pivotalcf/console/dev-console.html[User Console Docs]
 
-* login to the console at https://console.run.pcf.jkruckcloud.com
-* I am using a self signed cert, go through that little dance in your browser. 
+* login to the console at https://console.run-at.homedepot.com
+* Your laptop should already trust the THD RootCA, if it dosen't proceed anyway. 
 * If you're using chrome, make sure it's a recent. Folks from THD have had some issues with an older version 
-* Login with your THD email and a password of `password`
+* Login with your THD email (all lowercase) and a password of `password`
 * Navigate to "Tools" (Left side)
 * Download and install the CLI for your platform.
 
@@ -24,7 +24,7 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 * Login to Cloud Foundry
 
-`cf login -a https://api.run.pcf.jkruckcloud.com -u <your email> -p password -o <your org> -s development --skip-ssl-validation` 
+`cf login -a https://api.run-at.homedepot.com -u <your email> -p password -o <your org> -s development --skip-ssl-validation` 
 
 . `-a` is the api we're targeting. Meaning all actions we perform will take place on this Cloud Foundry Foundation (deployment)
 

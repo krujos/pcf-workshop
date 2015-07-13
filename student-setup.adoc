@@ -23,7 +23,7 @@ You should be familiar with the git command line basics:
 * git clone - clone an existing repo
 * git add - add new or existing file to index to be committed
 * git commit -m "commit message" - record changes to the repo
-* git push - push committed changes to the remote repo
+* git push - push committed changes to the remote repository
 * git status - show status of local changes
 
 == Class Repositories
