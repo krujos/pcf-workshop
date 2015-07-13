@@ -1,6 +1,6 @@
 [
   {
-    "destination": "10.0.0.0/16",
+    "destination": "172.20.244.0/24",
     "protocol": "all"
   }
 ]
