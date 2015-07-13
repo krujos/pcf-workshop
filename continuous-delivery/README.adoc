@@ -35,7 +35,7 @@ Fork this repo: link:https://github.com/krujos/hello-java
 ```
 wget -N http://go-cli.s3-website-us-east-1.amazonaws.com/releases/latest/cf-linux-amd64.tgz
 tar -zxvf cf-linux-amd64.tgz
-./cf login -a -u -p -s -o --skip-ssl-validation`
+./cf login -a <api endpoint> -u <username> -p <password> -s <space> -o <org> --skip-ssl-validation
 ./cf push --random-route
 ```
 

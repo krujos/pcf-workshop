@@ -17,6 +17,7 @@
 . link:buildpack/README.adoc[Customizing Build Packs]
 
 . link:service-broker/README.adoc[Deploying a Custom Service Broker]
+.. Only one person can complete this exercise. Heidi is on it!
 
 == Material Format Philosophy
 

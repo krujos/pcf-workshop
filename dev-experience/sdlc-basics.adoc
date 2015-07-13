@@ -9,7 +9,7 @@ Use `cf help` and/or `cf <command> --help` for details on each of the commands b
 . Review the docs: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/deploy-app.html
 
 . Verify you are logged in and targeted to your PCF instance:
-+
++a
 [source,bash]
 ----
 $ cf target -s production
@@ -103,13 +103,15 @@ $ curl -i <your-app>-dev/cities
 
 Now, use a manifest to help automate deployment.
 
+. switch back to your `production` space
+
 . Review the documentation: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/manifest.html
 
 . Create an application manifest called `manifest.yml` in the same directory as your jar file.  Minimally, you must set the name of the app, the amount of memory, the number of instances, and the path to the .jar file.
 +
 *Be sure to name your application '<first-initial><last-initial>-cities-service' and use this as the host value.*
 +
-We should be able to access your application at https://<first-initial><last-initial>-cities-service.apps.jkruckcloud.com
+We should be able to access your application at https://<first-initial><last-initial>-cities-service.apps.pcf.jkruckcloud.com
 
 
 ==== Binding via the Manifest
@@ -179,10 +181,12 @@ The goal of this exercise is to use what you have learned to deploy the `cities-
 === Creating a Service Instance & Deploy
 
 * You will need to connect the cities-ui application to a cities-service instance.
+* Make sure you are in your *production* space!
 
 * You can create a User Provided Service Instance and bind this to the ui application.
 ** Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/services/user-provided.html[User Provided Service Instances]
 ** Look for the details by running `cf help`.
+** Windows users, you are better off using the interactive variant of the command 
 
 * You will need to specify two parameters when you create the service instance: `uri` and `tag` (see: link:cities/cities-client/src/main/java/com/example/cities/client/cloud/cloudfoundry/CitiesWebServiceInfoCreator.java[CitiesWebServiceInfoCreator.java]).
 ** The `uri` should point to your deployed microservice
