@@ -24,7 +24,9 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 * Login to Cloud Foundry
 
-`cf login -a https://api.run-at.homedepot.com -u <your email> -p password -o <your org> -s development --skip-ssl-validation` 
+`cf login -a https://api.run-at.homedepot.com -u <your email> -p password -o <your org> -s development` 
+
+.. Note if you had SSL errors above, you can add `--skip-ssl-validation` to the command.
 
 . `-a` is the api we're targeting. Meaning all actions we perform will take place on this Cloud Foundry Foundation (deployment)
 
@@ -36,7 +38,7 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 . `-s` is the name of your space
 
-. `--skip-ssl-validation` lets the CLI use a self signed cert.
+. `--skip-ssl-validation` lets the CLI use a self signed cert (or a cert where the names don't match up).
 
 === Pushing apps
 * **Make sure you're logged into your development space (run `cf target` to check)**
@@ -47,13 +49,15 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 `cd cf-hello-world-sample-apps`
 
-* No git? link:https://s3-us-west-1.amazonaws.com/pcf-icm/demo-apps.zip[No problem, download here.]
+* No git? link:https://s3-us-west-1.amazonaws.com/pcf-icm/demo-apps.zip[No problem, download the apps here.]
 
-Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/README.md[`README.md`] and push some apps!!
+Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/pro/README.md[`README.md`] and push some apps!!
+
+*MAKE SURE YOU CD INTO THE INDIVIDUAL APP DIRECTORIES*
 
 == More talking
 
-* Review the Keynote on link:Cloud_Ready_Apps.key[Cloud Ready Apps]
+* Review the Keynote on link:Cloud_Ready_Apps.key[Cloud_Ready_Apps Ready Apps]
 ** This should drive home how to build applications that will run on PCF. As we'll cover PCF can work with lots of applications, but cloud native is the best fit. 
 
 == More Exercises
@@ -67,6 +71,9 @@ Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/READM
 * Take a quick look at the link:cities/README.adoc[architecture] of the cities application. 
 
 === Applications on Pivotal CF
+
+* Lets talk about about cloud ready apps and what cloud native means.
+** :link:https://github.com/krujos/pcf-workshop/blob/pro/dev-experience/Cloud_Ready_Apps.key[Cloud ready apps]
 
 * Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/prepare-to-deploy.html[Considerations for Designing and Running an Application in the Cloud]
 
@@ -90,5 +97,3 @@ The following exercises should be completed for `cities-service`.
 * link:apm.adoc[Monitoring with APM tools]
 
 * link:app-autoscaling.adoc[Application Autoscaling]
-
-* link:../continuous-delivery/README.adoc[Continuous Delivery]
