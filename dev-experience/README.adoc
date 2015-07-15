@@ -92,6 +92,8 @@ The following exercises should be completed for `cities-service`.
 
 * link:user-console.adoc[User Console]
 
+*End of Day 1*
+
 We will complete the following exercises on PWS because of THD network restrictions. 
 
 * link:app-log-drain.adoc[Application Log Draining]
