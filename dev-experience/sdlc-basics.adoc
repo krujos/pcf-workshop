@@ -111,8 +111,7 @@ Now, use a manifest to help automate deployment.
 +
 *Be sure to name your application '<first-initial><last-initial>-cities-service' and use this as the host value.*
 +
-We should be able to access your application at https://<first-initial><last-initial>-cities-service.apps.pcf.jkruckcloud.com
-
+We should be able to access your application at https://<first-initial><last-initial>-cities-service.apps-at.homedepot.com
 
 ==== Binding via the Manifest
 

@@ -4,7 +4,7 @@
 
 In this section, students will deploy a build pack and use it to deploy an application.
 
-== Obtain the modified buildpack
+== Obtain the modified buildpack_path
 . You need to be logged in as admin for these exercises. 
 
 * Download the buildpack from S3 to your laptop.
