@@ -35,7 +35,6 @@ Your app should have crashed because it can't find a database. So now we need to
 
 . Review the docs on Services:
 +
-* link:http://docs.pivotal.io/pivotalcf/devguide/services/adding-a-service.html[Adding a Service]
 * link:http://docs.pivotal.io/pivotalcf/devguide/services/managing-services.html[Managing Services]
 +
 
