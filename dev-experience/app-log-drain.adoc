@@ -18,7 +18,13 @@ In this section, you will configure application log draining into a log analysis
 .. Create a Papertrail account, fill in your email and whatnot.
 .. Navigate to "Account" on the top nav 
 .. Click "Log Destinations" on the right side. 
-.. Click "Create Log Destination"
+.. Click "Alternatives"
+.. Click "I use Heroku or Cloud Foundry"
+.. "What should we call it?" should have a name
+.. Click Save
+.. Navigate to "Account" on the top nav 
+.. Click "Log Destinations" on the right side. 
+.. Click "Edit Settings" on your destination
 .. Ensure that "Accept logs from unrecognized systems?" has "Yes" checked
 .. Ensure PlainText is checked as an access method under "Accept Connections Via" 
 .. Click create
