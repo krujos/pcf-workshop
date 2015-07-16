@@ -30,7 +30,7 @@ The Service Broker for this lab is for a service called HashMap as a Service (Ha
 === haash-broker
 * Download the hash broker
 ** https://s3-us-west-1.amazonaws.com/pcf-icm/haash-broker.jar
-* Push the broker as an app to CF in your PWS account.  Use the name: <first-initial><last-initial>-haash-broker
+* Push the broker as an app to CF in the HOME DEPOT instance.  Use the name: <first-initial><last-initial>-haash-broker
 
 * Register the broker with the cloud controller in the THD CF instance (you will need an admin to do this for you, ask Josh). He will demo the commands for you:
 +
