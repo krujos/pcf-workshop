@@ -32,7 +32,7 @@ The Service Broker for this lab is for a service called HashMap as a Service (Ha
 ** https://s3-us-west-1.amazonaws.com/pcf-icm/haash-broker.jar
 * Push the broker as an app to CF.  Use the name: <first-initial><last-initial>-haash-broker
 
-* Register the broker with the cloud controller:
+* Register the broker with the cloud controller (you will need an admin to do this for you):
 +
 [source,bash]
 ----
