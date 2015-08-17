@@ -24,7 +24,7 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 * Login to Cloud Foundry
 
-`cf login -a https://api.run-at.homedepot.com -u <your email> -p password -o <your org> -s development`
+`cf login -a https://api.run-at.homedepot.com -u <your email> -p <PR AMER password> -o <your org> -s development`
 
 .. Note if you had SSL errors above, you can add `--skip-ssl-validation` to the command.
 
@@ -32,7 +32,7 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 . `-u` is your username, in this workshop it's your email address.
 
-. `-p` is your password. I've set it to `password`
+. `-p` is your password. It should be your PR AMER password
 
 . `-o` is the name of your organization
 
