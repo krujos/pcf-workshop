@@ -8,23 +8,23 @@ To deploy and configure an application, leverage the platform for monitoring & m
 
 === Console
 
-Before we do anything lets take a look at the developer console and confirm install of the Cloud Foundry CLI on our laptops/desktops. 
+Before we do anything lets take a look at the developer console and confirm install of the Cloud Foundry CLI on our laptops/desktops.
 
 * link:http://docs.pivotal.io/pivotalcf/console/dev-console.html[User Console Docs]
 
 * login to the console at https://console.run-at.homedepot.com
-* Your laptop should already trust the THD RootCA, if it dosen't proceed anyway. 
-* If you're using chrome, make sure it's a recent. Folks from THD have had some issues with an older version 
-* Login with your THD email (all lowercase) and a password of `password`
+* Your laptop should already trust the THD RootCA, if it dosen't proceed anyway.
+* If you're using chrome, make sure it's a recent. Folks from THD have had some issues with an older version
+* Login with your THD email (all lowercase) and your production AMER password
 * Navigate to "Tools" (Left side)
 * Download and install the CLI for your platform..
 
 === CLI
-Now that we have the CLI, lets push some basic applications quickly and navigate our way around the CLI. 
+Now that we have the CLI, lets push some basic applications quickly and navigate our way around the CLI.
 
 * Login to Cloud Foundry
 
-`cf login -a https://api.run-at.homedepot.com -u <your email> -p password -o <your org> -s development` 
+`cf login -a https://api.run-at.homedepot.com -u <your email> -p <PR AMER password> -o <your org> -s development`
 
 .. Note if you had SSL errors above, you can add `--skip-ssl-validation` to the command.
 
@@ -32,7 +32,7 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 . `-u` is your username, in this workshop it's your email address.
 
-. `-p` is your password. I've set it to `password`
+. `-p` is your password. It should be your PR AMER password
 
 . `-o` is the name of your organization
 
@@ -58,17 +58,17 @@ Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/READM
 == More talking
 
 * Review the Keynote on link:Cloud_Ready_Apps.key[Cloud_Ready_Apps Ready Apps]
-** This should drive home how to build applications that will run on PCF. As we'll cover PCF can work with lots of applications, but cloud native is the best fit. 
+** This should drive home how to build applications that will run on PCF. As we'll cover PCF can work with lots of applications, but cloud native is the best fit.
 
 == More Exercises
 
-* We're going to switch to a java application called `cities-service`. We will use this application for the remainder of the workshop. Find and download the cities jars at the following location. 
+* We're going to switch to a java application called `cities-service`. We will use this application for the remainder of the workshop. Find and download the cities jars at the following location.
 
 ** https://s3-us-west-1.amazonaws.com/pcf-icm/cities-service.jar
 
-** You can also find the code in this repository link:cities/[in dev-experience/cities]. We've made some changes to the code in the jar referenced above to force a failure early on. If you choose to compile and run the code yourself please remove the `hsqldb` dependency from the build file. Please note there is not time in the class to troubleshoot build issues, so if you experience problems please use the jar above. 
+** You can also find the code in this repository link:cities/[in dev-experience/cities]. We've made some changes to the code in the jar referenced above to force a failure early on. If you choose to compile and run the code yourself please remove the `hsqldb` dependency from the build file. Please note there is not time in the class to troubleshoot build issues, so if you experience problems please use the jar above.
 
-* Take a quick look at the link:cities/README.adoc[architecture] of the cities application. 
+* Take a quick look at the link:cities/README.adoc[architecture] of the cities application.
 
 === Applications on Pivotal CF
 
@@ -94,7 +94,7 @@ The following exercises should be completed for `cities-service`.
 
 *End of Day 1*
 
-We will complete the following exercises on PWS because of THD network restrictions. 
+We will complete the following exercises on PWS because of THD network restrictions.
 
 * link:app-log-drain.adoc[Application Log Draining]
 

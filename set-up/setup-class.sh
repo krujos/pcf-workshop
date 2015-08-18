@@ -10,8 +10,7 @@ for email in `cat class-participant-emails.txt` ; do
 	cf create-org $org
 	cf create-space development -o $org
 	cf create-space production -o $org
-	cf create-user $email password
-	
+
 	cf set-org-role admin $org OrgManager
 	cf set-org-role $email $org OrgManager
 	cf set-space-role $email $org development SpaceManager

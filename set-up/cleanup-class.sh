@@ -6,6 +6,5 @@ for email in `cat class-participant-emails.txt` ; do
 	echo "INFO: Cleaning up $org: for $email"
 
 	cf delete-org $org -f 
-	cf delete-user $email -f
 
 done

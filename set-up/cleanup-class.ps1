@@ -5,5 +5,4 @@
     $org = -join $substring + '-org'
     "INFO: Cleaning up $($org): for $($email)"
     cf delete-org $org -f 
-	cf delete-user $email -f
 }
