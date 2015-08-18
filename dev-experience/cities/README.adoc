@@ -20,12 +20,12 @@ The **cities-service** subproject is an example of a very simple but fully funct
 **Key concepts:**
 
 * Simple application configuration using Spring Boot
-** link:cities-service/src/main/java/com/example/cities/Application.java[Application.java]
-** link:cities-service/src/main/java/com/example/cities/WebConfiguration.java[WebConfiguration.java]
+** link:cities-service/src/main/java/org/example/cities/Application.java[Application.java]
+** link:cities-service/src/main/java/org/example/cities/WebConfiguration.java[WebConfiguration.java]
 * Data access using Spring Data JPA and exposing a REST API using Spring Data REST
-** link:cities-service/src/main/java/com/example/cities/repositories/CityRepository.java[CityRepository.java]
+** link:cities-service/src/main/java/org/example/cities/repositories/CityRepository.java[CityRepository.java]
 * *To be developed*: Consuming a cloud data source using Spring Cloud Connectors
-** link:cities-service/src/main/java/com/example/cities/config/CloudDataSourceConfig.java[CloudDataSourceConfig.java]
+** link:cities-service/src/main/java/org/example/cities/config/CloudDataSourceConfig.java[CloudDataSourceConfig.java]
 
 === cities-client
 
