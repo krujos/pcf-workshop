@@ -1,5 +1,5 @@
 = Service Brokers
-
+Note: Only one class member can perform this exercise!
 == Goal
 
 In this section, students will deploy a custom service broker.
