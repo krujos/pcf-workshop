@@ -6,43 +6,43 @@ In this section, you will configure application log draining into a log analysis
 
 . Review the log draining documentation here: http://docs.pivotal.io/pivotalcf/devguide/services/log-management.html
 
-. Log draining is done through a user provided service, which gives us a means of injecting credentials and coordinates (URI's, hostnames, ports, etc) into an application.  
+. Log draining is done through a user provided service, which gives us a means of injecting credentials and coordinates (URI's, hostnames, ports, etc) into an application.
 
 == Papertrail
 
 . Sign up for a free Papertrail account: https://papertrailapp.com/
 
-. We've got some instructions set up Papertrail: http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#papertrail. There so-so and on Josh's list of things to improve. 
+. We've got some instructions set up Papertrail: http://docs.run.pivotal.io/devguide/services/log-management-thirdparty-svc.html#papertrail. This document is not the best and on our list of things to improve. The important part is to setup a log destination that can receive TCP plain text.
 
 . In a nutshell
 .. Create a Papertrail account, fill in your email and whatnot.
-.. Navigate to "Account" on the top nav 
-.. Click "Log Destinations" on the right side. 
+.. Navigate to "Account" on the top nav
+.. Click "Log Destinations" on the right side.
 .. Click "Alternatives"
 .. Click "I use Heroku or Cloud Foundry"
 .. "What should we call it?" should have a name
 .. Click Save
-.. Navigate to "Account" on the top nav 
-.. Click "Log Destinations" on the right side. 
+.. Navigate to "Account" on the top nav
+.. Click "Log Destinations" on the right side.
 .. Click "Edit Settings" on your destination
 .. Ensure that "Accept logs from unrecognized systems?" has "Yes" checked
-.. Ensure PlainText is checked as an access method under "Accept Connections Via" 
+.. Ensure PlainText is checked as an access method under "Accept Connections Via"
 .. Click create
 .. take note of the url (logs2.papertrail.com:<some-port>)
 
-. Now hook it up to CF with the commands you read about above (cf cups plus some options). 
+. Now hook it up to CF with the commands you read about above (cf cups plus some options).
 . Be sure to add your new User Provided Service to your microservice manifest. Make sure you're doing this in your **production** space!
 
 . After you have bound your service and restaged your app, perform a few curl requests and ensure logs are draining into Papertrail.
 
-. Scale your app to 3 instances (`cf scale <app> -i 3`) and generate some more load. Notice how the app index shows up in each log message, and how the GUID changes? 
+. Scale your app to 3 instances (`cf scale <app> -i 3`) and generate some more load. Notice how the app index shows up in each log message, and how the UUID's change?
 
 == More Docs
 
 . http://docs.cloudfoundry.org/services/app-log-streaming.html
 . http://docs.run.pivotal.io/devguide/deploy-apps/streaming-logs.html
 . This page talks about sending logs w/ TLS, make sure to check that out if the plain text setting above bothered you
-.. http://docs.run.pivotal.io/devguide/services/log-management.html 
+.. http://docs.run.pivotal.io/devguide/services/log-management.html
 
 == Other External Tools
 

@@ -2,7 +2,7 @@
 
 == Session Overview
 
-This section provides the basic information and understanding required to understand Cloud Foundry.  The session consists of 2 Keynote presentations. 
+This section provides the basic information and understanding required to understand Cloud Foundry.  The session consists of 2 Keynote presentations.
 
 == Goal
 
@@ -15,7 +15,7 @@ To understand:
 ** Platform as a Service basics
 ** The Cloud Foundry Foundation
 ** Pivotal CF: The Enterprise Cloud Foundry
-*** We're going to hustle through the sales and 'why did we build it' content, but it does set the foundation for how the product operates. 
+*** We're going to hustle through the sales and 'why did we build it' content, but it does set the foundation for how the product operates.
 * link:Technical_Overview.key[Technical Overview] _(link:Technical_Overview.pptx[powerpoint])_
 ** The basic components in Pivotal CF
 ** How the components and capabilities contribute to the 4 Core Tenents of Cloud Foundry
@@ -23,4 +23,4 @@ To understand:
 
 * Resources
 ** link:http://docs.pivotal.io/pivotalcf/getstarted/pcf-docs.html[Pivotal Cloud Foundry Docs]
-** Josh or Josh (jkruck@pivotal.io)
+** Josh (jkruck@pivotal.io), Don (daddington@pivotal.io), Matt (mgunter@pivotal.io)

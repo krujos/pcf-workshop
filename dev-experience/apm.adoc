@@ -28,20 +28,21 @@ $ cf cups app-dynamics -p host-name,port,ssl-enabled,account-name,account-access
 . Enter the requested info.  This is displayed under the `Account Info` section on your App Dynamics account page.
 +
 * *For the `ssl-enabled` parameter, be sure to enter `true`.*
+* *Hostname is actually a hostname, make sure you don't have `http`!*
 +
 
 . Bind the new instance to your application and restart.
 
 . Launch the AppDynamics console and execute curl requests against your application.
 
-. Note you can also try binding to your cities-service application. This will cause some interesting errors to take a look at and what CF does and logs because of them. 
+. Note you can also try binding to your cities-service application. This will cause some interesting errors to take a look at and what CF does and logs because of them.
 
 Note:  If you see permgen errors in the log, treat them as general out of memory errors.  You don't need to hack the java buildpack as part of this exercise.
 
 
 == Checking your work
 
-. Your App Dynamics service should show correctly under the VCAP_SERVICES environment variable. After a bit you should see data in the app dynamics console as well. 
+. Your App Dynamics service should show correctly under the VCAP_SERVICES environment variable. After a bit you should see data in the app dynamics console as well.
 
 . Time permitting this is a fun place to fool around for a bit. See what kind of errors you can cause for your app and how that manifests itself in your monitoring tool. This is your first line of defense, is the monitoring tools cluing you into to things that you could use CF to fix (response times, service errors)?
 
@@ -53,5 +54,3 @@ $ cf env <first-inital><last-initial>-cities-service
 ----
 
 . QUESTION / Class Exercise: This should work from production, but not from development. Can you analyze the security groups for each space and explain why? What security group applies to the production space?
-
-

@@ -12,10 +12,10 @@ Before we do anything lets take a look at the developer console and confirm inst
 
 * link:http://docs.pivotal.io/pivotalcf/console/dev-console.html[User Console Docs]
 
-* login to the console at https://console.run-at.homedepot.com
-* Your laptop should already trust the THD RootCA, if it dosen't proceed anyway.
-* If you're using chrome, make sure it's a recent. Folks from THD have had some issues with an older version
-* Login with your THD email (all lowercase) and your production AMER password
+* login to the console at https://console.run.pcf.jkruckcloud.com
+* I'm using self signed certs, please proceed through the warnings in your browser.
+* If you're using chrome, make sure it's a recent.
+* Login with your work email address (all lowercase) and a password of `password`
 * Navigate to "Tools" (Left side)
 * Download and install the CLI for your platform..
 
@@ -24,7 +24,7 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 * Login to Cloud Foundry
 
-`cf login -a https://api.run-at.homedepot.com -u <your email> -p <PR AMER password> -o <your org> -s development`
+`cf login -a https://api.run.pcf.jkruckcloud.com -u <your email> -p password -o <your org> -s development`
 
 .. Note if you had SSL errors above, you can add `--skip-ssl-validation` to the command.
 
@@ -41,13 +41,13 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 . `--skip-ssl-validation` lets the CLI use a self signed cert (or a cert where the names don't match up).
 
 === Pushing apps
-* **Make sure you're logged into your development space (run `cf target` to check)**
+* **Make sure you have targeted your development space (run `cf target` to check)**
 
 * Clone our example applications
 
 `git clone https://github.com/krujos/cf-hello-world-sample-apps`
 
-`cd cf-hello-world-sample-apps`
+`cd cf-hello-world-sample-apps/<pick a language>`
 
 * No git? link:https://s3-us-west-1.amazonaws.com/pcf-icm/demo-apps.zip[No problem, download the apps here.]
 
@@ -58,7 +58,7 @@ Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/READM
 == More talking
 
 * Review the Keynote on link:Cloud_Ready_Apps.key[Cloud_Ready_Apps Ready Apps]
-** This should drive home how to build applications that will run on PCF. As we'll cover PCF can work with lots of applications, but cloud native is the best fit.
+** This should drive home how to build applications that will run well on PCF. As we'll cover PCF can work with lots of applications, but cloud native is the best fit.
 
 == More Exercises
 
@@ -91,8 +91,6 @@ Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/READM
 The following exercises should be completed for `cities-service`.
 
 * link:user-console.adoc[User Console]
-
-*End of Day 1*
 
 We will complete the following exercises on PWS because of THD network restrictions.
 

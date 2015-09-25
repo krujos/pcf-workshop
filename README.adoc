@@ -2,7 +2,7 @@
 
 == Student Set Up
 
-* Follow the instructions on link:student-setup.adoc[Student Set Up]. 
+* Follow the instructions on link:student-setup.adoc[Student Set Up].
 
 == Agenda
 
@@ -29,5 +29,4 @@
 
 * *Asciidoc* docs in git define the course, links and work.  They are easy to edit, format and navigate.
 
-* *Material* is sourced from our partner training and tailored to suit The Home Depot's needs. This course is to facilitate your learning. It is intended to be highly interactive and hands on. If there are topics that interest the class we will happily diverge. Some exercises are intended to fail, either to educate about the platform or to demonstrate common pitfalls. 
-
+* *Material* is sourced from our partner training and tailored to suit The Home Depot's needs. This course is to facilitate your learning. It is intended to be highly interactive and hands on. If there are topics that interest the class we will happily diverge. Some exercises are intended to fail, either to educate about the platform or to demonstrate common pitfalls.

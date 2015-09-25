@@ -1,37 +1,6 @@
 = Student Set Up
 
-The following resources are required for the class. If you want a copy of the materials from this course you need to clone the repo, otherwise you can skip this. 
-
-== github account
-
-For the continuous delivery exercise you need a github account. If you don't have one find a few moments to create one please. 
-
-== Git Client
-This class requires you to have git client software installed.  If you don't already have git installed, a nice GUI interface is link:http://www.sourcetreeapp.com/[SourceTree], which is available for both Mac OSX and Windows.  Otherwise you can use the following command-line utilities:
-
-=== Mac
-Either of the following:
-
-* GitHub graphical Git client, can download link:https://mac.github.com/[here].  Be sure to install the command line tools during the install.
-* Git command line, can download link:http://git-scm.com/downloads[here].
-
-=== Windows
- * git for windows, can download link:https://msysgit.github.io/[here].  During the install, select the option for bash shell only.  Then run the Git Bash application from the Start Menu rather than the Git GUI application.  We've found that this approach eliminates a lot of problems for students with windows laptops.
-
-You should be familiar with the git command line basics:
-
-* git clone - clone an existing repo
-* git add - add new or existing file to index to be committed
-* git commit -m "commit message" - record changes to the repo
-* git push - push committed changes to the remote repository
-* git status - show status of local changes
-
-== Class Repositories
-
-=== The Home Depot Workshop Repository
-
-Clone this repository so that you have access to the presentations.
-PDF copies are included in the same directory as each Keynote.
+The following resources are required for the class. If you want a copy of the materials from this course you need to clone the repo, otherwise you can skip this.
 
 [source,bash]
 ----

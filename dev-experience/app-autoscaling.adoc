@@ -5,4 +5,4 @@
 Cloud Foundry has some services for auto scaling applications. These serve as a starting point and may work for some of your application portfolio. Read about them link:http://docs.pivotal.io/pivotalcf/autoscaling[on pivotal site].
 
 
-Due to time constraints we won't be performing auto scaler setup in the workshop, but we can discuss it if theres desire. 
+Try following the directions above for your app.
