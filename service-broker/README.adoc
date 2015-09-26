@@ -1,5 +1,5 @@
 = Service Brokers
-Note: Only one class member can perform this exercise!
+
 == Goal
 
 In this section, students will deploy a custom service broker.
@@ -10,7 +10,7 @@ In this section, students will deploy a custom service broker.
 
 . Register the Broker with the Cloud Controller
 
-. Make the single plan in the catalog “public”
+. Make the single plan in the catalog “public” in your organization
 
 . Create an instance of your service
 
@@ -27,12 +27,16 @@ In this section, students will deploy a custom service broker.
 
 The Service Broker for this lab is for a service called HashMap as a Service (HaaSh). It wraps a minimal REST API around a Java HashMap implementation, and each service creation event results in a newly allocated Map.
 
+The source for the broker can be found link:https://github.com/krujos/haash-broker[here]. It was originally written by link:https://github.com/mstine[Matt Stine] and modified for our needs
+
+You do not need to build the code, a jar is provided below.
+
 === haash-broker
 * Download the hash broker
 ** https://s3-us-west-1.amazonaws.com/pcf-icm/haash-broker.jar
-* Push the broker as an app to CF in the HOME DEPOT instance.  Use the name: <first-initial><last-initial>-haash-broker
+* Push the broker as an app to CF.  Use the name: <first-initial><last-initial>-haash-broker
 
-* Register the broker with the cloud controller in the THD CF instance (you will need an admin to do this for you, ask Josh). He will demo the commands for you:
+* Register the broker with the cloud controller, you will need an admin (Josh, but pretend I'm your IT department) to help you out. Information required for this command can be found from the catalog endpoing (`/v2/catalog`)
 +
 [source,bash]
 ----
@@ -41,7 +45,7 @@ $ cf create-service-broker ...
 +
 The username & password you need for the broker are warreng/natedogg (regulate!)
 
-*Make sure you use a unique name for your broker to avoid conflicts.* 
+*Brokers need a unique ID and name to be used in CF, to acheive this we use the time you pushed the app*
 
 * Next, you need to make the plan public:
 +
@@ -65,7 +69,7 @@ You will need to figure out the plan name.  You can do this by accessing your se
 * Download the haash-client from S3.
 ** https://s3-us-west-1.amazonaws.com/pcf-icm/haash-client.jar
 
-* Push the haash-client to the THD CF instance and name it: <first-initial><last-initial>-haash-client
+* Push the haash-client to PCF and name it: <first-initial><last-initial>-haash-client
 
 * Curl your haash client to be sure it is working and using your haash-service
 +
