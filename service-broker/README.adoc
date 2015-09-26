@@ -95,7 +95,7 @@ $ curl <your haash-client>/HaaSh/<key>
 There are many community resources to help you build your own more robust service broker.
 
 * Spring developers can use the link:https://github.com/cloudfoundry-community/spring-boot-cf-service-broker[Spring Boot CF Service Broker]
-* PCF Needs additional data to make the console show your service see link:http://docs.pivotal.io/pivotalcf/services/catalog-metadata.html#example-broker-response[catalog metadata] in the docs.
+* AppsManager (the PCF Console) could consume additional metadata to show more information about your service (like plan price etc) see link:http://docs.pivotal.io/pivotalcf/services/catalog-metadata.html#example-broker-response[catalog metadata] in the docs for more information.
 
 * You following repositories can be used as a reference:
 ** link:https://github.com/cloudfoundry-community/s3-cf-service-broker[S3 CF Service Broker]
