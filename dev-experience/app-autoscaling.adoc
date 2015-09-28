@@ -37,7 +37,7 @@ Be sure to set the memory allocation for your application to 650M to ensure the 
 
 . link:http://jmeter.apache.org/download_jmeter.cgi[Apache JMeter] Can be used to generate load.
 
-. Use the following link:https://raw.githubusercontent.com/krujos/pcf-workshop/master/dev-experience/cities-load-generator.jmx[JMeter script] as a starting point.
+. Use the following link:https://raw.githubusercontent.com/krujos/pcf-workshop/master/dev-experience/cities-load-generator.jmx[JMeter script] as a starting point. Thanks link:https://github.com/gtantachuco-pivotal[Guillermo Tantachuco]!!!
 
 . Open the 'cities-load-generator.jmx' in the JMeter GUI.
 
