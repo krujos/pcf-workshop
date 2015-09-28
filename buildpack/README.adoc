@@ -2,27 +2,14 @@
 
 == Goal
 
-In this section, students will deploy a build pack and use it to deploy an application.
+In this section, students will deploy their application with a modified buildpack.
 
-== Obtain the modified buildpack_path
-. You need to be logged in as admin for these exercises. 
+== Check for the modified buildpack
 
-* Download the buildpack from S3 to your laptop.
-** https://s3-us-west-1.amazonaws.com/pcf-icm/java-buildpack-staging-timestamp.zip
-
-. This buildpack has an added *framework* component that will set a Java system property containing a timestamp that indicates when the application was staged. 
-
-* Upload our extended Java buildpack to Cloud Foundry. We'll leverage the cf CLI. Ensure that you're logged in to your CF instance as an admin user.
-+
-To add our buildpack, we'll leverage +cf create-buildpack+. Run that with zero command-line options to see how the command works:
-+
-[source,bash]
-----
-$ cf create-buildpack ...
-----
-+
-* Be sure to name your buildpack <first-initial><last-name>-java-buildpack when executing the `cf create-buildpack` command.
-
+* Your administrator has installed an alternate java buildpack.
+. This buildpack has an added *framework* component that will set a Java system property containing a timestamp that indicates when the application was staged.
+. The buildpack was installed (by an admin) with the command `cf create-buildpack java-staging-timestamp ./java-buildpack-staging-timestamp.zip 8 --enable`
+. Students should now run `cf buildpacks` to see that this buildpack is installed!
 
 === Verifying your changes
 
@@ -45,6 +32,12 @@ Application was staged at: null
 +
 
 . Now, re-push your app and use the `-b` flag to use your modified build pack.
+. Note you should see an indication that you're not using the standard buildpack anymore!
+
+  Starting app cities-service in org jdk / space development as admin...
+  -----> Downloaded app package (24M)
+  -----> Downloaded app buildpack cache (44M)
+  -----> Java Buildpack Version: e89e546 | https://github.com/krujos/java-buildpack#e89e546
 
 . Check the staging info provided by the Java build pack to see that our change was effective:
 +
@@ -81,3 +74,9 @@ Application was staged at: 2014-05-27 15:52:41 +0000
 +
 
 . Edit your manifest to ensure future pushes leverage your build pack.
+
+=== What about testing buildpack changes, or one offs?
+
+Cloud Foundry can accept a git URL as the argument to -b. If you're iterating on a buildpack change, experimenting or do not desire to make the buildpack available to everyone this is a *much* easier way to consume a custom buildpack!
+
+See the output of `cf push --help` for more information.
