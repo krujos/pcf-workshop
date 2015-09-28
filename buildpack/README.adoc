@@ -7,7 +7,7 @@ In this section, students will deploy their application with a modified buildpac
 == Check for the modified buildpack
 
 * Your administrator has installed an alternate java buildpack.
-. This buildpack has an added *framework* component that will set a Java system property containing a timestamp that indicates when the application was staged.
+. This buildpack has an added framework component that will set a Java system property containing a timestamp that indicates when the application was staged.
 . The buildpack was installed (by an admin) with the command `cf create-buildpack java-staging-timestamp ./java-buildpack-staging-timestamp.zip 8 --enable`
 . Students should now run `cf buildpacks` to see that this buildpack is installed!
 
