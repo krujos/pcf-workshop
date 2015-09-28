@@ -17,3 +17,5 @@ packer/.vagrant
 hs_err_pid*
 
 .DS_Store
+set-up/org_summary.txt
+set-up/class-participant-emails.txt
