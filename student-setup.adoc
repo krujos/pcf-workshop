@@ -6,3 +6,5 @@ The following resources are required for the class. If you want a copy of the ma
 ----
 $ git clone https://github.com/krujos/pcf-workshop/
 ----
+
+The rest of the class will walk you through installing the CF CLI. Ensure that you have sufficient rights to install software to your laptop.
