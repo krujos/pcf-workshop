@@ -9,7 +9,7 @@ Use `cf help` and/or `cf <command> --help` for details on each of the commands b
 . Review the docs: http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/deploy-app.html
 
 . Verify you are logged in and targeted to your PCF instance:
-+a
+
 [source,bash]
 ----
 $ cf target -s production
@@ -28,7 +28,7 @@ $ cf push <your_app> -i 1 -m 512M -p cities-service.jar
 ----
 
 
-Your app should have crashed because it can't find a database. So now we need to bind a service to your application to provide the database. 
+Your app should have crashed because it can't find a database. So now we need to bind a service to your application to provide the database.
 
 
 == Binding a production database to your production app
@@ -52,27 +52,26 @@ Your app should have crashed because it can't find a database. So now we need to
 
 == Binding a database to your test instance.
 
-. Target your `development` space. 
+. Target your `development` space.
 
 +
 [source,bash]
 ----
 $ cf target -s development
 ----
-. Repeat all the steps from the section above to push and bind a service for your `development` instance of `cities-service`. **Make sure you append `-dev` to the route associated with your app**. Cloud Foundry will not let you deploy and use the same route as another application unless you explicitly tell it to. 
+. Repeat all the steps from the section above to push and bind a service for your `development` instance of `cities-service`. **Make sure you append `-dev` to the route associated with your app**. Cloud Foundry will not let you deploy and use the same route as another application unless you explicitly tell it to.
 
-.. hint `cf push --no-start` can make the push bind restage process a bit less cumbersome. 
+.. hint `cf push --no-start` can make the push bind restage process a bit less cumbersome.
 
 . Did it work?  Why not?
-.. Think back to what Josh said in link:../operations/README.adoc[the operations section] about what I provisioned for you. Basically, there's a firewall that's preventing you from connecting to the production database. 
+.. Think back to what Josh said in link:../operations/README.adoc[the operations section] about what I provisioned for you. Basically, there's a firewall that's preventing you from connecting to the production database.
 
-.. This is a good time to read about link:http://docs.pivotal.io/pivotalcf/adminguide/app-sec-groups.html[Application Security Groups]. 
+.. This is a good time to read about link:http://docs.pivotal.io/pivotalcf/adminguide/app-sec-groups.html[Application Security Groups].
 
-.. You can see what security groups are applied to your space with the command: 
+.. You can see what security groups are applied to your space with the command:
 	`cf security-groups`
-	
-.. You should try to change it, just to prove to yourself that you can't. Only `admin` can change, create or apply security groups
-	`cf create-security-group test-sg <repo-path>/set-up/development-security-group.json`
+
+.. You should try to change it, just to prove to yourself that you can't. Only `admin` can change, create or apply security groups. Take a look at `cf create-security-group`.
 
 === Environment Variables
 
@@ -84,9 +83,9 @@ It looks like we need to modify our security group to allow egress.  But how do 
 
 . QUESTION: What variable shows your mysql service instance?
 
-. At this point, holler at Josh and I'll change the security group. 
+. At this point, holler at Josh and I'll change the security group.
 
-.. You can now bind your service, but you're not seeing data from the production instance, you have you're own separate copy. 
+.. You can now bind your service, but you're not seeing data from the production instance, you have you're own separate copy.
 
 .. Provisioned instances can only be shared **inside** of a space.
 
@@ -110,7 +109,7 @@ Now, use a manifest to help automate deployment.
 +
 *Be sure to name your application '<first-initial><last-initial>-cities-service' and use this as the host value.*
 +
-We should be able to access your application at https://<first-initial><last-initial>-cities-service.apps-at.homedepot.com
+We should be able to access your application at https://<first-initial><last-initial>-cities-service.apps.pcf.jkruckcloud.com
 
 ==== Binding via the Manifest
 
@@ -145,10 +144,10 @@ Apps can be scaled via the CLI or the Console.
 
 . Attempt to Scale your app to 20 instances
 
-. QUESTION: What happens? Why? 
+. QUESTION: What happens? Why?
 .. Quota? How do you get more?
 . QUESTION: What if you run the environment out of space, who can increase DEA capacity.
-.. Check with Instructors for any recommended PCF Foundation Scale operations, time permitting we can do this in class. 
+.. Check with Instructors for any recommended PCF Foundation Scale operations, time permitting we can do this in class.
 
 == Additional References
 
@@ -168,7 +167,7 @@ The goal of this exercise is to use what you have learned to deploy the `cities-
 
 === Deploying the Cities UI App
 
-* Make sure you do this in a different directory than you pushed your cities-service app from. You don't want to accidentally overwrite the manifest for the other app.
+* Make sure you do this in a *different directory* than you pushed your cities-service app from. You don't want to *accidentally overwrite* the manifest for the other app.
 
 * A `manifest.yml` is included provided for the cities-ui app, you can download both at the links below.  Edit this manifest with your initials and be sure this manifest works with the service you create below.
 
@@ -184,7 +183,7 @@ The goal of this exercise is to use what you have learned to deploy the `cities-
 * You can create a User Provided Service Instance and bind this to the ui application.
 ** Review the documentation on link:http://docs.pivotal.io/pivotalcf/devguide/services/user-provided.html[User Provided Service Instances]
 ** Look for the details by running `cf help`.
-** Windows users, you are better off using the interactive variant of the command 
+** *Windows users*, you are better off using the interactive variant of the command
 
 * You will need to specify two parameters when you create the service instance: `uri` and `tag` (see: link:cities/cities-client/src/main/java/com/example/cities/client/cloud/cloudfoundry/CitiesWebServiceInfoCreator.java[CitiesWebServiceInfoCreator.java]).
 ** The `uri` should point to your deployed microservice
@@ -200,5 +199,4 @@ Refer to the CitiesWebServiceInfoCreator class for the necessary tag value.
 
 * Access the cities-ui to verify it is connected to your instance of cities-service.
 
-* QUESTION: Could we have used this technique to connect to an external datasource (like your Exadata)? 
-
+* QUESTION: Could we have used this technique to connect to an external datasource (like your Exadata)?

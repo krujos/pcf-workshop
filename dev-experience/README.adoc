@@ -20,13 +20,13 @@ Before we do anything lets take a look at the developer console and confirm inst
 * Download and install the CLI for your platform..
 
 === CLI
-Now that we have the CLI, lets push some basic applications quickly and navigate our way around the CLI.
+Now that we have the CLI, lets push some basic applications and learn to navigate the CLI.
 
 * Login to Cloud Foundry
 
-`cf login -a https://api.run.pcf.jkruckcloud.com -u <your email> -p password -o <your org> -s development`
+`cf login -a https://api.run.pcf.jkruckcloud.com -u <your email> -p password -o <your org> -s development --skip-ssl-validation`
 
-.. Note if you had SSL errors above, you can add `--skip-ssl-validation` to the command.
+.. Note if you had SSL errors above, make sure to add `--skip-ssl-validation` to the command.
 
 . `-a` is the api we're targeting. Meaning all actions we perform will take place on this Cloud Foundry Foundation (deployment)
 
@@ -40,6 +40,8 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 . `--skip-ssl-validation` lets the CLI use a self signed cert (or a cert where the names don't match up).
 
+.. This command is interactive, you don't have to type your password on the command line...
+
 === Pushing apps
 * **Make sure you have targeted your development space (run `cf target` to check)**
 
@@ -49,7 +51,7 @@ Now that we have the CLI, lets push some basic applications quickly and navigate
 
 `cd cf-hello-world-sample-apps/<pick a language>`
 
-* No git? link:https://s3-us-west-1.amazonaws.com/pcf-icm/demo-apps.zip[No problem, download the apps here.]
+* **No git on your laptop? link:https://s3-us-west-1.amazonaws.com/pcf-icm/demo-apps.zip[No problem, download the apps here.]**
 
 Read link:https://github.com/krujos/cf-hello-world-sample-apps/blob/master/README.md[`README.md`] and push some apps!!
 
