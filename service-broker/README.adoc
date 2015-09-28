@@ -45,7 +45,7 @@ $ cf create-service-broker ...
 +
 The username & password you need for the broker are warreng/natedogg (regulate!)
 
-*Brokers need a unique ID and name to be used in CF, to acheive this we use the time you pushed the app*
+*Brokers need a unique ID and name to be used in CF, to achieve this we use the time you pushed the app*
 
 * Next, you need to make the plan public:
 +
@@ -54,7 +54,7 @@ The username & password you need for the broker are warreng/natedogg (regulate!)
 $ cf enable-service-access ...
 ----
 +
-You will need to figure out the plan name.  You can do this by accessing your service broker's catalog from a browser or the cli. <broker url>/v2/catalog and look for name in the services array ("HaaSh")
+You will need to figure out the service id (and optionally plan id).  You can do this by accessing your service broker's catalog from a browser or the cli. <broker url>/v2/catalog and look in the services array ("HaaSh"). For this class, we've used the time you pushed the app as the id.
 
 * Verify you can see your new service in the marketplace.  There is a cf command for this
 
