@@ -44,7 +44,7 @@ Your app should have crashed because it can't find a database. So now we need to
 
 === Manually Binding the Service Instance
 
-. Review the docs on link:http://docs.pivotal.io/pivotalcf/devguide/services/bind-service.html[Binding a Service Instance]
+. Review the docs on link:http://docs.pivotal.io/pivotalcf/devguide/services/application-binding.html[Binding a Service Instance]
 
 . Bind the instance to your app
 
