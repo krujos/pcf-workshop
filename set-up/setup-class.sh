@@ -38,6 +38,6 @@ for email in `cat class-participant-emails.txt` ; do
 	cf set-space-role $email $org development SpaceDeveloper
 	cf set-space-role $email $org production SpaceManager
 	cf set-space-role $email $org production SpaceDeveloper
-	cf bind-security-group all_open $org production
+#	cf bind-security-group all_open $org production
 
 done
