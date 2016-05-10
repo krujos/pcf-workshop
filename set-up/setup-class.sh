@@ -12,14 +12,13 @@
 # Before running this script make to set the default behavior of the foundation to be all_closed
 # in terms of security groups
 
-cf create-security-group development-security-group ./development-security-group.json
+#cf create-security-group development-security-group ./development-security-group.json
 
 declare -A orgs
 
 echo `date` > org_summary.txt
 for email in `cat class-participant-emails.txt` ; do
-	org=`echo $email | tr '_.' "\n" | egrep -v com | colrm 2 | tr -d "\n" && echo -org`
-
+	org=`echo $email | awk 'BEGIN { FS = "@"} ; { print $1 }'`
 	if [[ ${orgs[$org]} -eq 1 ]]; then 
 		org=$org"1"
 	fi
